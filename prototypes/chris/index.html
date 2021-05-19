@@ -5,9 +5,77 @@
         <link rel="stylesheet" href="test.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </head>
     <body>
-    <div id="map-container"></div>
-        <script src="test.js"></script> 
+        <!-- React part -->
+        <div id="root"> </div>
+        <!-- <script src="react-components.js" type="text/babel"></script> -->
+
+        <!-- Leaflet part -->
+        <div id="map-container"></div>
+        <script src="test.js"></script>
     </body>
+    
+    <!--zum Testen wurden die React Components aus der Datei react-components.js erst mal hier hin kopiert,
+        da der Browser die JavaScript Datei nicht ohne https laden möchte-->
+    <script type="text/babel">
+        class HeaderComponent extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    name: "Willi",
+                    todos: ["Und das hier ist auch Teil einer React Component"]
+                }
+                this.todoDone = this.todoDone.bind(this) // added
+            }
+
+            // added
+            todoDone(index){
+                this.setState((currentState) =>{
+                    return {
+                        todos: currentState.todos.filter((item, id) => id !== index)
+                    }
+                })
+            }
+
+            render(){
+                return (
+                    // modified
+                    <div className="wrapper">
+                        <h1 id={this.props.id}>Dieser Text ist Teil einer React Component</h1>
+                        <ListComponent todos={this.state.todos} todoDone={this.todoDone} />
+                    </div>
+                )
+            }
+        }
+
+        function ItalComponent(props){
+            return (
+                <i>World, {props.name}!</i>
+            )
+        }
+
+        class ListComponent extends React.Component{
+            render(){
+                // modified
+                return (
+                    <ul>
+                        {this.props.todos.map((descr, index) => (
+                            <li key={index} className="popup">
+                                {descr} <button onClick={() => this.props.todoDone(index)}>Done</button>
+                            </li>
+                            )
+                        )}
+                    </ul>
+                )
+            }
+        }
+
+        ReactDOM.render(<HeaderComponent id="header" />, document.getElementById("root"))
+        
+    </script>
 </html>

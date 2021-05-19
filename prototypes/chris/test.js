@@ -36,21 +36,39 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 
-latLngAds.forEach(latLngAd => {
-    L.marker(latLngAd, {icon: marker})
-    .addTo(map)
-    .bindPopup("<b>Test</b><br/>Anstelle dieses Pop-ups soll hier<br>später eine React Component<br/>angezeigt werden.");
-});
+// muss etwas später aufgerufen werden, da die React Components bis dahin noch nicht initialisiert ist
+setTimeout(function() {
+    /**
+     * Falls eine Integration von React in der Map über so eine quick and dirty Lösung wie hier zu größeren Problemen
+     * führen sollte, stehen folgende Alternativen zur Verfügung:
+     * - das npm Package react-leaflet
+     * - ausnahmsweise an dieser Stelle kein React nutzen und das Popup in HTML schreiben
+     */
+    var testPopup = L.popup()
+        .setLatLng(latLngAds[0])
+        .setContent(document.getElementsByClassName('popup')[0])
+        .openOn(map);
 
-latLngAdsBlurredLocation.forEach(ad => {
-    L.circle(ad.latLng, ad.radius, {
-        color: '#F48C06',
-        fillColor: '#F48C06',
-        fillOpacity: 0.5,
-    })
-    .addTo(map)
-    .bindPopup("<b>Test</b><br/>Anstelle dieses Pop-ups soll hier<br>später eine React Component<br/>angezeigt werden.")
-});
+    latLngAds.forEach(latLngAd => {
+        L.marker(latLngAd, {icon: marker})
+        .addTo(map)
+        .bindPopup("<b>Test</b><br/>Anstelle dieses Pop-ups soll hier<br>später eine React Component<br/>angezeigt werden.");
+    });
+
+    latLngAdsBlurredLocation.forEach(ad => {
+        L.circle(ad.latLng, ad.radius, {
+            color: '#F48C06',
+            fillColor: '#F48C06',
+            fillOpacity: 0.5,
+        })
+        .addTo(map)
+        .bindPopup("<b>Test</b><br/>Anstelle dieses Pop-ups soll hier<br>später eine React Component<br/>angezeigt werden.")
+    });
+}, 0);
+
+
+
+//ReactDOM.render(<HeaderComponent id="header" />, document.getElementById("root"));
 
 /*L.polygon([
     [51.509, -0.08],
