@@ -1,11 +1,12 @@
 <html>
     <head>
-        <title>WT2 Übung</title>
+        <title>Trödelmap</title>
         <meta charset="utf-8">
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </head>
+    
     <body>
         <div id="root">
 
@@ -18,7 +19,7 @@
                 super(props)
                 this.state = {
                     name: "Willi",
-                    todos: ["Aufgabe 1", "Aufgabe 2"]
+                    todos: [<a href="index.html">Home</a>, <a href="map.html">Map</a>, <a href="product.html">Product</a>, <a href="user.html">User</a>]
                 }
                 this.todoDone = this.todoDone.bind(this) // added
             }
@@ -27,7 +28,7 @@
             todoDone(index){
                 this.setState((currentState) =>{
                     return {
-                        todos: currentState.todos.filter((item, id) => id !== index)
+                        //todos: currentState.todos.filter((item, id) => id !== index)
                     }
                 })
             }
@@ -36,17 +37,12 @@
                 return (
                     // modified
                     <div className="wrapper">
-                        <h1 id={this.props.id}>Hier war Tobias. Hello <ItalComponent name={this.state.name} /></h1>
+
+                        <h1 id={this.props.id}>Trödelmap</h1>
                         <ListComponent todos={this.state.todos} todoDone={this.todoDone} />
                     </div>
                 )
             }
-        }
-
-        function ItalComponent(props){
-            return (
-                <i>World, {props.name}!</i>
-            )
         }
 
         class ListComponent extends React.Component{
