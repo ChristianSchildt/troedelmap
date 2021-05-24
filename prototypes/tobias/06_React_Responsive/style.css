@@ -1,0 +1,28 @@
+
+
+.head{
+	background-color: #E7E7E7;
+}
+
+
+.main{
+	background-color: #CBCBCB;
+	background-image: url("tools.jpg");
+	background-position: center center;
+}
+
+.side{
+	background-color: #C0C0C0;
+}
+
+.foot{
+	background-color: #9A9A9A;
+}
+
+.title{
+	text-align: center;
+}
+
+.menue li{
+	display: inline;
+}
