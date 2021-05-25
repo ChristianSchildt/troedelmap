@@ -30,7 +30,8 @@ class Products extends React.Component {
       ]*/ // bis Übung 6
       products: [
         new Product(1, "EBook", "Dies ist ein EBook Muster."),
-        new Product(2, "Buch", "Das Buch dient ebenfalls als Muster.")
+        new Product (2, "Buch", "Das Buch dient ebenfalls als Muster."),
+        new Product(3, "Magazin", "Das Magazin dient auch nur als Muster.")
       ]
     }
   }

@@ -6,6 +6,7 @@
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </head>
+    
     <body>
         <div id="root">
 
@@ -36,6 +37,7 @@
                 return (
                     // modified
                     <div className="wrapper">
+
                         <h1 id={this.props.id}>Hier war Tobias. Hello <ItalComponent name={this.state.name} /></h1>
                         <ListComponent todos={this.state.todos} todoDone={this.todoDone} />
                     </div>
