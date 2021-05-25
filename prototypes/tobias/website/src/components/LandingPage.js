@@ -2,7 +2,7 @@ import React from 'react';
 import ExplorePage from '../components/ExplorePage.js';
 import LoginPage from '../components/LoginPage.js';
 
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 function LandingPage() {
   return (
@@ -11,7 +11,7 @@ function LandingPage() {
       This is the LandingPage Page.
       <div className="DebugMenu">
         Debug Menu:
-        <BrowserRouter>
+        <Switch>
         <ul id="debugMenu">
           <li><Link to="/explore">Explore</Link></li>
           <li><Link to="/login">Login</Link></li>
@@ -23,7 +23,7 @@ function LandingPage() {
         <Route path="/login" component={LoginPage} />
 
         </div>
-        </BrowserRouter>
+        </Switch>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import MapPage from '../components/MapPage.js';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 
 function TroedelEditPage() {
@@ -10,7 +10,7 @@ function TroedelEditPage() {
       Information goes here...
       <div className="DebugMenu">
         Debug Menu:
-        <BrowserRouter>
+        <Switch>
         <ul id="debugMenu">
         <li><Link to="/map">Map</Link></li>
 
@@ -20,7 +20,7 @@ function TroedelEditPage() {
         <Route path="/map" component={MapPage} />
 
         </div>
-        </BrowserRouter>
+        </Switch>
       </div>
     </div>
   );

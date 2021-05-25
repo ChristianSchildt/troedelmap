@@ -4,7 +4,7 @@ import TroedelInsertPage from '../components/TroedelInsertPage.js';
 import TroedelEditPage from '../components/TroedelEditPage.js';
 import UserEditPage from '../components/UserEditPage.js';
 
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 function MapPage() {
   return (
@@ -13,7 +13,7 @@ function MapPage() {
       Information goes here...
       <div className="DebugMenu">
         Debug Menu:
-        <BrowserRouter>
+        <Switch>
         <ul id="debugMenu">
           <li><Link to="/">Landing</Link></li>
           <li><Link to="/troedelInsert">TroedelInsert</Link></li>
@@ -28,7 +28,7 @@ function MapPage() {
         <Route path="/userEdit" component={UserEditPage} />
 
         </div>
-        </BrowserRouter>
+        </Switch>
       </div>
     </div>
   );

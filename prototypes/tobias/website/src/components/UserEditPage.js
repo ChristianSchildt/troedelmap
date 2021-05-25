@@ -1,6 +1,6 @@
 import React from 'react';
 import MapPage from '../components/MapPage.js';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 function UserEditPage() {
   return (
@@ -9,7 +9,7 @@ function UserEditPage() {
       Information goes here...
       <div className="DebugMenu">
         Debug Menu:
-        <BrowserRouter>
+        <Switch>
         <ul id="debugMenu">
         <li><Link to="/map">Map</Link></li>
 
@@ -19,7 +19,7 @@ function UserEditPage() {
         <Route path="/map" component={MapPage} />
 
         </div>
-        </BrowserRouter>
+        </Switch>
       </div>
     </div>
   );

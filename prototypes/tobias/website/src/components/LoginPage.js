@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from '../components/LandingPage.js';
 import MapPage from '../components/MapPage.js';
 
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 function LoginPage() {
   return (
@@ -11,7 +11,7 @@ function LoginPage() {
       Information goes here...
       <div className="DebugMenu">
         Debug Menu:
-        <BrowserRouter>
+        <Switch>
         <ul id="debugMenu">
           <li><Link to="/">Landing</Link></li>
           <li><Link to="/map">Map</Link></li>
@@ -23,7 +23,7 @@ function LoginPage() {
         <Route path="/map" component={MapPage} />
 
         </div>
-        </BrowserRouter>
+        </Switch>
       </div>
     </div>
   );

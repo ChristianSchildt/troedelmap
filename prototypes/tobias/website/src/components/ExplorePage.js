@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from '../components/LandingPage.js';
 import UserRegistrationPage from '../components/UserRegistrationPage.js';
 
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 function ExplorePage() {
   return (
@@ -11,7 +11,7 @@ function ExplorePage() {
       Information goes here...
       <div className="DebugMenu">
       Debug Menu:
-      <BrowserRouter>
+      <Switch>
       <ul id="debugMenu">
         <li><Link to="/">Landing</Link></li>
         <li><Link to="/userRegistration">UserRegistration</Link></li>
@@ -23,7 +23,7 @@ function ExplorePage() {
       <Route path="/userRegistration" component={UserRegistrationPage} />
 
       </div>
-      </BrowserRouter>
+      </Switch>
     </div>
   </div>
   );
