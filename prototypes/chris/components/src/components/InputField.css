@@ -1,0 +1,9 @@
+input {
+    border-radius: 10px;
+}
+
+/*https://www.w3schools.com/howto/howto_css_placeholder.asp*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FFA600;
+    opacity: 1; /* Firefox */
+}

@@ -10,6 +10,7 @@ import UserEditPage from './components/UserEditPage.js';
 
 import Products from './components/Products.js';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
+import InputField from './components/InputField.js';
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
         </div>
         </BrowserRouter>
       </div>
+    
+      <InputField exampleProp="Platzhalter Text 1" />
+      <InputField exampleProp="Platzhalter Text 2" />
+      
     </div>
   );
 }
