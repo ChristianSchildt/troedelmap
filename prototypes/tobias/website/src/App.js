@@ -15,9 +15,10 @@ function App() {
   return (
     <div className="App">
       <div className="DebugMenu">
-        Debug Menu:
+        
         <BrowserRouter>
         <ul id="debugMenu">
+          Debug Menu:
           <li><Link to="/">Landing</Link></li>
           <li><Link to="/explore">Explore</Link></li>
           <li><Link to="/login">Login</Link></li>
@@ -28,8 +29,9 @@ function App() {
           <li><Link to="/userEdit">UserEdit</Link></li>
 
           <li><Link to="/products">Test</Link></li>
+          --------------------------------
         </ul>
-
+       
         <div className="debugcontent">
         <Route exact path="/" component={LandingPage} />
         <Route path="/explore" component={ExplorePage} />
@@ -44,6 +46,7 @@ function App() {
 
         </div>
         </BrowserRouter>
+        
       </div>
     </div>
   );

@@ -2,17 +2,17 @@ import React from 'react';
 import LandingPage from '../components/LandingPage.js';
 import LoginPage from '../components/LoginPage.js';
 
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import {Route, Link, Switch} from 'react-router-dom'
 
 function UserRegistrationPage() {
   return (
     <div className="userRegistrationPage">
       <h3>UserRegistrationPage</h3>
       Information goes here...
-      <div className="DebugMenu">
-        Debug Menu:
+      <div className="menu">
+        Menu:
         <Switch>
-        <ul id="debugMenu">
+        <ul id="menu">
           <li><Link to="/">Landing</Link></li>
           <li><Link to="/login">Login</Link></li>
 
