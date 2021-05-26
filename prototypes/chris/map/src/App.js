@@ -10,13 +10,14 @@ import UserEditPage from './components/UserEditPage.js';
 
 import Products from './components/Products.js';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
+import LeafletMap from './components/LeafletMap.js';
 
 function App() {
   return (
     <div className="App">
       <div className="DebugMenu">
         
-        <BrowserRouter>
+        {/* <BrowserRouter>
         <ul id="debugMenu">
           Debug Menu:
           <li><Link to="/">Landing</Link></li>
@@ -45,9 +46,11 @@ function App() {
         <Route path="/products" component={Products} />
 
         </div>
-        </BrowserRouter>
+        </BrowserRouter> */}
+
         
       </div>
+      <LeafletMap></LeafletMap>
     </div>
   );
 }

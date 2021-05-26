@@ -1,7 +1,26 @@
+#map-container {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: none;
+  color: none;
+  box-shadow: none;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  display: none;
+}
+
+
+
+
 .v36_51 {
   width: 278px;
   height: 315px;
-  background: url("images/v36_51.png");
+  /* background: url("images/v36_51.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -29,7 +48,7 @@
 .v36_59 {
   width: 92px;
   height: 20px;
-  background: url("images/v36_59.png");
+  /* background: url("images/v36_59.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -80,7 +99,7 @@
 .v36_62 {
   width: 179px;
   height: 20px;
-  background: url("images/v36_62.png");
+  /* background: url("images/v36_62.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -119,7 +138,7 @@
 .v36_65 {
   width: 246px;
   height: 138px;
-  background: url("images/v36_65.png");
+  /* background: url("images/v36_65.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -132,7 +151,7 @@
 .v36_66 {
   width: 246px;
   height: 138px;
-  background: url("images/v36_66.png");
+  background: url("../images/v36_66.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -149,7 +168,7 @@
 .v36_68 {
   width: 17px;
   height: 16px;
-  background: url("images/v36_68.png");
+  /* background: url("images/v36_68.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
