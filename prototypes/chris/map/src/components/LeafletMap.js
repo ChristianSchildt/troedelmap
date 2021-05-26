@@ -8,30 +8,33 @@ var latLngHsBochum = [51.44791892028939, 7.270757727589923];
 var ads = [
     {
         id: 0,
-        titel: "Laptop",
-        preis: "100",
-        bild: "images/v36_66.png",
+        title: "Laptop",
+        price: "200",
+        picture: "https://i.imgur.com/Um9Oibd.jpg",
         latLng: [51.45239101208025, 7.262910997134508]
     },
     {
         id: 1,
-        titel: "Tablet",
-        preis: "110",
+        title: "Tablet",
+        price: "50",
+        picture: "https://i.imgur.com/uKTW3Z7.jpg",
         latLng: [51.451248895848934, 7.261168763806634]
     },
     {
-        id: 2,
-        titel: "Smartphone",
-        preis: "120",
-        latLng: [51.44922427794989, 7.258648379933391],
-        radius: 50
-    },
-    {
-        id: 3,
-        titel: "Desktop PC",
-        preis: "130",
-        latLng: [51.44892189700104, 7.254645487136491]
-    }
+      id: 2,
+      title: "Desktop PC",
+      price: "600",
+      picture: "https://i.imgur.com/3XmZRU7.jpg",
+      latLng:  [51.44922427794989, 7.258648379933391],
+      radius: 50
+  },
+  {
+      id: 3,
+      title: "Smartphone",
+      price: "70",
+      picture: "https://i.imgur.com/WbEqy8d.jpg",
+      latLng:[51.44892189700104, 7.254645487136491],
+  }
 ];
 
 
@@ -100,33 +103,33 @@ class LeafletMap extends React.Component {
   }
   
   onClickMarker(ad) {
-    var content = this.htmlToElement(`<div class="v36_51" onclick="onClickPopup(${ad.id})">
+    var content = this.htmlToElement(`<div class="v36_51">
         <div class="v36_52"></div>
         <div class="v36_59">
            <div class="v36_60"></div>
-           <span class="v36_61">${ad.preis}</span><span class="v45_0">€</span>
+           <span class="v36_61">${ad.price}€</span>
         </div>
         <div class="v36_62">
            <div class="v36_63"></div>
-           <span class="v36_64">${ad.titel}</span>
+           <span class="v36_64">${ad.title}</span>
         </div>
         <div class="v36_65">
-           <div class="v36_66" background="${ad.bild}"></div>
+           <img class="v36_66" src="${ad.picture}"></img>
         </div>
         <div class="v36_68">
            <div class="v36_69"></div>
-           <div class="name"></div>
-           <div class="name"></div>
         </div>
      </div>`)
     
-     this.customPopup.setLatLng(ad.latLng)
-        .setContent(content)
-        .openOn(this.map);
+    content.addEventListener('click', this.onClickPopup.bind(this, ad))
+    
+    this.customPopup.setLatLng(ad.latLng)
+      .setContent(content)
+      .openOn(this.map);
   }
   
-  onClickPopup(id) {
-    alert(`Popup der Anzeige mit der ID ${id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
+  onClickPopup(ad) {
+    alert(`Popup der Anzeige mit der ID ${ad.id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
   }
 
   htmlToElement(html) {
