@@ -5,7 +5,7 @@ import {Route, Link, Switch} from 'react-router-dom'
 
 function TroedelEditPage() {
   return (
-    <div className="troedelEditPage">
+    <div className="troedelEditPage container-fluid">
       <h3>TroedelEditPage</h3>
       Information goes here...
       <div className="menu">

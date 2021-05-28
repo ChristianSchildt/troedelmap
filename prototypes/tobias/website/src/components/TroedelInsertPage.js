@@ -5,7 +5,7 @@ import {Route, Link, Switch} from 'react-router-dom'
 
 function TroedelInsertPage() {
   return (
-    <div className="troedelInsertPage">
+    <div className="troedelInsertPage container-fluid">
       <h3>TroedelInsertPage</h3>
       Information goes here...
       <div className="menu">

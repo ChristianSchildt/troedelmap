@@ -14,40 +14,37 @@ import {BrowserRouter, Route, Link} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <div className="DebugMenu">
-        
-        <BrowserRouter>
-        <ul id="debugMenu">
-          Debug Menu:
-          <li><Link to="/">Landing</Link></li>
-          <li><Link to="/explore">Explore</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/map">Map</Link></li>
-          <li><Link to="/troedelInsert">TroedelInsert</Link></li>
-          <li><Link to="/troedelEdit">TroedelEdit</Link></li>
-          <li><Link to="/userRegistration">UserRegistration</Link></li>
-          <li><Link to="/userEdit">UserEdit</Link></li>
+      <BrowserRouter>
+      <ul id="debugMenu">
+        Debug Menu:
+        <li><Link to="/">Landing</Link></li>
+        <li><Link to="/explore">Explore</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/map">Map</Link></li>
+        <li><Link to="/troedelInsert">TroedelInsert</Link></li>
+        <li><Link to="/troedelEdit">TroedelEdit</Link></li>
+        <li><Link to="/userRegistration">UserRegistration</Link></li>
+        <li><Link to="/userEdit">UserEdit</Link></li>
 
-          <li><Link to="/products">Test</Link></li>
-          --------------------------------
-        </ul>
-       
-        <div className="debugcontent">
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/explore" component={ExplorePage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/map" component={MapPage} />
-        <Route path="/troedelInsert" component={TroedelInsertPage} />
-        <Route path="/troedelEdit" component={TroedelEditPage} />
-        <Route path="/userRegistration" component={UserRegistrationPage} />
-        <Route path="/userEdit" component={UserEditPage} />
+        <li><Link to="/products">Test</Link></li>
+        --------------------------------
+      </ul>
+      
+      <div className="pages">
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/explore" component={ExplorePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/map" component={MapPage} />
+      <Route path="/troedelInsert" component={TroedelInsertPage} />
+      <Route path="/troedelEdit" component={TroedelEditPage} />
+      <Route path="/userRegistration" component={UserRegistrationPage} />
+      <Route path="/userEdit" component={UserEditPage} />
 
-        <Route path="/products" component={Products} />
+      <Route path="/products" component={Products} />
 
-        </div>
-        </BrowserRouter>
-        
       </div>
+      </BrowserRouter>
+      
     </div>
   );
 }

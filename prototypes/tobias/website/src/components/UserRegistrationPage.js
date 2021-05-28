@@ -6,9 +6,57 @@ import {Route, Link, Switch} from 'react-router-dom'
 
 function UserRegistrationPage() {
   return (
-    <div className="userRegistrationPage">
+    <div className="userRegistrationPage container-fluid">
       <h3>UserRegistrationPage</h3>
-      Information goes here...
+      
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Registrier dich jetzt
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Benutzername
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Email
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Password
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Password wiederholen
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Kontaktinfos
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Profilbild
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <a href = "/login"><button type="button" class="btn btn-light">
+            Registrieren
+          </button></a>
+        </div>
+      </div>
+
+
+
+
+
+
       <div className="menu">
         Menu:
         <Switch>

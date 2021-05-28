@@ -6,9 +6,41 @@ import {Route, Link, Switch} from 'react-router-dom'
 
 function LoginPage() {
   return (
-    <div className="loginPage">
+    <div className="loginPage container-fluid">
       <h3>LoginPage</h3>
-      Information goes here...
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Log dich ein
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Password
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          Email
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <a href = "/map"><button type="button" class="btn btn-light">
+            Einloggen
+          </button></a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
       <div className="menu">
         Menu:
         <Switch>

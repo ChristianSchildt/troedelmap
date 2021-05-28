@@ -6,9 +6,23 @@ import {Route, Link, Switch} from 'react-router-dom'
 
 function LandingPage() {
   return (
-    <div className="landingPage">
+    <div className="landingPage container-fluid">
       <h3>LandingPage</h3>
-      This is the LandingPage Page.
+      <div className="row">
+        <div className="col-md-3 offset-md-1 text-center">
+          Entdecke unseren Service
+          <Link to="/explore">Explore</Link>
+        </div>
+        <div className="col-md-3 offset-md-4 text-center">
+          Log dich ein
+          <Link to="/login">Login</Link>
+        </div>
+      </div>
+      
+      
+      
+      
+      
       <div className="menu">
         Menu:
         <Switch>
