@@ -27,7 +27,7 @@ function App() {
 
       <ul id="debugMenu">
         <Route path="/products" component={Products} />
-        
+
         Debug Menu:
         <li><Link to="/">Landing</Link></li>
         <li><Link to="/explore">Explore</Link></li>

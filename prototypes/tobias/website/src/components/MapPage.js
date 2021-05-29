@@ -24,7 +24,7 @@ function MapPage() {
 
             <InputGroup>
               <FormControl
-                placeholder="Suche..."
+                placeholder="Was suchst du?"
               />
               <Button variant="success" id="button-search">
                 Go
