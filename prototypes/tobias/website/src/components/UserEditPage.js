@@ -11,6 +11,18 @@ function UserEditPage() {
     <div className="userEditPage">
       <Container fluid>
         <Row>
+          <Col md={3}>
+            <img id="logoicon" src="logo512.png" alt="Trödelmap"/>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <a href = "/map"><button type="button" className="btn btn-light">
+              Zurück zur Karte
+            </button></a>
+          </Col>
+        </Row>
+        <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center">
@@ -63,30 +75,6 @@ function UserEditPage() {
             </Col>
           </Col>
         </Row>
-
-
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                  <li><Link to="/map">Map</Link></li>
-                  <li><Link to="/">Landing</Link></li>
-
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route path="/map" component={MapPage} />
-                  <Route exact path="/" component={LandingPage} />
-
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

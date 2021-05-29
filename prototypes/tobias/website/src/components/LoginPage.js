@@ -12,6 +12,18 @@ function LoginPage() {
     <div className="loginPage">
       <Container fluid>
         <Row>
+          <Col md={3}>
+            <img id="logoicon" src="logo512.png" alt="Trödelmap"/>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <a href = "/"><button type="button" className="btn btn-light">
+              Home
+            </button></a>
+          </Col>
+        </Row>
+        <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center">
@@ -37,29 +49,6 @@ function LoginPage() {
             </Row>
           </Col>
         </Row>
-
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                    <li><Link to="/">Landing</Link></li>
-                    <li><Link to="/map">Map</Link></li>
-
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route exact path="/" component={LandingPage} />
-                  <Route path="/map" component={MapPage} />
-
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

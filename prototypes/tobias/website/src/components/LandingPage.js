@@ -21,28 +21,6 @@ function LandingPage() {
             <Link to="/login">Login</Link>
           </Col>
         </Row>
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                    <li><Link to="/explore">Explore</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route path="/explore" component={ExplorePage} />
-                  <Route path="/login" component={LoginPage} />
-
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

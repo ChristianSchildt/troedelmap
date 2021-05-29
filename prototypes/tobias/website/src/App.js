@@ -16,7 +16,18 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/explore" component={ExplorePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/map" component={MapPage} />
+      <Route path="/troedelInsert" component={TroedelInsertPage} />
+      <Route path="/troedelEdit" component={TroedelEditPage} />
+      <Route path="/userRegistration" component={UserRegistrationPage} />
+      <Route path="/userEdit" component={UserEditPage} />
+
       <ul id="debugMenu">
+        <Route path="/products" component={Products} />
+        
         Debug Menu:
         <li><Link to="/">Landing</Link></li>
         <li><Link to="/explore">Explore</Link></li>
@@ -30,22 +41,7 @@ function App() {
         <li><Link to="/products">Test</Link></li>
         --------------------------------
       </ul>
-      
-      <div className="pages">
-      <Route exact path="/" component={LandingPage} />
-      <Route path="/explore" component={ExplorePage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/map" component={MapPage} />
-      <Route path="/troedelInsert" component={TroedelInsertPage} />
-      <Route path="/troedelEdit" component={TroedelEditPage} />
-      <Route path="/userRegistration" component={UserRegistrationPage} />
-      <Route path="/userEdit" component={UserEditPage} />
-
-      <Route path="/products" component={Products} />
-
-      </div>
       </BrowserRouter>
-      
     </div>
   );
 }

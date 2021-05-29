@@ -9,9 +9,20 @@ import Col from 'react-bootstrap/Col';
 
 function ExplorePage() {
   return (
-
     <div className="explorePage">
       <Container fluid>
+        <Row>
+          <Col md={3}>
+            <img id="logoicon" src="logo512.png" alt="Trödelmap"/>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <a href = "/"><button type="button" className="btn btn-light">
+              Home
+            </button></a>
+          </Col>
+        </Row>
         <Row>
           <Col md={12} className="text-center">
             Du bist Student an der FH-Bochum?
@@ -39,28 +50,6 @@ function ExplorePage() {
             </button></a>
           </Col>
         </Row>
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                    <li><Link to="/">Landing</Link></li>
-                    <li><Link to="/userRegistration">UserRegistration</Link></li>
-
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route exact path="/" component={LandingPage} />
-                  <Route path="/userRegistration" component={UserRegistrationPage} />
-
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

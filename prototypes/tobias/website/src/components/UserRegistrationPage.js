@@ -12,6 +12,18 @@ function UserRegistrationPage() {
     <div className="userRegistrationPage">
       <Container fluid>
         <Row>
+          <Col md={3}>
+            <img id="logoicon" src="logo512.png" alt="Trödelmap"/>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <a href = "/"><button type="button" className="btn btn-light">
+              Home
+            </button></a>
+          </Col>
+        </Row>
+        <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center">
@@ -57,30 +69,6 @@ function UserRegistrationPage() {
             </Row>
           </Col>
         </Row>
-
-
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                    <li><Link to="/">Landing</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route exact path="/" component={LandingPage} />
-                  <Route path="/login" component={LoginPage} />
-
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

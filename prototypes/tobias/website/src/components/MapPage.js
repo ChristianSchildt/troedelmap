@@ -26,7 +26,7 @@ function MapPage() {
               <FormControl
                 placeholder="Suche..."
               />
-              <Button variant="success" id="button-addon2">
+              <Button variant="success" id="button-search">
                 Go
               </Button>
             </InputGroup>
@@ -65,30 +65,6 @@ function MapPage() {
             <div style={{height: "90vh", backgroundColor: "LemonChiffon"}}>Das ist die Karte!</div>
           </Col>
         </Row>
-        <div className="menu">
-          <Row>
-            <Col md={12}>
-              Menu:
-              <Switch>
-                <React.Fragment>
-                  <ul id="menu">
-                    <li><Link to="/">Landing</Link></li>
-                    <li><Link to="/troedelInsert">TroedelInsert</Link></li>
-                    <li><Link to="/troedelEdit">TroedelEdit</Link></li>
-                    <li><Link to="/userEdit">UserEdit</Link></li>
-                  </ul>
-
-                  <div className="debugcontent">
-                  <Route exact path="/" component={LandingPage} />
-                  <Route path="/troedelInsert" component={TroedelInsertPage} />
-                  <Route path="/troedelEdit" component={TroedelEditPage} />
-                  <Route path="/userEdit" component={UserEditPage} />
-                  </div>
-                </React.Fragment>
-              </Switch>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );
