@@ -1,0 +1,95 @@
+.App-header
+{
+    width: 1920px;
+    height: 1080px;
+    background-color: #FFA600;
+}
+/* ---------------------------------------------- */
+
+
+/*--------Buttons-----------------------------------------------*/
+.orangeBackground  /*Button-Optik = orangener Hintergrund*/
+{
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #FFA600;
+    color: #FFFFFF;
+    font-family: 'Calibri';
+    font-size: 24px;
+}
+
+.whiteBackground /*Button-Optik = weißer Hintergrund*/
+{
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    color: #FFA600;
+    font-family: 'Calibri';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#regis
+{
+    position: absolute;
+    left: 100px;
+    top: 400px;
+    width: 174px;
+    height: 34px;
+}
+
+#auswaehlen
+{
+    position: absolute;
+    left: 400px;
+    top: 400px;
+    width: 292px;
+    height: 51px;
+}
+
+/*--------svg/popupBackground-------------------------------------------*/
+#svgrect
+{
+    position: absolute;
+    left: 1480px;
+    top: 100px;
+    width: 398px;
+    height: 667px;
+}
+
+#popupAllInformations
+{
+    fill: #F48C06;
+    width: 398px;
+    height: 667px;                                
+    rx: 20px; 
+    ry: 20px; 
+}
+
+/*--------pictures-------------------------------------------------------*/
+/* Muss für einige Bilder eventuell noch verfeinert werden */
+img
+{
+    border-radius: 17px;
+}
+
+#piclaptop
+{
+    position: absolute;
+    left: 1500px;
+    top: 170px;
+    width: 357px;
+    height: 200px;
+}
+
+/*--------imagesbuttons---------------------------------------------------*/
+/* Muss für einige Bilder eventuell noch verfeinert werden */
+#ausloggen
+{
+    position: absolute;
+    left: 1300px;
+    top: 50px;
+    width: 71px;
+    height: 68px;
+}
+
