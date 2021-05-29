@@ -1,8 +1,5 @@
 import React from 'react';
-import LandingPage from '../components/LandingPage.js';
-import MapPage from '../components/MapPage.js';
-
-import {Route, Link, Switch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
