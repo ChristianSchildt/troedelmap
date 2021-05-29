@@ -9,7 +9,8 @@ import UserRegistrationPage from './components/UserRegistrationPage.js';
 import UserEditPage from './components/UserEditPage.js';
 
 import Products from './components/Products.js';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
