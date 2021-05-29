@@ -1,0 +1,7 @@
+Neues existierende Projekt einmalig initialisieren:
+	cd C:\Users\deinPCName\Documents\GitHub\troedelmap
+	npm install node
+
+Starten:
+	cd C:\Users\deinPCName\Documents\GitHub\troedelmap
+	npm start
