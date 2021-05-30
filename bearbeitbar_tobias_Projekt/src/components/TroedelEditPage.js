@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from './Button';
+import ImageButton from './ImageButton';
 
 
 function TroedelEditPage() {
@@ -16,9 +18,14 @@ function TroedelEditPage() {
         </Row>
         <Row>
           <Col md={3}>
-            <a href = "/map"><button type="button" className="btn btn-light">
+            {/* <a href = "/map"><button type="button" className="btn btn-light">
               Zurück zur Karte
-            </button></a>
+            </button></a> kann weg*/}
+            <Button 
+              className="button-backToMap"
+              href="/map" 
+              value="Zurück zur Karte">
+            </Button>
           </Col>
         </Row>
         <Row>
@@ -28,26 +35,46 @@ function TroedelEditPage() {
                 Diesen Trödel biete ich an
               </Col>
             </Row>
-            <div style={{backgroundColor: "orange", borderRadius: "1em"}}>
+            <div /*style={{backgroundColor: "orange", borderRadius: "1em"}}*/ id="popup-editTroedel">
               <Row>
                 <Col md={12} className="text-center">
                   <Row>
                     <Col md={4} className="text-center">
-                      Löschen
+                      <Button 
+                        className="whiteBackground" 
+                        id="button-delete"
+                        onClick={() => alert("Sie haben Ihren Artikel gelöscht!")}
+                        value="Löschen">
+                      </Button>
                     </Col>
                     <Col md={4} className="text-center">
-                      Bearbeiten
+                      <Button 
+                        className="whiteBackground" 
+                        id="button-edit"
+                        onClick={() => alert("Sie können nun Ihren Artikel bearbeiten.")} 
+                        value="Bearbeiten">
+                      </Button>
                     </Col>
                     <Col md={4} className="text-center">
-                      Fertig
+                      <Button 
+                        className="whiteBackground" 
+                        id="button-finish"
+                        onClick={() => alert("Ihr Artikel wurde aktualisiert!")} 
+                        value="Fertig">
+                      </Button>
                     </Col>
                   </Row>
                 </Col>
               </Row>
               <Row>
               <Col md={12} className="text-center">
-                Produktbild
-                Zum Ändern anklicken
+                {/* Produktbild
+                Zum Ändern anklicken */}
+                <ImageButton 
+                  id="picture-laptop-big" 
+                  src="images/laptop.jpg"
+                  onClick={() => alert("Ihr Bild wurde aktualisiert.")}>
+                </ImageButton>
               </Col>
             </Row>
               <Row>

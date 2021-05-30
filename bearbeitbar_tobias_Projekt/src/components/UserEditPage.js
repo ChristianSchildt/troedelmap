@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from './Button';
+
 
 function UserEditPage() {
   return (
@@ -15,9 +17,14 @@ function UserEditPage() {
         </Row>
         <Row>
           <Col md={3}>
-            <a href = "/map"><button type="button" className="btn btn-light">
+            {/* <a href = "/map"><button type="button" className="btn btn-light">
               Zurück zur Karte
-            </button></a>
+            </button></a> kann weg*/}
+            <Button 
+              className="button-backToMap"
+              href="/map" 
+              value="Zurück zur Karte">
+            </Button>
           </Col>
         </Row>
         <Row>
@@ -54,22 +61,42 @@ function UserEditPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Profilbild
+                {/* Profilbild */}
+                <Button 
+                  className="whiteBackground" 
+                  id="button-editUserPicture"
+                  onClick={() => alert("Profilbild wurde aktualisiert.")} 
+                  value="Profilbild bearbeiten">
+                </Button>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                <a href = "/login"><button type="button" className="btn btn-light">
+                {/* <a href = "/login"><button type="button" className="btn btn-light">
                   Änderungen übernehmen
-                </button></a>
+                </button></a> kann weg */}
+                <Button 
+                  className="orangeBackground" 
+                  id="button-acceptChanges"
+                  href="/map"
+                  onClick={() => alert("Änderungen wurden übernommen!")} 
+                  value="Änderungen übernehmen">
+                </Button>
               </Col>
             </Row>
           </Col>
           <Col md={3} className="my-auto">
             <Col md={12} className="text-center">
-              <a href = "/"><button type="button" className="btn btn-light">
+              {/* <a href = "/"><button type="button" className="btn btn-light">
                 Benutzerkonto löschen
-              </button></a>
+              </button></a> */}
+              <Button 
+                className="orangeBackground" 
+                id="button-deleteUserAccount"
+                href="/"
+                onClick={() => alert("Sie haben Ihr Benutzerkonto gelöscht!")} 
+                value="Benutzerkonto löschen!">
+              </Button>
             </Col>
           </Col>
         </Row>

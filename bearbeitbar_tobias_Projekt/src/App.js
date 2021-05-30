@@ -25,7 +25,7 @@ function App() {
       <Route path="/userRegistration" component={UserRegistrationPage} />
       <Route path="/userEdit" component={UserEditPage} />
 
-      <ul id="debugMenu">
+      {/* <ul id="debugMenu">
         <Route path="/products" component={Products} />
 
         Debug Menu:
@@ -40,7 +40,7 @@ function App() {
 
         <li><Link to="/products">Test</Link></li>
         --------------------------------
-      </ul>
+      </ul> */}
       </BrowserRouter>
     </div>
   );

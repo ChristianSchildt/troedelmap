@@ -3,10 +3,11 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from './Button'; 
 
-function UserRegistrationPage() {
+function LoginPage() {
   return (
-    <div className="userRegistrationPage">
+    <div className="loginPage">
       <Container fluid>
         <Row>
           <Col md={3}>
@@ -15,26 +16,21 @@ function UserRegistrationPage() {
         </Row>
         <Row>
           <Col md={3}>
-            <a href = "/"><button type="button" className="btn btn-light">
+            {/* <a href = "/"><button type="button" className="btn btn-light">
               Home
-            </button></a>
+            </button></a> kann weg*/}
+            <Button 
+              className="button-home" 
+              href="/" 
+              value="HOME">
+            </Button>
           </Col>
         </Row>
         <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center">
-                Registrier dich jetzt
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                Benutzername
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                Email
+                Log dich ein
               </Col>
             </Row>
             <Row>
@@ -44,24 +40,20 @@ function UserRegistrationPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Password wiederholen
+                Email
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Kontaktinfos
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                Profilbild
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                <a href = "/login"><button type="button" className="btn btn-light">
-                  Registrieren
-                </button></a>
+                {/* <a href = "/map"><button type="button" className="btn btn-light">
+                  Einloggen
+                </button></a> */}
+                <Button 
+                  className="orangeBackground" 
+                  id="button-login"
+                  href="/map" 
+                  value="Einloggen">
+                </Button>
               </Col>
             </Row>
           </Col>
@@ -71,4 +63,4 @@ function UserRegistrationPage() {
   );
 }
 
-export default UserRegistrationPage;
+export default LoginPage;
