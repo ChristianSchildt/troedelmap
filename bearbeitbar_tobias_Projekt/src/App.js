@@ -1,14 +1,14 @@
 import React from 'react';
-import LandingPage from './components/LandingPage.js';
-import ExplorePage from './components/ExplorePage.js';
-import LoginPage from './components/LoginPage.js';
-import MapPage from './components/MapPage.js';
-import TroedelInsertPage from './components/TroedelInsertPage.js';
-import TroedelEditPage from './components/TroedelEditPage.js';
-import UserRegistrationPage from './components/UserRegistrationPage.js';
-import UserEditPage from './components/UserEditPage.js';
+import LandingPage from './pages/LandingPage.js';
+import ExplorePage from './pages/ExplorePage.js';
+import LoginPage from './pages/LoginPage.js';
+import MapPage from './pages/MapPage.js';
+import TroedelInsertPage from './pages/TroedelInsertPage.js';
+import TroedelEditPage from './pages/TroedelEditPage.js';
+import UserRegistrationPage from './pages/UserRegistrationPage.js';
+import UserEditPage from './pages/UserEditPage.js';
 
-import Products from './components/Products.js';
+import Products from './pages/Products.js';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

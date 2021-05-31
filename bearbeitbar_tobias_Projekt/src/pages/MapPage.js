@@ -6,9 +6,9 @@ import Col from 'react-bootstrap/Col';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 // import Button from 'react-bootstrap/Button';
-import ImageButton from './ImageButton';
-import PopupBackground from './PopupBackground';
-import Picture from './Picture';
+import ImageButton from '../components/ImageButton';
+import PopupBackground from '../components/PopupBackground';
+import Picture from '../components/Picture';
 
 function MapPage() {
   return (

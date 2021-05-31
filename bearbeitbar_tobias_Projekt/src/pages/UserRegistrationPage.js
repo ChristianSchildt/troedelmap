@@ -3,12 +3,11 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from './Button';
+import Button from '../components/Button';
 
-
-function UserEditPage() {
+function UserRegistrationPage() {
   return (
-    <div className="userEditPage">
+    <div className="userRegistrationPage">
       <Container fluid>
         <Row>
           <Col md={3}>
@@ -17,13 +16,13 @@ function UserEditPage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/map"><button type="button" className="btn btn-light">
-              Zurück zur Karte
+            {/* <a href = "/"><button type="button" className="btn btn-light">
+              Home
             </button></a> kann weg*/}
             <Button 
-              className="button-backToMap"
-              href="/map" 
-              value="Zurück zur Karte">
+              className="button-home" 
+              href="/" 
+              value="HOME">
             </Button>
           </Col>
         </Row>
@@ -31,7 +30,7 @@ function UserEditPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center">
-                Bearbeite deine Benutzerdaten
+                Registrier dich jetzt
               </Col>
             </Row>
             <Row>
@@ -64,40 +63,26 @@ function UserEditPage() {
                 {/* Profilbild */}
                 <Button 
                   className="whiteBackground" 
-                  id="button-editUserPicture"
-                  onClick={() => alert("Profilbild wurde aktualisiert.")} 
-                  value="Profilbild bearbeiten">
+                  id="button-chooseUserPicture" 
+                  onClick={() => alert("Profilbild wurde ausgewählt!")} 
+                  value="Profilbild auswählen (optional)">
                 </Button>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 {/* <a href = "/login"><button type="button" className="btn btn-light">
-                  Änderungen übernehmen
-                </button></a> kann weg */}
+                  Registrieren
+                </button></a> */}
                 <Button 
                   className="orangeBackground" 
-                  id="button-acceptChanges"
-                  href="/map"
-                  onClick={() => alert("Änderungen wurden übernommen!")} 
-                  value="Änderungen übernehmen">
+                  id="button-registration" 
+                  href="/login" 
+                  onClick={() => alert("Sie haben sich registriert.")} 
+                  value="Registrieren">
                 </Button>
               </Col>
             </Row>
-          </Col>
-          <Col md={3} className="my-auto">
-            <Col md={12} className="text-center">
-              {/* <a href = "/"><button type="button" className="btn btn-light">
-                Benutzerkonto löschen
-              </button></a> */}
-              <Button 
-                className="orangeBackground" 
-                id="button-deleteUserAccount"
-                href="/"
-                onClick={() => alert("Sie haben Ihr Benutzerkonto gelöscht!")} 
-                value="Benutzerkonto löschen!">
-              </Button>
-            </Col>
           </Col>
         </Row>
       </Container>
@@ -105,4 +90,4 @@ function UserEditPage() {
   );
 }
 
-export default UserEditPage;
+export default UserRegistrationPage;
