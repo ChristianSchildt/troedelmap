@@ -2,7 +2,7 @@
 .orangeBackground  /*Button-Optik = orangener Hintergrund*/
 {
     border: 2px solid #FFFFFF;
-    border-radius: 20px;
+    border-radius: 1em;
     background-color: #FFA600;
     color: #FFFFFF;
     font-family: 'Calibri';
@@ -13,7 +13,7 @@
 .whiteBackground /*Button-Optik = weißer Hintergrund*/
 {
     border: 2px solid #FFFFFF;
-    border-radius: 20px;
+    border-radius: 1em;
     background-color: #FFFFFF;
     color: #FFA600;
     font-family: 'Calibri';
@@ -24,7 +24,7 @@
 .button-home
 {
     border: 2px solid #FFFFFF;
-    border-radius: 20px;
+    border-radius: 1em;
     background-color: #FFFFFF;
     color: #FFA600;
     font-family: 'Calibri';
@@ -40,7 +40,7 @@
 .button-backToMap
 {
     border: 2px solid #FFFFFF;
-    border-radius: 20px;
+    border-radius: 1em;
     background-color: #FFFFFF;
     color: #FFA600;
     font-family: 'Calibri';
@@ -173,19 +173,18 @@
 #svgrect
 {
     position: absolute;
-    left: 1490px;
-    top: 200px;
+    right: 0;
+    top: 10vh;
     width: 398px;
-    height: 667px;
+    height: 80vh;
+    border-radius: 1em;
 }
 
 #popup-allInformations
 {
     fill: #F48C06;
-    width: 398px;
-    height: 667px;                                
-    rx: 20px; 
-    ry: 20px; 
+    width: inherit;
+    height: inherit;
 }
 
 #popup-editTroedel
@@ -196,7 +195,7 @@
     width: 444px;
     height: 822px;
     background-color: #F48C06;
-    border-radius: 20px;
+    border-radius: 1em;
 }
 
 /*--------pictures-------------------------------------------------------*/
@@ -205,21 +204,20 @@
 #picture-laptop
 {
     position: absolute;
-    left: 1512px;
-    top: 270px;
-    width: 357px;
+    right: 2vh;
+    top: 20vh;
     height: 200px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 #picture-seller
 {
     position: absolute;
-    left: 1552px;
-    top: 750px;
+    right: 30vh;
+    top: 70vh;
     width: 45.34px;
     height: 42.54px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 /*--------imagesbuttons---------------------------------------------------*/
@@ -227,84 +225,82 @@
 .popup-close
 {
     position: absolute;
-    left: 1850px;
-    top: 220px;
-    width: 18.58px;
+    right: 0;
+    top: 10vh;
     height: 19px;
 }
 
 #button-search
 {
-    position: absolute;
-    left: 590px;
-    top: 24px;
-    width: 17px;
-    height: 21px;
+    position: relative;
+    /*top: 1em; /* Zerstört View-Grid */
+    height: 2.3em;
+    border-radius: 0em 1em 1em 0em;
 }
 
 #button-addTroedel
 {
-    position: absolute;
+    /*position: absolute; /* Zerstört View-Grid
     left: 1580px;
-    top: 28px;
+    top: 28px;*/
     width: 56px;
     height: 50px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 #button-editTroedel
 {
-    position: absolute;
+    /*position: absolute; /* Zerstört View-Grid
     left: 1650px;
-    top: 28px;
+    top: 28px;*/
     width: 56px;
     height: 50px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 #button-logout
 {
-    position: absolute;
+    /*position: absolute; /* Zerstört View-Grid
     left: 1770px;
-    top: 31px;
+    top: 31px;*/
     width: 50px;
     height: 45px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 #button-editUser
 {
-    position: absolute;
+    /*position: absolute; /* Zerstört View-Grid
     left: 1830px;
-    top: 19px;
-    width: 71px;
-    height: 68px;
+    top: 19px;*/
+    width: 56px;
+    height: 50px;
 }
 
 #picture-laptop-big
 {
-    position: absolute;
+    /*position: absolute; /* Zerstört View-Grid
     left: 18px;
-    top: 270px;
+    top: 270px; */
     width: 390px;
     height: 220px;
-    border-radius: 17px;
+    border-radius: 1em;
 }
 
 /*--------div/map---------------------------------------------------*/
 #leafletMap
 {
-    position: absolute;
+    /*position: absolute; /*Zerstört View-Grid
     left: 17px;
     top: 70px;
-    width:1882px;
-    height: 900px;
+    width:1882px;*/
+    height: 90vh;
     background-color: LemonChiffon;
-    border-radius: 20px;
+    border-radius: 1em;
 }
 
 /*--------searchbar---------------------------------------------------*/
-#formcontrol
+/*#formcontrol
 {
-    top: 15px;
-}
+    top: 15px; /*Zerstört View-Grid
+}*/

@@ -7,7 +7,7 @@ class Button extends React.Component {
     return (
         <a href={this.props.href}>
           <button 
-            class={this.props.className} 
+            className={this.props.className} /*Darf nicht "class" heißen*/
             id={this.props.id}
             type="submit"
             onClick={this.props.onClick}> 

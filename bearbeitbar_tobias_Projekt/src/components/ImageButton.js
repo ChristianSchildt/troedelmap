@@ -8,7 +8,7 @@ class ImageButton extends React.Component {
         <a href={this.props.href}>
           <img 
             id={this.props.id}
-            class={this.props.className} 
+            className={this.props.className}  /*Darf nicht "class" heißen*/
             src={this.props.src} 
             onClick={this.props.onClick}
             alt="Hier sollte ein Bild sein!">

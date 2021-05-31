@@ -14,19 +14,16 @@ function MapPage() {
   return (
     <div className="mapPage">
       <Container fluid>
-        <Row>
+        <Row className="align-items-center">
           <Col md={1}>
             <img id="logoicon" src="logo512.png" alt="Trödelmap"/>
           </Col>
-          <Col md={{ span: 4, offset: 3}}>
+          <Col md={{ span: 5, offset: 1}}>
 
             <InputGroup>
               <FormControl id="formcontrol"
                 placeholder="Was suchst du?"
               />
-              {/* <Button variant="success" id="button-search">
-                Go
-              </Button> kann weg */}
               <ImageButton 
                 id="button-search" 
                 src="images/lupe.jpg" 
@@ -34,22 +31,16 @@ function MapPage() {
               </ImageButton>
             </InputGroup>
           </Col>
-          <Col md={{ span: 1, offset: 2}}>
-            <Row>
-              <Col md={4}>
-                {/* <a href = "/troedelInsert"><button type="button" className="btn btn-light">
-                  +
-                </button></a> kann weg*/ }
+          <Col md={{ span: 2, offset: 1}} xs={6}>
+            <Row className= "justify-content-center">
+              <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-addTroedel" 
                   src="images/plus.jpg"
                   href="/troedelInsert">
                 </ImageButton>
               </Col>
-              <Col md={4}>
-                {/* <a href = "/troedelEdit"><button type="button" className="btn btn-light">
-                  ?
-                </button></a> kann weg*/ }
+              <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-editTroedel" 
                   src="images/uebersicht.jpg"
@@ -58,12 +49,9 @@ function MapPage() {
               </Col>
             </Row>
           </Col>
-          <Col md={1}>
-            <Row>
-              <Col md={4}>
-                {/* <a href = "/"><button type="button" className="btn btn-light">
-                  ESC
-                </button></a> kann weg*/}
+          <Col md={2}  xs={6}>
+            <Row className= "justify-content-center">
+              <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-logout"
                   src="images/ausloggen.jpg"
@@ -71,10 +59,7 @@ function MapPage() {
                   onClick={() => alert("Sie haben sich ausgeloggt!")}>
                 </ImageButton>
               </Col>
-              <Col md={4}>
-                {/* <a href = "/userEdit"><button type="button" className="btn btn-light">
-                  \o/
-                </button></a> kann weg*/}
+              <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-editUser" 
                   src="images/userBearbeiten.jpg"
