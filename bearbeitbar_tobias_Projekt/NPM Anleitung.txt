@@ -1,7 +1,8 @@
 Neues existierende Projekt einmalig initialisieren:
-	cd C:\Users\deinPCName\Documents\GitHub\troedelmap
+	"node_modules" Ordner löschen
+	cd C:\Users\deinPCName\Documents\GitHub\troedelmap\bearbeitbar_tobias_Projekt
 	npm install node
 
 Starten:
-	cd C:\Users\deinPCName\Documents\GitHub\troedelmap
+	cd C:\Users\deinPCName\Documents\GitHub\troedelmap\bearbeitbar_tobias_Projekt
 	npm start
