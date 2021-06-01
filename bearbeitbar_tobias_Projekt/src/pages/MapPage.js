@@ -9,6 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import ImageButton from '../components/ImageButton';
 import PopupBackground from '../components/PopupBackground';
 import Picture from '../components/Picture';
+import LeafletMap from '../components/LeafletMap'
 
 function MapPage() {
   return (
@@ -71,7 +72,9 @@ function MapPage() {
         </Row>
         <Row>
           <Col md={12}>
-            <div id="leafletMap">Das ist die Karte!</div>
+            <div id="leafletMap">
+              <LeafletMap></LeafletMap>
+            </div>
             <PopupBackground id1="svgrect" id2="popup-allInformations"></PopupBackground>
             <ImageButton 
               className="popup-close" 

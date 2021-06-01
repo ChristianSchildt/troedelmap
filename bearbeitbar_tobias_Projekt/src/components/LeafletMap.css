@@ -1,0 +1,199 @@
+#map-container {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: none;
+  color: none;
+  box-shadow: none;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  display: none;
+}
+
+
+
+
+.v36_51 {
+  width: 278px;
+  height: 315px;
+  /* background: url("images/v36_51.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v36_52 {
+  width: 278px;
+  height: 315px;
+  background: rgba(244,140,6,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.v36_59 {
+  width: 92px;
+  height: 20px;
+  /* background: url("images/v36_59.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 269px;
+  left: 93px;
+  overflow: hidden;
+}
+.v36_60 {
+  width: 92px;
+  height: 19px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.v36_61 {
+  min-width: 100%;
+  text-align: center;
+  color: rgba(244,140,6,1);
+  position: absolute;
+  top: 0px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+}
+.v45_0 {
+  width: 16px;
+  color: rgba(244,140,6,1);
+  position: absolute;
+  top: 1px;
+  left: 71px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+  text-align: left;
+}
+.v36_62 {
+  width: 179px;
+  height: 20px;
+  /* background: url("images/v36_62.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 228px;
+  left: 49px;
+  overflow: hidden;
+}
+.v36_63 {
+  width: 179px;
+  height: 19px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.v36_64 {
+  min-width: 100%;
+  text-align: center;
+  color: rgba(244,140,6,1);
+  position: absolute;
+  top: 0px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+}
+.v36_65 {
+  width: 246px;
+  height: 138px;
+  /* background: url("images/v36_65.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 69px;
+  left: 16px;
+  overflow: hidden;
+}
+.v36_66 {
+  width: 246px;
+  height: 138px;
+  /* background: url("../images/v36_66.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.v36_68 {
+  width: 17px;
+  height: 16px;
+  /* background: url("images/v36_68.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 17px;
+  left: 246px;
+  overflow: hidden;
+}
+.v36_69 {
+  width: 16px;
+  height: 16px;
+  /* background: rgba(255,255,255,1); */
+  background: url("../temp/close-button.png");
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  overflow: hidden;
+}
+.name {
+  color: #fff;
+}
+.name {
+  color: #fff;
+}
