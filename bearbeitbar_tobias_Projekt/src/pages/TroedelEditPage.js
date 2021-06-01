@@ -19,9 +19,6 @@ function TroedelEditPage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/map"><button type="button" className="btn btn-light">
-              Zurück zur Karte
-            </button></a> kann weg*/}
             <Button 
               className="button-backToMap"
               href="/map" 
@@ -36,11 +33,11 @@ function TroedelEditPage() {
                 Diesen Trödel biete ich an
               </Col>
             </Row>
-            <div /*style={{backgroundColor: "orange", borderRadius: "1em"}}*/ id="popup-editTroedel">
+            <div id="popup-editTroedel">
               <Row>
                 <Col md={12} className="text-center">
                   <Row>
-                    <Col md={4} className="text-center">
+                    <Col xs={4}  className="text-center">
                       <Button 
                         className="whiteBackground" 
                         id="button-delete"
@@ -48,7 +45,7 @@ function TroedelEditPage() {
                         value="Löschen">
                       </Button>
                     </Col>
-                    <Col md={4} className="text-center">
+                    <Col xs={4} className="text-center">
                       <Button 
                         className="whiteBackground" 
                         id="button-edit"
@@ -56,7 +53,7 @@ function TroedelEditPage() {
                         value="Bearbeiten">
                       </Button>
                     </Col>
-                    <Col md={4} className="text-center">
+                    <Col xs={4} className="text-center">
                       <Button 
                         className="whiteBackground" 
                         id="button-finish"
