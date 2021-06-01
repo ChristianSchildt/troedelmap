@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
-// import Button from 'react-bootstrap/Button';
 import ImageButton from '../components/ImageButton';
 import PopupBackground from '../components/PopupBackground';
 import Picture from '../components/Picture';
@@ -73,14 +72,6 @@ function MapPage() {
         <Row>
           <Col md={12}>
             <LeafletMap></LeafletMap>
-            <PopupBackground id1="svgrect" id2="popup-allInformations"></PopupBackground>
-            <ImageButton 
-              className="popup-close" 
-              src="/images/schließen.jpg"
-              onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
-            </ImageButton>
-            <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
-            <Picture id="picture-seller" src="images/seller.jpg"></Picture>
           </Col>
         </Row>
             <PopupBackground id1="svgrect" id2="popup-allInformations">

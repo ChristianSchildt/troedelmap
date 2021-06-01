@@ -189,7 +189,7 @@
     height: 80vh;
     border-radius: 1em;
     background-color: #F48C06;
-    width: inherit;
+    width: min-content;
 }
 
 #popup-editTroedel
