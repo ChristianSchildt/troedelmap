@@ -11,7 +11,7 @@ function LoginPage() {
       <Container fluid>
         <Row>
           <Col md={3}>
-            <img id="logoicon" src="troedelmap.svg" alt="Trödelmap"/>
+            <Picture id="logoicon" src="troedelmap.svg"></Picture>
           </Col>
         </Row>
         <Row>
