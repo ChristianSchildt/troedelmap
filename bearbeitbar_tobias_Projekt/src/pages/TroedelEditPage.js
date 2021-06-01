@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import ImageButton from '../components/ImageButton';
+import Picture from '../components/Picture';
 
 
 function TroedelEditPage() {
@@ -13,7 +14,7 @@ function TroedelEditPage() {
       <Container fluid>
         <Row>
           <Col md={3}>
-            <img id="logoicon" src="troedelmap.svg" alt="Trödelmap"/>
+            <Picture id="logoicon" src="troedelmap.svg"></Picture>
           </Col>
         </Row>
         <Row>

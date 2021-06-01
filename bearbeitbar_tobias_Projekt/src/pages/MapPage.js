@@ -17,7 +17,7 @@ function MapPage() {
       <Container fluid>
         <Row className="align-items-center">
           <Col md={1}>
-            <img id="logoicon" src="troedelmap.svg" alt="Trödelmap"/>
+            <Picture id="logoicon" src="troedelmap.svg"></Picture>
           </Col>
           <Col md={{ span: 5, offset: 1}}>
 

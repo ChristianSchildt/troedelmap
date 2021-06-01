@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from '../components/Button'; 
+import Button from '../components/Button';
+import Picture from '../components/Picture';
 
 function LoginPage() {
   return (
@@ -11,7 +12,7 @@ function LoginPage() {
       <Container fluid>
         <Row>
           <Col md={3}>
-            <img id="logoicon" src="troedelmap.svg" alt="Trödelmap"/>
+            <Picture id="logoicon" src="troedelmap.svg"></Picture>
           </Col>
         </Row>
         <Row>
