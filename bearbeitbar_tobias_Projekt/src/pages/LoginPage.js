@@ -46,9 +46,6 @@ function LoginPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                {/* <a href = "/map"><button type="button" className="btn btn-light">
-                  Einloggen
-                </button></a> */}
                 <Button 
                   className="orangeBackground" 
                   id="button-login"

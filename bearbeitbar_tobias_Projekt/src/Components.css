@@ -30,9 +30,6 @@
     font-family: 'Calibri';
     font-size: 30px;
     font-weight: bold;
-    position: absolute;
-    left: 40px;
-    top: 65px;
     width: 155px;
     height: 50px;
 }
@@ -46,18 +43,12 @@
     font-family: 'Calibri';
     font-size: 30px;
     font-weight: bold;
-    position: absolute;
-    left: 40px;
-    top: 65px;
     width: 260px;
     height: 50px;
 }
 
 #bePartOfTheCommunity
 {
-    position: absolute;
-    left: 715px;
-    top: 700px;
     width: 500px;
     height: 50px;
     font-size: 24px;
@@ -65,18 +56,12 @@
 
 #button-login
 {
-    position: absolute;
-    left: 890px;
-    top: 600px;
     width: 152px;
     height: 40px;
 }
 
 #choose
 {
-    position: absolute;
-    left: 930px;
-    top: 235px;
     width: 165px;
     height: 40px;
     font-size: 24px;
@@ -84,18 +69,12 @@
 
 #button-addMyTroedel
 {
-    position: absolute;
-    left: 750px;
-    top: 600px;
     width: 400px;
     height: 50px;
 }
 
 #button-delete
 {
-    /* position: absolute; */
-    left: 19px;
-    top: 15px;
     width: 120px;
     height: 40px;
     font-size: 24px;
@@ -103,9 +82,6 @@
 
 #button-edit
 {
-    /* position: absolute; */
-    left: 153px;
-    top: 15px;
     width: 154px;
     height: 40px;
     font-size: 24px;
@@ -113,9 +89,6 @@
 
 #button-finish
 {
-    /* position: absolute; */
-    left: 321px;
-    top: 15px;
     width: 104px;
     height: 40px;
     font-size: 24px;
@@ -123,9 +96,6 @@
 
 #button-chooseUserPicture
 {
-    position: absolute;
-    left: 750px;
-    top: 525px;
     width: 390px;
     height: 40px;
     font-size: 24px;
@@ -133,18 +103,12 @@
 
 #button-registration
 {
-    position: absolute;
-    left: 870px;
-    top: 600px;
     width: 174px;
     height: 40px;
 }
 
 #button-editUserPicture
 {
-    position: absolute;
-    left: 770px;
-    top: 525px;
     width: 390px;
     height: 40px;
     font-size: 24px;
@@ -152,9 +116,6 @@
 
 #button-acceptChanges
 {
-    position: absolute;
-    left: 815px;
-    top: 625px;
     width: 306px;
     height: 40px;
     font-size: 24px;
@@ -162,24 +123,11 @@
 
 #button-deleteUserAccount
 {
-    position: absolute;
-    left: 1357px;
-    top: 400px;
     width: 306px;
     height: 40px;
 }
 
-/*--------svg/popupBackground-------------------------------------------*/
-#svgrect
-{
-    position: absolute;
-    right: 0;
-    top: 10vh;
-    width: 398px;
-    height: 80vh;
-    border-radius: 1em;
-}
-
+/*--------popupBackground-------------------------------------------*/
 #popup-allInformations
 {
     display: none;
@@ -194,10 +142,6 @@
 
 #popup-editTroedel
 {
-    position: absolute;
-    left: 730px;
-    top: 120px;
-    width: 444px;
     height: 822px;
     background-color: #F48C06;
     border-radius: 1em;
@@ -230,55 +174,35 @@
 #button-search
 {
     position: relative;
-    /*top: 1em; /* Zerstört View-Grid */
     height: 2.3em;
     border-radius: 0em 1em 1em 0em;
 }
 
 #button-addTroedel
 {
-    /*position: absolute; /* Zerstört View-Grid
-    left: 1580px;
-    top: 28px;*/
-    width: 56px;
     height: 50px;
     border-radius: 1em;
 }
 
 #button-editTroedel
 {
-    /*position: absolute; /* Zerstört View-Grid
-    left: 1650px;
-    top: 28px;*/
-    width: 56px;
     height: 50px;
     border-radius: 1em;
 }
 
 #button-logout
 {
-    /*position: absolute; /* Zerstört View-Grid
-    left: 1770px;
-    top: 31px;*/
-    width: 50px;
     height: 45px;
     border-radius: 1em;
 }
 
 #button-editUser
 {
-    /*position: absolute; /* Zerstört View-Grid
-    left: 1830px;
-    top: 19px;*/
-    width: 56px;
     height: 50px;
 }
 
 #picture-laptop-big
 {
-    /*position: absolute; /* Zerstört View-Grid
-    left: 18px;
-    top: 270px; */
     width: 390px;
     height: 220px;
     border-radius: 1em;
@@ -287,17 +211,7 @@
 /*--------div/map---------------------------------------------------*/
 #leafletMap
 {
-    /*position: absolute; /*Zerstört View-Grid
-    left: 17px;
-    top: 70px;
-    width:1882px;*/
     height: 90vh;
     background-color: LemonChiffon;
     border-radius: 1em;
 }
-
-/*--------searchbar---------------------------------------------------*/
-/*#formcontrol
-{
-    top: 15px; /*Zerstört View-Grid
-}*/
