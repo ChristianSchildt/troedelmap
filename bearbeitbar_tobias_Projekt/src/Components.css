@@ -140,6 +140,8 @@
 {
     height: 200px;
     border-radius: 1em;
+    object-fit: cover;
+    max-width: 100%;
 }
 
 #picture-seller
@@ -191,6 +193,8 @@
 {
     height: 220px;
     border-radius: 1em;
+    object-fit: cover;
+    max-width: 100%;
 }
 
 /*--------div/map---------------------------------------------------*/
