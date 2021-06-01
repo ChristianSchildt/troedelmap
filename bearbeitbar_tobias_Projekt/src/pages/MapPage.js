@@ -74,7 +74,7 @@ function MapPage() {
             <LeafletMap></LeafletMap>
           </Col>
         </Row>
-            <PopupBackground id1="svgrect" id2="popup-allInformations">
+            <PopupBackground id="popup-allInformations">
               <Row>
                 <Col md={12}>
                 <ImageButton 
