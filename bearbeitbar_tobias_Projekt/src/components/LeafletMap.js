@@ -1,7 +1,7 @@
 import React from 'react';
 import L from 'leaflet'
-import './LeafletMap.css'
 import 'leaflet/dist/leaflet.css';
+import './LeafletMap.css'
 import markerIcon from '../temp/marker.png'
 
 // Koordinaten wurden zum testen aus Google Maps kopiert
