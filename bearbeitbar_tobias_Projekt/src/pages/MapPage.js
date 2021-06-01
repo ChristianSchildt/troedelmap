@@ -75,16 +75,25 @@ function MapPage() {
             <div id="leafletMap">
               <LeafletMap></LeafletMap>
             </div>
-            <PopupBackground id1="svgrect" id2="popup-allInformations"></PopupBackground>
-            <ImageButton 
-              className="popup-close" 
-              src="/images/schließen.jpg"
-              onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
-            </ImageButton>
-            <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
-            <Picture id="picture-seller" src="images/seller.jpg"></Picture>
           </Col>
         </Row>
+            <PopupBackground id1="svgrect" id2="popup-allInformations">
+              <Row>
+                <Col md={12}>
+                <ImageButton 
+                  className="popup-close" 
+                  src="/images/schließen.jpg"
+                  onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
+                </ImageButton>
+                </Col>
+                <Col md={12}>
+                  <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
+                </Col>
+                <Col md={12}>
+                  <Picture id="picture-seller" src="images/seller.jpg"></Picture>
+                </Col>
+              </Row>
+            </PopupBackground>
       </Container>
     </div>
   );

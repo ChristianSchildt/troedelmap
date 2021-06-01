@@ -1,13 +1,17 @@
 import React from 'react';
 import '../Components.css';
+import ImageButton from '../components/ImageButton';
+import Picture from '../components/Picture';
 
 class PopupBackground extends React.Component {
   
   render() {
     return (
-        <svg id={this.props.id1}>
-          <rect id={this.props.id2}/>
-        </svg>
+      <div>
+        <div id={this.props.id2}>
+          {this.props.children}
+        </div>
+      </div>
     )
   }
 }
