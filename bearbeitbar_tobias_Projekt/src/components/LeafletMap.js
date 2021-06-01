@@ -130,7 +130,10 @@ class LeafletMap extends React.Component {
   }
   
   onClickPopup(ad) {
-    alert(`Popup der Anzeige mit der ID ${ad.id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
+    // TODO: nur ein Workaround, später schön machen
+    document.getElementById("popup-allInformations").style.display = "block"
+    
+    //alert(`Popup der Anzeige mit der ID ${ad.id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
   }
 
   htmlToElement(html) {

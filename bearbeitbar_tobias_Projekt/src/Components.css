@@ -182,6 +182,7 @@
 
 #popup-allInformations
 {
+    display: none;
     fill: #F48C06;
     width: inherit;
     height: inherit;
