@@ -11,15 +11,23 @@ function LandingPage() {
       <Container fluid>
         <Row>
           <Col md={{ span: 3, offset: 1}} className="text-center">
-            Entdecke unseren Service
-            <Link to="/explore">Explore</Link>
+            
+            <a href="/explore">
+              <div id="rectangle-explore">
+                Entdecke unseren Service
+              </div>
+            </a>
+
           </Col>
           <Col md={{ span: 2, offset: 1}} className="text-center">
             <Picture id="logo" src="troedelmap.svg"></Picture>
           </Col>
           <Col md={{ span: 3, offset: 1}} className="text-center">
-            Log dich ein
-            <Link to="/login">Login</Link>
+            <a href="/login">
+              <div id="rectangle-login">
+                Log dich ein
+              </div>
+            </a>
           </Col>
         </Row>
       </Container>

@@ -45,6 +45,34 @@
     height: 50px;
 }
 
+#rectangle-explore
+{
+    position: absolute;
+    left: 0em;
+    top:0em;
+    width: 50vw;
+    height: 100vh;
+    background-color: #FFA600;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rectangle-login
+{
+    position: absolute;
+    right: 0em;
+    top: 0em;
+    width: 50vw;
+    height: 100vh;
+    background-color: #FFA600;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #bePartOfTheCommunity
 {
     height: 50px;
@@ -118,12 +146,12 @@
 {
     display: none;
     position: absolute;
-    right: 0;
+    right: 1.2em;
     top: 10vh;
     height: 80vh;
+    width: min-content;
     border-radius: 1em;
     background-color: #F48C06;
-    width: min-content;
 }
 
 #popup-editTroedel
@@ -139,9 +167,11 @@
 #picture-laptop
 {
     height: 200px;
+    margin-top: 2em;
+    /*Picture muss noch ausgerichtet werden*/
     border-radius: 1em;
     object-fit: cover;
-    max-width: 100%;
+    min-width: 100%;
 }
 
 #picture-seller
@@ -149,6 +179,8 @@
     width: 45.34px;
     height: 42.54px;
     border-radius: 1em;
+    margin-top: 25em;
+    margin-left: 2em;
 }
 
 /*--------imagesbuttons---------------------------------------------------*/
@@ -157,6 +189,8 @@
 {
     float: right;
     height: 19px;
+    margin-top: 1em;
+    margin-right: 1em;
 }
 
 #button-search
@@ -195,12 +229,4 @@
     border-radius: 1em;
     object-fit: cover;
     max-width: 100%;
-}
-
-/*--------div/map---------------------------------------------------*/
-#leafletMap
-{
-    height: 90vh;
-    background-color: LemonChiffon;
-    border-radius: 1em;
 }
