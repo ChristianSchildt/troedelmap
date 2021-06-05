@@ -1,18 +1,19 @@
 import React from 'react';
 
-class Text extends React.Component{
+class TextHeading extends React.Component{
 
+    constructor(props) {
+        super(props)
+        }
     render(){
         return(
-            <text
+            <heading
                 id={this.props.id}
-                value={this.props.value} 
                 //...?
             />
         )
     }
 
-
 }
 
-export default Text;
+export default TextHeading;

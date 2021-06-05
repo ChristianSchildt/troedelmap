@@ -3,17 +3,19 @@ import React from 'react';
 class InputField extends React.Component{
 
     constructor(props) {
-        super(props);
+        super(props)
         }
 
     render(){
         return(
+            <div>
             <input
                 type="text"
                 id={this.props.id}
                 value={this.props.value}
-                //onChange, do we need the value, should value be done differently...?
+                onChange={event => console.log("value changed")}
             />
+            </div>
         )
     }
 }
