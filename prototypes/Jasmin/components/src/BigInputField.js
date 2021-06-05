@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 class BigInputField extends React.Component{
 
@@ -9,7 +10,7 @@ class BigInputField extends React.Component{
         return(
             <input
                 id={this.props.id}
-                type="text"
+                type="textarea"
                 value={this.props.value}
                 //...?
             />
