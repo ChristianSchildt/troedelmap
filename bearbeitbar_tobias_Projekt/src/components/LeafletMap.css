@@ -1,6 +1,10 @@
 #LeafletMapWrapper 
 {
-  height: 85vh;
+    overflow: hidden;
+    position: relative;
+    height: 80vh;
+    width: 95vw;
+    border-radius: 1em;
 }
 
 #map-container {
