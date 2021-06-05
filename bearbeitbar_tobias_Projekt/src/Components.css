@@ -191,6 +191,7 @@
     display: none;
     position: absolute;
     overflow: overlay;
+    overflow-x: hidden;
     right: 0;
     top: 10vh;
     height: 80vh;
