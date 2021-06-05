@@ -4,7 +4,7 @@
 		public $pname;
 		public $beschreibung;
 		public $preis;
-		public $bild;
+		public $bildlink;
 	}
 
 ?>

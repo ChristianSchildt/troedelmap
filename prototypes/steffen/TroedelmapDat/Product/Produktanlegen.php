@@ -21,9 +21,9 @@
 		<form method="post" action="ProductResult.php" enctype="multipart/form-data">
 
 			<input id="product" type="text" name="product" placeholder="Produktname..."><br />
-			<input id="beschreibung" type="text" name="beschr" placeholder="Beschreibung"><br />
+			<input id="beschreibung" type="textarea" name="beschr" placeholder="Beschreibung"><br />
 			<input id="preis" type="number" step="0.01" name="preis"><br />
-			<input id="bild" type="file" name="bild" placeholder="Laden Sie ein Bild hoch"><br />
+			<input id="bild" type="text" name="bild" placeholder="Laden Sie ein Bild hoch"><br />
 			<button type="submit">Produkt hochladen</button>
 		
 		</form>
