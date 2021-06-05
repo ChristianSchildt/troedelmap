@@ -7,7 +7,7 @@
 }
 
 #map-container {
-  position: sticky;
+  position: sticky!important;
   min-height: 100%;
   border-radius: 1em;
 }
