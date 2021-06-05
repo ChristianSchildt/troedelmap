@@ -49,7 +49,7 @@
             return false;
             }
          
-            $sql = "INSERT INTO benutzerkonto (id, bname, email, passwort) VALUES (NULL,?,?,?);";  
+            $sql = "INSERT INTO benutzerkonto (bk_id, bname, email, passwort) VALUES (NULL,?,?,?);";  
             $statement = $this->conn->prepare($sql);
             $result = $statement->execute([$bname, $email, $passwort]);
             return $result;
@@ -82,7 +82,7 @@
             return false;
             }
          
-            $sql = "INSERT INTO produkt (id, pname, beschreibung, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
+            $sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, bildlink, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
             $statement = $this->conn->prepare($sql);
             $result = $statement->execute([$pname, $beschreibung, $preis, $bild,$uID]);
             return $result;
@@ -116,7 +116,7 @@
             return false;
             }
          
-            $sql = "INSERT INTO benutzerdaten (id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
+            $sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
             $statement = $this->conn->prepare($sql);
             $result = $statement->execute([$strasse, $plz, $ort, $telefon,$id]);
             return $result;
@@ -167,6 +167,23 @@
             }
             return $correct;
         }
+
+        function updateUser($strasse, $plz, $ort, $telefon,$id)
+        {
+            $sqlUP="UPDATE benutzerdaten SET strasse=?, plz=?, ort=?, telefon=? WHERE id_benutzer=?";
+            $statement = $this->conn->prepare($sqlUP);
+            $result = $statement->execute([$strasse, $plz, $ort, $telefon,$id]);
+            return $result;
+        }
+
+        function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$id)
+        {
+            $sqlUP="UPDATE benutzerdaten SET produkt_id=?,pname=?, beschreibung=?, preis=?, bildlink=? WHERE id_benutzer=?";
+            $statement = $this->conn->prepare($sqlUP);
+            $result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild,$id]);
+            return $result;
+        }
+
 
 
       }

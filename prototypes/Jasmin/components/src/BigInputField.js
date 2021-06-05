@@ -1,21 +1,22 @@
 import React from 'react';
+import './index.css';
 
-class InputField extends React.Component{
+class BigInputField extends React.Component{
 
     constructor(props) {
-        super(props);
+        super(props)
         }
-
     render(){
         return(
             <input
-                type="text"
                 id={this.props.id}
+                type="textarea"
                 value={this.props.value}
-                //onChange, do we need the value, should value be done differently...?
+                //...?
             />
         )
     }
+    
 }
 
-export default InputField;
+export default BigInputField;

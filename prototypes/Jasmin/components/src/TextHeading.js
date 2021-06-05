@@ -1,18 +1,20 @@
 import React from 'react';
+import './index.css';
 
-class BigInputField extends React.Component{
+class TextHeading extends React.Component{
 
+    constructor(props) {
+        super(props)
+        }
     render(){
         return(
             <heading
                 id={this.props.id}
-                type="text"
-                value={this.props.value}
                 //...?
             />
         )
     }
-    
+
 }
 
-export default BigInputField;
+export default TextHeading;
