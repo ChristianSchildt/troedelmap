@@ -21,7 +21,7 @@ function MapPage() {
           <Col md={{ span: 5, offset: 1}}>
 
             <InputGroup>
-              <FormControl id="formcontrol"
+              <FormControl id="searchbar"
                 placeholder="Was suchst du?"
               />
               <ImageButton 
@@ -83,11 +83,37 @@ function MapPage() {
                   onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
                 </ImageButton>
                 </Col>
-                <Col md={12}>
+                <Col md={12} className="pb-2">
                   <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
                 </Col>
-                <Col md={12}>
+                <Col md={12} className="pb-2">
+                  <FormControl
+                    placeholder="Laptop"
+                  />
+                </Col>
+                <Col md={12} className="pb-2">
+                  <FormControl
+                    placeholder="100€"
+                  />
+                </Col>
+                <Col md={12} className="pb-2">
+                  <FormControl
+                    placeholder="Nur 1 Jahr alt. Kann Gebrauchsspuren haben."
+                  />
+                </Col>
+              </Row>
+              <Row className="pb-2">
+                <Col md={2}>
                   <Picture id="picture-seller" src="images/seller.jpg"></Picture>
+                </Col>
+                <Col md={10}>
+                  <Row></Row>
+                  <FormControl
+                    placeholder="anbietermail@gmx.de"
+                  />
+                  <FormControl
+                    placeholder="01578 1623974345"
+                  />
                 </Col>
               </Row>
             </PopupBackground>

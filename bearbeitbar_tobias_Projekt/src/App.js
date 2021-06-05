@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPage from './pages/LandingPage.js';
 import ExplorePage from './pages/ExplorePage.js';
 import LoginPage from './pages/LoginPage.js';
@@ -10,7 +11,7 @@ import UserEditPage from './pages/UserEditPage.js';
 
 import Products from './pages/Products.js';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

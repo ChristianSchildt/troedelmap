@@ -7,25 +7,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #FFFFFF;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#debugMenu, .menu {
-  opacity: 0.5;
-  background-color: lightgrey;
-}
-
-#logoicon {
-  width: 3em;
-  height: 3em;
-}
-
-.form-control, .input-group .btn {
-  border-radius: 1em;
 }
 
 

@@ -18,9 +18,6 @@ function UserEditPage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/map"><button type="button" className="btn btn-light">
-              Zurück zur Karte
-            </button></a> kann weg*/}
             <Button 
               className="button-backToMap"
               href="/map" 
@@ -31,7 +28,7 @@ function UserEditPage() {
         <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
-              <Col md={12} className="text-center">
+              <Col md={12} className="text-center titel">
                 Bearbeite deine Benutzerdaten
               </Col>
             </Row>

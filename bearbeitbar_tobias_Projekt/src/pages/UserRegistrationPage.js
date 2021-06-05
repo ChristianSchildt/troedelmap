@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
+import FormControl from 'react-bootstrap/FormControl';
 
 function UserRegistrationPage() {
   return (
@@ -17,9 +18,6 @@ function UserRegistrationPage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/"><button type="button" className="btn btn-light">
-              Home
-            </button></a> kann weg*/}
             <Button 
               className="button-home" 
               href="/" 
@@ -30,33 +28,48 @@ function UserRegistrationPage() {
         <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
-              <Col md={12} className="text-center">
+              <Col md={12} className="text-center titel">
                 Registrier dich jetzt
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Benutzername
+                
+                <FormControl
+                  placeholder="Benutzername"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Email
+                
+                <FormControl
+                  placeholder="Email"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Password
+                
+                <FormControl
+                  placeholder="Password"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Password wiederholen
+                
+                <FormControl
+                  placeholder="Password wiederholen"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Kontaktinfos
+                
+                <FormControl
+                  placeholder="Kontaktinfos"
+                />
               </Col>
             </Row>
             <Row>

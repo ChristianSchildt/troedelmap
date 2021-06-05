@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
+import FormControl from 'react-bootstrap/FormControl';
 
 
 function TroedelInsertPage() {
@@ -18,9 +19,6 @@ function TroedelInsertPage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/map"><button type="button" className="btn btn-light">
-              Zurück zur Karte
-            </button></a> kann weg*/}
             <Button 
               className="button-backToMap"
               href="/map" 
@@ -31,43 +29,64 @@ function TroedelInsertPage() {
         <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
-              <Col md={12} className="text-center">
+              <Col md={12} className="text-center titel">
                 Trödel hinzufügen
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Produktname
+                
+                <FormControl
+                  placeholder="Produktname"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Produktbeschreibung
+                
+                <FormControl
+                  placeholder="Produktbeschreibung"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Preis (in Euro)
+                
+                <FormControl
+                  placeholder="Preis (in Euro)"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Straße
+                
+                <FormControl
+                  placeholder="Straße"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Hausnummer
+                
+                <FormControl
+                  placeholder="Hausnummer"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Postleitzahl
+                
+                <FormControl
+                  placeholder="Postleitzahl"
+                />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                Ort
+                
+                <FormControl
+                  placeholder="Ort"
+                />
               </Col>
             </Row>
             <Row>
@@ -85,9 +104,6 @@ function TroedelInsertPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                {/* <a href = "/map"><button type="button" className="btn btn-light">
-                  Mein Trödel hinzufügen
-                </button></a> kann weg*/}
                 <Button 
                   className="orangeBackground" 
                   id="button-addMyTroedel"

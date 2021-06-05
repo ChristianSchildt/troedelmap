@@ -17,9 +17,6 @@ function ExplorePage() {
         </Row>
         <Row>
           <Col md={3}>
-            {/* <a href = "/"><button type="button" className="btn btn-light">
-              Home
-            </button></a> kann weg*/}
             <Button 
               className="button-home" 
               href="/" 
@@ -28,22 +25,22 @@ function ExplorePage() {
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center">
+          <Col md={12} className="text-center pb-5">
             Du bist Student an der FH-Bochum?
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center">
+          <Col md={12} className="text-center pb-5">
             Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center">
+          <Col md={12} className="text-center pb-5">
             Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center">
+          <Col md={12} className="text-center pb-5">
             Und das Beste ist, es ist auch während Corona möglich.
           </Col>
         </Row>

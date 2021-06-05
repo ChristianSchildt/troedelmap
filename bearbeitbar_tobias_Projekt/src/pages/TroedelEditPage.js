@@ -29,7 +29,7 @@ function TroedelEditPage() {
         <Row>
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
-              <Col md={12} className="text-center">
+              <Col md={12} className="text-center titel">
                 Diesen Trödel biete ich an
               </Col>
             </Row>
@@ -77,43 +77,63 @@ function TroedelEditPage() {
             </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Produktname
+                  <FormControl
+                    placeholder="Produktname"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={{ span: 6, offset: 3}} className="text-center">
-                  Preis (in Euro)
+                  
+                  <FormControl
+                    placeholder="Preis (in Euro)"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Produktbeschreibung
+                  
+                  <FormControl
+                    placeholder="Produktbeschreibung"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Straße
+                  
+                  <FormControl
+                    placeholder="Straße"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Hausnummer
+                 
+                  <FormControl
+                    placeholder="Hausnummer"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Postleitzahl
+                  
+                  <FormControl
+                    placeholder="Postleitzahl"
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  Ort
+                  
+                  <FormControl
+                    placeholder="Ort"
+                  />
                 </Col>
               </Row>
             </div>
             <Row>
               <Col md={{ span: 6, offset: 3}} className="text-center">
-                Nummer/Anzahl
+                1/1
               </Col>
             </Row>
           </Col>
