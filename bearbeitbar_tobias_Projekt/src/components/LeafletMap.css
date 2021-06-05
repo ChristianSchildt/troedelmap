@@ -3,12 +3,11 @@
     overflow: hidden;
     position: relative;
     height: 80vh;
-    width: 95vw;
     border-radius: 1em;
 }
 
 #map-container {
-  position: fixed;
+  position: relative;
   min-width: 98.7%;
   min-height: 93.5%;
   border-radius: 1em;
