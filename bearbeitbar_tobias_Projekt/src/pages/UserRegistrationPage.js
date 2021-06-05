@@ -29,7 +29,7 @@ function UserRegistrationPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center titel">
-                Registrier dich jetzt
+                Registriere dich jetzt
               </Col>
             </Row>
             <Row>

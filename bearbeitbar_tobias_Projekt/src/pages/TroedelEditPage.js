@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
+import FormControl from 'react-bootstrap/FormControl';
 
 
 function TroedelEditPage() {
@@ -92,10 +93,7 @@ function TroedelEditPage() {
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  
-                  <FormControl
-                    placeholder="Produktbeschreibung"
-                  />
+                  <FormControl as="textarea" rows={4} placeholder="Produktbeschreibung"/>
                 </Col>
               </Row>
               <Row>

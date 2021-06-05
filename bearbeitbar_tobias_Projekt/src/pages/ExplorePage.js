@@ -25,30 +25,27 @@ function ExplorePage() {
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center pb-5">
+          <Col md={12} className="text-center md-pb-5 titel">
             Du bist Student an der FH-Bochum?
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center pb-5">
+          <Col md={12} className="text-center md-pb-5 titel">
             Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center pb-5">
+          <Col md={12} className="text-center md-pb-5 titel">
             Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="text-center pb-5">
+          <Col md={12} className="text-center md-pb-5 titel">
             Und das Beste ist, es ist auch während Corona möglich.
           </Col>
         </Row>
         <Row>
           <Col md={12} className="text-center">
-            {/* <a href = "/userRegistration"><button type="button" className="btn btn-light">
-              Werde jetzt Teil der Community
-            </button></a> kann weg*/}
           <Button 
             className="orangeBackground" 
             id="bePartOfTheCommunity" 

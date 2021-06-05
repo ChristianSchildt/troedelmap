@@ -49,7 +49,7 @@ function MapPage() {
               </Col>
             </Row>
           </Col>
-          <Col md={2}  xs={6}>
+          <Col md={2} xs={6}>
             <Row className= "justify-content-center">
               <Col md={4} xs={6}>
                 <ImageButton 
@@ -70,7 +70,7 @@ function MapPage() {
           </Col>
         </Row>
         <Row>
-          <Col md={12}>
+          <Col md={12} id="LeafletMapWrapper">
             <LeafletMap></LeafletMap>
           </Col>
         </Row>
@@ -83,26 +83,28 @@ function MapPage() {
                   onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
                 </ImageButton>
                 </Col>
-                <Col md={12} className="pb-2">
+                <Col md={12} className="md-pb-2">
                   <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
                 </Col>
-                <Col md={12} className="pb-2">
-                  <FormControl
+                <Col md={12} className="md-pb-2">
+                  <FormControl className="text-center"
                     placeholder="Laptop"
                   />
                 </Col>
-                <Col md={12} className="pb-2">
-                  <FormControl
-                    placeholder="100€"
+                <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
+                  <FormControl className="text-center"
+                    placeholder="200€"
                   />
                 </Col>
-                <Col md={12} className="pb-2">
-                  <FormControl
-                    placeholder="Nur 1 Jahr alt. Kann Gebrauchsspuren haben."
-                  />
+                <Col md={12} className="md-pb-2">
+                  <FormControl readOnly as="textarea" rows={8}  className="text-center">
+                    Nur 1 Jahr alt. 
+                    Kann Gebrauchsspuren haben.
+                    Bitte anrufen oder eine Mail schreiben.
+                  </FormControl>
                 </Col>
               </Row>
-              <Row className="pb-2">
+              <Row className="md-pb-2 text-center">
                 <Col md={2}>
                   <Picture id="picture-seller" src="images/seller.jpg"></Picture>
                 </Col>
