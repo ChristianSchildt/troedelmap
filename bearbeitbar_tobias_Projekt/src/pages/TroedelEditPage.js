@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FormControl } from "react-bootstrap"
 import Button from '../components/Button';
 import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
