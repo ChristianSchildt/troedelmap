@@ -95,16 +95,18 @@ function UserEditPage() {
               </Col>
             </Row>
           </Col>
-          <Col md={3} className="my-auto">
-            <Col md={12} className="text-center">
-              <Button 
-                className="orangeBackground" 
-                id="button-deleteUserAccount"
-                href="/"
-                onClick={() => alert("Sie haben Ihr Benutzerkonto gelöscht!")} 
-                value="Benutzerkonto löschen">
-              </Button>
-            </Col>
+          <Col md={3} className="my-auto pt-5 pt-md-0">
+            <Row>
+              <Col md={12} className="text-center">
+                <Button 
+                  className="orangeBackground" 
+                  id="button-deleteUserAccount"
+                  href="/"
+                  onClick={() => alert("Sie haben Ihr Benutzerkonto gelöscht!")} 
+                  value="Benutzerkonto löschen">
+                </Button>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>

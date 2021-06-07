@@ -32,7 +32,7 @@ function MapPage() {
             </InputGroup>
           </Col>
           <Col md={{ span: 2, offset: 1}} xs={6}>
-            <Row className= "justify-content-center">
+            <Row className= "justify-content-center text-center">
               <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-addTroedel" 
@@ -50,7 +50,7 @@ function MapPage() {
             </Row>
           </Col>
           <Col md={2} xs={6}>
-            <Row className= "justify-content-center">
+            <Row className= "justify-content-center text-center">
               <Col md={4} xs={6}>
                 <ImageButton 
                   id="button-logout"
