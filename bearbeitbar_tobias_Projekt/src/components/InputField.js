@@ -13,6 +13,7 @@ class InputField extends React.Component{
             <input
                 type="text"
                 id={this.props.id}
+                className="inputField"
                 value={this.props.value}
                 placeholder={this.props.placeholder}
                 onChange={event => console.log("value changed")}

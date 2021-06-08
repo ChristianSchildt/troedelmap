@@ -8,9 +8,9 @@ class Text extends React.Component{
         }
     render(){
         return(
-            <p id={this.props.id}>
+            <span id={this.props.id} className="text">
                 {this.props.value}
-            </p>
+            </span>
         )
     }
 

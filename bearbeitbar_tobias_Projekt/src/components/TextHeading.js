@@ -8,7 +8,7 @@ class TextHeading extends React.Component{
         }
     render(){
         return(
-            <h1 id={this.props.id}>
+            <h1 id={this.props.id} className="text textHeading">
                 
                 {this.props.value}
             </h1>

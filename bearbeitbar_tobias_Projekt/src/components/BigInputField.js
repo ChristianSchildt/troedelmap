@@ -10,7 +10,7 @@ class BigInputField extends React.Component{
         return(
             <textarea
                 id={this.props.id}
-                className="InputField BigInputField"
+                className="inputField bigInputField"
                 placeholder={this.props.placeholder}
                 rows={this.props.rows}
             />
