@@ -283,7 +283,7 @@
     height: 30vh;
   }
   
-  .form-control, .input-group .btn, {
+  .form-control, .input-group .btn {
     border-radius: 1em;
   }
 
