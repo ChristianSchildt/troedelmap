@@ -45,29 +45,32 @@ function UserEditPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                <InputField id="emailfield" 
-                placeholder="Email">
+                <InputField id="emailfield"
+                  type="email"
+                  placeholder="Email">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                <InputField id="passwordfield" 
-                placeholder="Passwort">
+                <InputField id="passwordfield"
+                  type="password" 
+                  placeholder="Passwort">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="passwordfield2" 
-                placeholder="Passwort wiederholen">
+                  type="password"
+                  placeholder="Passwort wiederholen">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="kontaktinfofield" 
-                placeholder="Kontaktinfos">
+                  placeholder="Kontaktinfos">
                 </InputField>
               </Col>
             </Row>

@@ -9,16 +9,14 @@ class InputField extends React.Component{
 
     render(){
         return(
-            <div>
             <input
-                type="text"
                 id={this.props.id}
+                type={this.props.type}
                 className="inputField"
                 value={this.props.value}
                 placeholder={this.props.placeholder}
                 onChange={event => console.log("value changed")}
             />
-            </div>
         )
     }
 }

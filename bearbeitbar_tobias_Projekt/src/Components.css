@@ -165,7 +165,7 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: 2em;
     -webkit-appearance: none;
     appearance: none;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -202,7 +202,7 @@
     /*Picture muss noch ausgerichtet werden*/
     border-radius: 1em;
     object-fit: cover;
-    min-width: 100%;
+    margin-bottom: 1rem;
 }
 
 #picture-seller
@@ -260,12 +260,14 @@
     border-radius: 1em;
     object-fit: cover;
     max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 /*--------Bootstrap-----------------------------------------------*/
-.form-control, .inputField
+div > .form-control, div > .inputField
 {
     width: -webkit-fill-available;
+    width: -moz-available;  
     margin: 0em 1em 0em 1em;
     margin-bottom: 1rem;
 }
@@ -298,4 +300,6 @@
 #searchbar {
     margin: 0;
     margin-bottom: 0;
+    flex: 1 1 auto;
+    width: 1%;
 }

@@ -7,11 +7,9 @@ class PopupBackground extends React.Component {
   
   render() {
     return (
-      <div>
         <div id={this.props.id}>
           {this.props.children}
         </div>
-      </div>
     )
   }
 }

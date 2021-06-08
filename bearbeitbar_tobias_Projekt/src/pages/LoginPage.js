@@ -41,7 +41,9 @@ function LoginPage() {
               <Col md={12} className="text-center">
                 <InputField
                   id="EingabeEmail"
+                  type="email" 
                   placeholder="Email"
+                  
                 />
               </Col>
             </Row>
@@ -49,7 +51,9 @@ function LoginPage() {
               <Col md={12} className="text-center">
               <InputField
                   id="EingabePassword"
+                  type="password"
                   placeholder="Password"
+                  
                 />
               </Col>
             </Row>

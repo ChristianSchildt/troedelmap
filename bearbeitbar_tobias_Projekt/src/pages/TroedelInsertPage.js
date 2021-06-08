@@ -57,42 +57,42 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="preisfield" 
-                placeholder="Preis (in Euro)">
+                  placeholder="Preis (in Euro)">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="strassefield" 
-                placeholder="Straße">
+                  placeholder="Straße">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="hausnummerfield" 
-                placeholder="Hausnummer">
+                  placeholder="Hausnummer">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="postleitzahlfield" 
-                placeholder="Postleitzahl">
+                  placeholder="Postleitzahl">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="ortfield" 
-                placeholder="Ort">
+                  placeholder="Ort">
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={6} className="text-center">
                 <Text id="produktbildwahl"
-                value="Produktbild auswählen">
+                  value="Produktbild auswählen">
                 </Text>
               </Col>
               <Col md={6}className="text-center">

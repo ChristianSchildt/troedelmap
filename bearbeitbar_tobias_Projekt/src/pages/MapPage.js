@@ -24,7 +24,8 @@ function MapPage() {
 
             <InputGroup>
               <InputField id="searchbar"
-              placeholder="Was suchst du?">
+                type="search"
+                placeholder="Was suchst du?">
               </InputField>
               <ImageButton 
                 id="button-search" 
@@ -90,20 +91,18 @@ function MapPage() {
                 </Col>
                 <Col md={12} className="md-pb-2">
                   <InputField id="text-center"
-                  placeholder="Laptop">
+                    value="Laptop">
                   </InputField>
                 </Col>
                 <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
                   <InputField id="text-center2"
-                  placeholder="200€">
+                    value="200€">
                   </InputField>
                 </Col>
                 <Col md={12} className="md-pb-2">
                   <BigInputField id="text-center3" 
                   rows={8} 
-                  placeholder="Nur 1 Jahr alt. 
-                  Kann Gebrauchsspuren haben.
-                  Bitte anrufen oder eine Mail schreiben.">
+                    value="Nur 1 Jahr alt. Kann Gebrauchsspuren haben. Bitte anrufen oder eine Mail schreiben.">
                   </BigInputField>
                 </Col>
               </Row>
@@ -114,10 +113,10 @@ function MapPage() {
                 <Col md={10}>
                   <Row></Row>
                   <InputField id="anbietermail"
-                  placeholder="anbietermail@gmx.de">
+                    value="anbietermail@gmx.de">
                   </InputField>
                   <InputField id="anbietertelefon"
-                  placeholder="01578 1623974345">
+                    value="01578 1623974345">
                   </InputField>
                 </Col>
               </Row>

@@ -40,34 +40,30 @@ function TroedelEditPage() {
               </Col>
             </Row>
             <div id="popup-editTroedel">
-              <Row>
-                <Col md={12} className="text-center">
-                  <Row>
-                    <Col xs={4}  className="text-center">
-                      <Button 
-                        className="whiteBackground" 
-                        id="button-delete"
-                        onClick={() => alert("Sie haben Ihren Artikel gelöscht!")}
-                        value="Löschen">
-                      </Button>
-                    </Col>
-                    <Col xs={4} className="text-center">
-                      <Button 
-                        className="whiteBackground" 
-                        id="button-edit"
-                        onClick={() => alert("Sie können nun Ihren Artikel bearbeiten.")} 
-                        value="Bearbeiten">
-                      </Button>
-                    </Col>
-                    <Col xs={4} className="text-center">
-                      <Button 
-                        className="whiteBackground" 
-                        id="button-finish"
-                        onClick={() => alert("Ihr Artikel wurde aktualisiert!")} 
-                        value="Fertig">
-                      </Button>
-                    </Col>
-                  </Row>
+              <Row className="mb-3">
+                <Col xs={4}  className="text-center">
+                  <Button 
+                    className="whiteBackground" 
+                    id="button-delete"
+                    onClick={() => alert("Sie haben Ihren Artikel gelöscht!")}
+                    value="Löschen">
+                  </Button>
+                </Col>
+                <Col xs={4} className="text-center">
+                  <Button 
+                    className="whiteBackground" 
+                    id="button-edit"
+                    onClick={() => alert("Sie können nun Ihren Artikel bearbeiten.")} 
+                    value="Bearbeiten">
+                  </Button>
+                </Col>
+                <Col xs={4} className="text-center">
+                  <Button 
+                    className="whiteBackground" 
+                    id="button-finish"
+                    onClick={() => alert("Ihr Artikel wurde aktualisiert!")} 
+                    value="Fertig">
+                  </Button>
                 </Col>
               </Row>
               <Row>
