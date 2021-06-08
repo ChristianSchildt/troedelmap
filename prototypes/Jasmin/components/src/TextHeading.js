@@ -8,10 +8,10 @@ class TextHeading extends React.Component{
         }
     render(){
         return(
-            <heading
-                id={this.props.id}
-                //...?
-            />
+            <h1 id={this.props.id}>
+                {this.props.value}
+            </h1>
+
         )
     }
 

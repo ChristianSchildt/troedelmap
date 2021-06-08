@@ -8,6 +8,8 @@ import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
 import FormControl from 'react-bootstrap/FormControl';
 import BigInputField from '../components/BigInputField';
+import InputField from '../components/InputField';
+import Text from '../components/Text';
 
 
 function TroedelEditPage() {
@@ -32,7 +34,9 @@ function TroedelEditPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center titel">
-                Diesen Trödel biete ich an
+                <Text id="angebot"
+                value="Diesen Trödel biete ich an">
+                </Text>
               </Col>
             </Row>
             <div id="popup-editTroedel">
@@ -79,17 +83,16 @@ function TroedelEditPage() {
             </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  <FormControl
-                    placeholder="Produktname"
-                  />
+                  <InputField id="produktnamefield" 
+                  placeholder="Produktname">
+                  </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={{ span: 6, offset: 3}} className="text-center">
-                  
-                  <FormControl
-                    placeholder="Preis (in Euro)"
-                  />
+                  <InputField id="preisfield" 
+                  placeholder="Preis (in Euro)">
+                  </InputField>
                 </Col>
               </Row>
               <Row>
@@ -103,40 +106,38 @@ function TroedelEditPage() {
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  
-                  <FormControl
-                    placeholder="Straße"
-                  />
+                  <InputField id="strassefield" 
+                  placeholder="Straße">
+                  </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                 
-                  <FormControl
-                    placeholder="Hausnummer"
-                  />
+                  <InputField id="hausnummerfield" 
+                  placeholder="Hausnummer">
+                  </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  
-                  <FormControl
-                    placeholder="Postleitzahl"
-                  />
+                  <InputField id="postleitzahlfield" 
+                  placeholder="Postleitzahl">
+                  </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  
-                  <FormControl
-                    placeholder="Ort"
-                  />
+                  <InputField id="ortfield" 
+                  placeholder="Ort">
+                  </InputField>
                 </Col>
               </Row>
             </div>
             <Row>
               <Col md={{ span: 6, offset: 3}} className="text-center">
-                1/1
+                <Text id="pagenr"
+                value="1/1">
+                </Text>
               </Col>
             </Row>
           </Col>

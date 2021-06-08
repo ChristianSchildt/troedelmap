@@ -3,18 +3,14 @@ import './index.css';
 
 class Text extends React.Component{
 
-    state = {
-        text: " "
-    }
     constructor(props) {
         super(props)
         }
     render(){
         return(
-            <text
-                id={this.props.id}
-                value={this.props.value}
-            />
+            <p id={this.props.id}>
+            {this.props.value}
+            </p>
         )
     }
 

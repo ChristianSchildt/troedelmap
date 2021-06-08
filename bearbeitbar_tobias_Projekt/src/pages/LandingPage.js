@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Picture from '../components/Picture';
+import Text from '../components/Text';
 
 function LandingPage() {
   return (
@@ -25,17 +26,17 @@ function LandingPage() {
           <Col md={{ span: 1, order: 1}} className="text-center">
             
             <a href="/explore">
-              <div id="rectangle-explore">
-                Entdecke unseren Service
-              </div>
+              <Text id="rectangle-explore"
+              value ="Entdecke unseren Service">
+              </Text>
             </a>
 
           </Col>
           <Col md={{ span: 1, order: 3}} className="text-center">
             <a href="/login">
-              <div id="rectangle-login">
-                Log dich ein
-              </div>
+              <Text id="rectangle-login"
+              value="Log dich ein">
+              </Text>
             </a>
           </Col>
         </Row>

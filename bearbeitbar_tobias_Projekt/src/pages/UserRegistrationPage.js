@@ -6,6 +6,10 @@ import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
 import FormControl from 'react-bootstrap/FormControl';
+import TextHeading from '../components/TextHeading';
+import Text from '../components/Text';
+import InputField from '../components/InputField';
+
 
 function UserRegistrationPage() {
   return (
@@ -29,47 +33,44 @@ function UserRegistrationPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center titel">
-                Registriere dich jetzt
+                <TextHeading id = "register"
+                value="Registriere dich jetzt">
+                </TextHeading>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Benutzername"
-                />
+                <InputField id="benutzernamefield" 
+                placeholder="Benutzername">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Email"
-                />
+                <InputField id="emailfield" 
+                placeholder="Email">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Password"
-                />
+                <InputField id="passwordfield" 
+                placeholder="Passwort">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Password wiederholen"
-                />
+                <InputField id="passwordfield2" 
+                placeholder="Passwort wiederholen">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Kontaktinfos"
-                />
+                <InputField id="kontaktinfofield" 
+                placeholder="Kontaktinfos">
+                </InputField>
               </Col>
             </Row>
             <Row>

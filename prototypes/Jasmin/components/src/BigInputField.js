@@ -8,12 +8,11 @@ class BigInputField extends React.Component{
         }
     render(){
         return(
-            <input
-                id={this.props.id}
-                type="textarea"
-                value={this.props.value}
-                //...?
-            />
+            <textarea 
+            id={this.props.id}
+            placeholder = {this.props.placeholder}>
+            rows={this.props.rows}
+            </textarea>
         )
     }
     

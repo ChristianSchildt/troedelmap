@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ImageButton from '../components/ImageButton';
 import PopupBackground from '../components/PopupBackground';
 import Picture from '../components/Picture';
 import LeafletMap from '../components/LeafletMap'
+import InputField from '../components/InputField'
+import BigInputField from '../components/BigInputField'
+import Text from '../components/Text';
 
 function MapPage() {
   return (
@@ -21,9 +23,9 @@ function MapPage() {
           <Col md={{ span: 5, offset: 1}}>
 
             <InputGroup>
-              <FormControl id="searchbar"
-                placeholder="Was suchst du?"
-              />
+              <InputField id="searchbar"
+              placeholder="Was suchst du?">
+              </InputField>
               <ImageButton 
                 id="button-search" 
                 src="images/lupe.jpg" 
@@ -87,21 +89,22 @@ function MapPage() {
                   <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
                 </Col>
                 <Col md={12} className="md-pb-2">
-                  <FormControl className="text-center"
-                    placeholder="Laptop"
-                  />
+                  <InputField id="text-center"
+                  placeholder="Laptop">
+                  </InputField>
                 </Col>
                 <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
-                  <FormControl className="text-center"
-                    placeholder="200€"
-                  />
+                  <InputField id="text-center2"
+                  placeholder="200€">
+                  </InputField>
                 </Col>
                 <Col md={12} className="md-pb-2">
-                  <FormControl readOnly as="textarea" rows={8}  className="text-center">
-                    Nur 1 Jahr alt. 
-                    Kann Gebrauchsspuren haben.
-                    Bitte anrufen oder eine Mail schreiben.
-                  </FormControl>
+                  <BigInputField id="text-center3" 
+                  rows={8} 
+                  placeholder="Nur 1 Jahr alt. 
+                  Kann Gebrauchsspuren haben.
+                  Bitte anrufen oder eine Mail schreiben.">
+                  </BigInputField>
                 </Col>
               </Row>
               <Row className="md-pb-2 text-center">
@@ -110,12 +113,12 @@ function MapPage() {
                 </Col>
                 <Col md={10}>
                   <Row></Row>
-                  <FormControl
-                    placeholder="anbietermail@gmx.de"
-                  />
-                  <FormControl
-                    placeholder="01578 1623974345"
-                  />
+                  <InputField id="anbietermail"
+                  placeholder="anbietermail@gmx.de">
+                  </InputField>
+                  <InputField id="anbietertelefon"
+                  placeholder="01578 1623974345">
+                  </InputField>
                 </Col>
               </Row>
             </PopupBackground>

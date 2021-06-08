@@ -6,6 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
 import FormControl from 'react-bootstrap/FormControl';
+import Text from '../components/Text';
+import InputField from '../components/InputField';
+import BigInputField from '../components/BigInputField';
 
 
 function TroedelInsertPage() {
@@ -30,68 +33,67 @@ function TroedelInsertPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center titel">
-                Trödel hinzufügen
+                <Text id="hinzufuegen"
+                value="Trödel hinzufügen">
+                </Text>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Produktname"
-                />
+                <InputField id="produktnamefield" 
+                  placeholder="Produktname">
+                  </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Produktbeschreibung"
-                />
+                  <BigInputField
+                    id="EingabeEmail"
+                    placeholder="Produktbeschreibung"
+                    rows={4}
+                  ></BigInputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Preis (in Euro)"
-                />
+                <InputField id="preisfield" 
+                placeholder="Preis (in Euro)">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Straße"
-                />
+                <InputField id="strassefield" 
+                placeholder="Straße">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Hausnummer"
-                />
+                <InputField id="hausnummerfield" 
+                placeholder="Hausnummer">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Postleitzahl"
-                />
+                <InputField id="postleitzahlfield" 
+                placeholder="Postleitzahl">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                
-                <FormControl
-                  placeholder="Ort"
-                />
+                <InputField id="ortfield" 
+                placeholder="Ort">
+                </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={6} className="text-center">
-                Produktbild auswählen
+                <Text id="produktbildwahl"
+                value="Produktbild auswählen">
+                </Text>
               </Col>
               <Col md={6}className="text-center">
                 <Button 
