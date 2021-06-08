@@ -6,6 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
 import FormControl from 'react-bootstrap/FormControl';
+import TextHeading from '../components/TextHeading';
+
+import InputField from '../components/InputField';
 
 function LoginPage() {
   return (
@@ -29,20 +32,25 @@ function LoginPage() {
           <Col md={{ span: 4, offset: 4}} className="text-center">
             <Row>
               <Col md={12} className="text-center titel">
-                Log dich ein
+                <TextHeading
+                  id="Titel"
+                  value="Log dich ein">
+                </TextHeading>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                <FormControl
-                  placeholder="Password"
+                <InputField
+                  id="EingabeEmail"
+                  placeholder="Email"
                 />
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                <FormControl
-                  placeholder="Email"
+              <InputField
+                  id="EingabePassword"
+                  placeholder="Password"
                 />
               </Col>
             </Row>

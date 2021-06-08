@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import '../Components.css';
 
 class InputField extends React.Component{
 
@@ -14,6 +14,7 @@ class InputField extends React.Component{
                 type="text"
                 id={this.props.id}
                 value={this.props.value}
+                placeholder={this.props.placeholder}
                 onChange={event => console.log("value changed")}
             />
             </div>

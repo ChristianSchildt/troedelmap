@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
 import FormControl from 'react-bootstrap/FormControl';
+import BigInputField from '../components/BigInputField';
 
 
 function TroedelEditPage() {
@@ -93,7 +94,11 @@ function TroedelEditPage() {
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  <FormControl as="textarea" rows={4} placeholder="Produktbeschreibung"/>
+                  <BigInputField
+                    id="EingabeEmail"
+                    placeholder="Produktbeschreibung"
+                    rows={4}
+                  ></BigInputField>
                 </Col>
               </Row>
               <Row>

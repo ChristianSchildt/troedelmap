@@ -5,6 +5,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
+import Text from '../components/Text';
+
+    
 
 function ExplorePage() {
   return (
@@ -26,22 +29,37 @@ function ExplorePage() {
         </Row>
         <Row>
           <Col md={12} className="text-center md-pb-5 titel">
-            Du bist Student an der FH-Bochum?
+            <Text 
+              id="Einleitung1"
+              value="Du bist Student an der FH-Bochum?">
+            </Text>
           </Col>
         </Row>
         <Row>
           <Col md={12} className="text-center md-pb-5 titel">
-            Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.
+          <Text 
+              id="Einleitung2"
+              value="Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.">
+            </Text>
+            
           </Col>
         </Row>
         <Row>
           <Col md={12} className="text-center md-pb-5 titel">
-            Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.
+          <Text 
+              id="Einleitung3"
+              value="Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.">
+            </Text>
+            
           </Col>
         </Row>
         <Row>
           <Col md={12} className="text-center md-pb-5 titel">
-            Und das Beste ist, es ist auch während Corona möglich.
+          <Text 
+              id="Einleitung4"
+              value="Und das Beste ist, es ist auch während Corona möglich.">
+            </Text>
+            
           </Col>
         </Row>
         <Row>
