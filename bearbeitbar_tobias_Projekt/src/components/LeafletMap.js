@@ -2,7 +2,6 @@ import React from 'react';
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css';
 import './LeafletMap.css'
-import markerIcon from '../temp/marker.png'
 
 // Koordinaten wurden zum testen aus Google Maps kopiert
 var latLngHsBochum = [51.44791892028939, 7.270757727589923];
@@ -67,7 +66,7 @@ class LeafletMap extends React.Component {
     
     // TODO: Marker besser direkt auf den Canvas zeichnen, ein Bild zu nutzen ist eher nur zum testen gedacht
     this.marker = L.icon({
-      iconUrl: markerIcon,
+      iconUrl: 'images/marker.png',
       iconSize:     [32, 32],
       iconAnchor:   [16, 16],
       popupAnchor:  [0, -18]
@@ -118,7 +117,7 @@ class LeafletMap extends React.Component {
            <img class="v36_66" src="${ad.picture}"></img>
         </div>
         <div class="v36_68">
-           <div class="v36_69"></div>
+           <img class="v36_69" src="images/schließen.jpg"></img>
         </div>
      </div>`)
     
