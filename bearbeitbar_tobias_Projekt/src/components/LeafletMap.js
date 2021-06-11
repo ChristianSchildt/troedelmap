@@ -2,6 +2,7 @@ import React from 'react';
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css';
 import './LeafletMap.css'
+import { adressToLatLng } from '../utils'
 
 // Koordinaten wurden zum testen aus Google Maps kopiert
 var latLngHsBochum = [51.44791892028939, 7.270757727589923];
@@ -34,7 +35,15 @@ var ads = [
       price: "70",
       picture: "https://i.imgur.com/WbEqy8d.jpg",
       latLng:[51.44892189700104, 7.254645487136491],
-  }
+  },
+  {
+    id: 4,
+    title: "Java ist auch eine Insel",
+    price: "5",
+    picture: "https://i.imgur.com/cJwW7BF.jpg",
+    latLng: null,
+    address: "Soldnerstraße 18, 44801 Bochum, Germany"
+}
 ];
 
 
@@ -58,11 +67,14 @@ class LeafletMap extends React.Component {
     this.updateMap();
   }
   
-  initMap() {
+  initMap() {  
     this.map = L.map('map-container', {
       center: latLngHsBochum,
       zoom: 15
     });
+    
+    this.layerGroupMarkers = L.layerGroup();
+    this.layerGroupMarkers.addTo(this.map);
     
     // TODO: Marker besser direkt auf den Canvas zeichnen, ein Bild zu nutzen ist eher nur zum testen gedacht
     this.marker = L.icon({
@@ -86,7 +98,22 @@ class LeafletMap extends React.Component {
   }
   
   updateMap() {
-    ads.forEach(ad => {      
+    //first clear markers
+    this.layerGroupMarkers.clearLayers();
+    
+    for (var i = 0; i < ads.length; i++) {
+      var ad = ads[i];
+      
+      //--- just testing converting address to position on map
+      if (ad.latLng === null) {
+        adressToLatLng(ad.address, (function(latLng) {
+          ad.latLng = latLng;
+          this.updateMap();
+        }).bind(this));
+        continue;
+      }
+      //--- END just testing converting address to position on map
+      
       var customMarker;
       if (!ad.radius) {
           customMarker = L.marker(ad.latLng, {icon: this.marker})         
@@ -97,9 +124,9 @@ class LeafletMap extends React.Component {
               fillOpacity: 0.5,
           })
       }
-      customMarker.addTo(this.map)
+      customMarker.addTo(this.layerGroupMarkers)
           .on('click', this.onClickMarker.bind(this, ad));
-  });
+    }
   }
   
   onClickMarker(ad) {
@@ -134,7 +161,7 @@ class LeafletMap extends React.Component {
     
     //alert(`Popup der Anzeige mit der ID ${ad.id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
   }
-
+  
   htmlToElement(html) {
     var template = document.createElement('template');
     html = html.trim();
