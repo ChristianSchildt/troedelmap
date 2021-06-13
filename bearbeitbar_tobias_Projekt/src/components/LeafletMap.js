@@ -65,6 +65,7 @@ class LeafletMap extends React.Component {
   componentDidMount() {
     this.initMap();
     this.updateMap();
+    this.updatePosition();
   }
   
   initMap() {  
@@ -102,7 +103,7 @@ class LeafletMap extends React.Component {
     this.layerGroupMarkers.clearLayers();
     
     for (var i = 0; i < ads.length; i++) {
-      var ad = ads[i];
+      let ad = ads[i];
       
       //--- just testing converting address to position on map
       if (ad.latLng === null) {
@@ -114,7 +115,7 @@ class LeafletMap extends React.Component {
       }
       //--- END just testing converting address to position on map
       
-      var customMarker;
+      let customMarker;
       if (!ad.radius) {
           customMarker = L.marker(ad.latLng, {icon: this.marker})         
       } else {
@@ -127,6 +128,12 @@ class LeafletMap extends React.Component {
       customMarker.addTo(this.layerGroupMarkers)
           .on('click', this.onClickMarker.bind(this, ad));
     }
+  }
+  
+  updatePosition() {
+    navigator.geolocation.getCurrentPosition((function(pos) {
+      this.map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude));
+    }).bind(this));
   }
   
   onClickMarker(ad) {
@@ -163,7 +170,7 @@ class LeafletMap extends React.Component {
   }
   
   htmlToElement(html) {
-    var template = document.createElement('template');
+    let template = document.createElement('template');
     html = html.trim();
     template.innerHTML = html;
     return template.content.firstChild;
