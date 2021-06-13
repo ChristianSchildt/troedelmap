@@ -137,22 +137,16 @@ class LeafletMap extends React.Component {
   }
   
   onClickMarker(ad) {
-    var content = this.htmlToElement(`<div class="v36_51">
-        <div class="v36_52"></div>
-        <div class="v36_59">
-           <div class="v36_60"></div>
-           <span class="v36_61">${ad.price}€</span>
+    // es wird ein String genutzt, da Babel ein React Element erzeugen würde
+    var content = this.htmlToElement(`<div class="popup-background">
+        <div class="popup-price-background">
+           <span class="popup-text">${ad.price}€</span>
         </div>
-        <div class="v36_62">
-           <div class="v36_63"></div>
-           <span class="v36_64">${ad.title}</span>
+        <div class="popup-title-background">
+           <span class="popup-text">${ad.title}</span>
         </div>
-        <div class="v36_65">
-           <img class="v36_66" src="${ad.picture}"></img>
-        </div>
-        <div class="v36_68">
-           <img class="v36_69" src="images/schließen.jpg"></img>
-        </div>
+        <img class="popup-picture" src="${ad.picture}"></img>
+        <input type="image" class="popup-close-button" src="images/schließen.jpg"></input>
      </div>`)
     
     content.addEventListener('click', this.onClickPopup.bind(this, ad))
