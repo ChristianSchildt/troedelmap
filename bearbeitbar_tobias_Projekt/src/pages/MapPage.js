@@ -16,7 +16,7 @@ function MapPage() {
   return (
     <div className="mapPage">
       <Container fluid>
-        <Row className="align-items-center">
+        <Row id="top-bar" className="align-items-center">
           <Col md={1}>
             <Picture id="logoicon" src="troedelmap.svg"></Picture>
           </Col>

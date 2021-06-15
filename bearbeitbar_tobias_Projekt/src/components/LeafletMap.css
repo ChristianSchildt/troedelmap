@@ -1,16 +1,40 @@
+
 #LeafletMapWrapper 
 {
-    overflow: hidden;
+    /*overflow: hidden;
     position: relative;
     height: 80vh;
-    border-radius: 1em;
+    border-radius: 1em;*/
+
+    inset: -5px 0px 0px !important;
+    position: absolute !important;
+    margin-top: 4em;
+    contain: content !important;
+    
+}
+
+.leaflet-top {
+  margin-top: 5em;
+}
+
+@media (max-width: 767.98px) {
+  #LeafletMapWrapper  {
+    margin-top: 9em;
+  }
+  .leaflet-top {
+    margin-top: 12em;
+  }
 }
 
 #map-container {
-  position: sticky!important;
-  min-height: 100%;
-  border-radius: 1em;
+  height: 100vh;
+  contain: content !important;
+  margin-top: -20em;
+  position: sticky !important;
+  top: 0px;
 }
+
+
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
   background: none;
