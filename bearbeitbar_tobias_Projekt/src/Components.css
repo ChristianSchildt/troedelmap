@@ -231,24 +231,22 @@
     height: 2.3em;
     border-radius: 0em 1em 1em 0em;
     cursor: pointer;
+    top: 1px;
 }
 
 #button-addTroedel
 {
     height: 50px;
-    border-radius: 1em;
 }
 
 #button-editTroedel
 {
     height: 50px;
-    border-radius: 1em;
 }
 
 #button-logout
 {
-    height: 45px;
-    border-radius: 1em;
+    height: 50px;
 }
 
 #button-editUser
