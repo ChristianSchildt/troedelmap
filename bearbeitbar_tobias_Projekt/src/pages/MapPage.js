@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,6 +13,8 @@ import BigInputField from '../components/BigInputField'
 import Text from '../components/Text';
 
 function MapPage() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  
   return (
     <div className="mapPage">
       <Container fluid>
@@ -74,53 +76,55 @@ function MapPage() {
         </Row>
         <Row>
           <Col md={12} id="LeafletMapWrapper">
-            <LeafletMap></LeafletMap>
+            <LeafletMap onSelectedProductChanged={product => setSelectedProduct(product)}/>
           </Col>
         </Row>
-            <PopupBackground id="popup-allInformations">
-              <Row>
-                <Col md={12}>
-                <ImageButton 
-                  className="popup-close" 
-                  src="/images/schließen.jpg"
-                  onClick={() => document.getElementById("popup-allInformations").style.display="none"}>
-                </ImageButton>
-                </Col>
-                <Col md={12} className="md-pb-2">
-                  <Picture id="picture-laptop" src="images/laptop.jpg"></Picture>
-                </Col>
-                <Col md={12} className="md-pb-2">
-                  <InputField id="text-center"
-                    value="Laptop">
-                  </InputField>
-                </Col>
-                <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
-                  <InputField id="text-center2"
-                    value="200€">
-                  </InputField>
-                </Col>
-                <Col md={12} className="md-pb-2">
-                  <BigInputField id="text-center3" 
-                  rows={8} 
-                    value="Nur 1 Jahr alt. Kann Gebrauchsspuren haben. Bitte anrufen oder eine Mail schreiben.">
-                  </BigInputField>
-                </Col>
-              </Row>
-              <Row className="md-pb-2 text-center">
-                <Col md={2}>
-                  <Picture id="picture-seller" src="images/seller.jpg"></Picture>
-                </Col>
-                <Col md={10}>
-                  <Row></Row>
-                  <InputField id="anbietermail"
-                    value="anbietermail@gmx.de">
-                  </InputField>
-                  <InputField id="anbietertelefon"
-                    value="01578 1623974345">
-                  </InputField>
-                </Col>
-              </Row>
-            </PopupBackground>
+        {selectedProduct &&
+          <PopupBackground id="popup-allInformations">
+            <Row>
+              <Col md={12}>
+              <ImageButton 
+                className="popup-close" 
+                src="/images/schließen.jpg"
+                onClick={() => setSelectedProduct(null)}>
+              </ImageButton>
+              </Col>
+              <Col md={12} className="md-pb-2">
+                <Picture id="picture-product" src={selectedProduct?.picture}></Picture>
+              </Col>
+              <Col md={12} className="md-pb-2">
+                <InputField id="text-center"
+                  value={selectedProduct?.title}>
+                </InputField>
+              </Col>
+              <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
+                <InputField id="text-center2"
+                  value="200€">
+                </InputField>
+              </Col>
+              <Col md={12} className="md-pb-2">
+                <BigInputField id="text-center3" 
+                rows={8} 
+                  value={selectedProduct?.description}>
+                </BigInputField>
+              </Col>
+            </Row>
+            <Row className="md-pb-2 text-center">
+              <Col md={2}>
+                <Picture id="picture-seller" src="images/seller.jpg"></Picture>
+              </Col>
+              <Col md={10}>
+                <Row></Row>
+                <InputField id="anbietermail"
+                  value="anbietermail@gmx.de">
+                </InputField>
+                <InputField id="anbietertelefon"
+                  value="01578 1623974345">
+                </InputField>
+              </Col>
+            </Row>
+          </PopupBackground>
+        }
       </Container>
     </div>
   );

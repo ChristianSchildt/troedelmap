@@ -6,44 +6,49 @@ import { adressToLatLng } from '../utils'
 
 // Koordinaten wurden zum testen aus Google Maps kopiert
 var latLngHsBochum = [51.44791892028939, 7.270757727589923];
-var ads = [
-    {
-        id: 0,
-        title: "Laptop",
-        price: "200",
-        picture: "https://i.imgur.com/Um9Oibd.jpg",
-        latLng: [51.45239101208025, 7.262910997134508]
-    },
-    {
-        id: 1,
-        title: "Tablet",
-        price: "50",
-        picture: "https://i.imgur.com/uKTW3Z7.jpg",
-        latLng: [51.451248895848934, 7.261168763806634]
-    },
-    {
-      id: 2,
-      title: "Desktop PC",
-      price: "600",
-      picture: "https://i.imgur.com/3XmZRU7.jpg",
-      latLng:  [51.44922427794989, 7.258648379933391],
-      radius: 50
+var products = [
+  {
+    id: 0,
+    title: "Laptop",
+    description: "Nur 1 Jahr alt. Kann Gebrauchsspuren haben. Bitte anrufen oder eine Mail schreiben.",
+    price: "200",
+    picture: "https://i.imgur.com/Um9Oibd.jpg",
+    latLng: [51.45239101208025, 7.262910997134508]
   },
   {
-      id: 3,
-      title: "Smartphone",
-      price: "70",
-      picture: "https://i.imgur.com/WbEqy8d.jpg",
-      latLng:[51.44892189700104, 7.254645487136491],
+    id: 1,
+    title: "Tablet",
+    description: "Hier steht später eine Beschreibung",
+    price: "50",
+    picture: "https://i.imgur.com/uKTW3Z7.jpg",
+    latLng: [51.451248895848934, 7.261168763806634]
+  },
+  {
+    id: 2,
+    title: "Desktop PC",
+    description: "Hier steht später eine Beschreibung",
+    price: "600",
+    picture: "https://i.imgur.com/3XmZRU7.jpg",
+    latLng:  [51.44922427794989, 7.258648379933391],
+    radius: 50
+  },
+  {
+    id: 3,
+    title: "Smartphone",
+    description: "Hier steht später eine Beschreibung",
+    price: "70",
+    picture: "https://i.imgur.com/WbEqy8d.jpg",
+    latLng:[51.44892189700104, 7.254645487136491],
   },
   {
     id: 4,
     title: "Java ist auch eine Insel",
+    description: "Hier steht später eine Beschreibung",
     price: "5",
     picture: "https://i.imgur.com/cJwW7BF.jpg",
     latLng: null,
     address: "Soldnerstraße 18, 44801 Bochum, Germany"
-}
+  }
 ];
 
 
@@ -102,13 +107,13 @@ class LeafletMap extends React.Component {
     //first clear markers
     this.layerGroupMarkers.clearLayers();
     
-    for (var i = 0; i < ads.length; i++) {
-      let ad = ads[i];
+    for (var i = 0; i < products.length; i++) {
+      let product = products[i];
       
       //--- just testing converting address to position on map
-      if (ad.latLng === null) {
-        adressToLatLng(ad.address, (function(latLng) {
-          ad.latLng = latLng;
+      if (product.latLng === null) {
+        adressToLatLng(product.address, (function(latLng) {
+          product.latLng = latLng;
           this.updateMap();
         }).bind(this));
         continue;
@@ -116,17 +121,17 @@ class LeafletMap extends React.Component {
       //--- END just testing converting address to position on map
       
       let customMarker;
-      if (!ad.radius) {
-          customMarker = L.marker(ad.latLng, {icon: this.marker})         
+      if (!product.radius) {
+          customMarker = L.marker(product.latLng, {icon: this.marker})         
       } else {
-          customMarker = L.circle(ad.latLng, ad.radius, {
+          customMarker = L.circle(product.latLng, product.radius, {
               color: '#F48C06',
               fillColor: '#F48C06',
               fillOpacity: 0.5,
           })
       }
       customMarker.addTo(this.layerGroupMarkers)
-          .on('click', this.onClickMarker.bind(this, ad));
+          .on('click', this.onClickMarker.bind(this, product));
     }
   }
   
@@ -136,31 +141,28 @@ class LeafletMap extends React.Component {
     }).bind(this));
   }
   
-  onClickMarker(ad) {
+  onClickMarker(product) {
     // es wird ein String genutzt, da Babel ein React Element erzeugen würde
     var content = this.htmlToElement(`<div class="popup-background">
         <div class="popup-price-background">
-           <span class="popup-text">${ad.price}€</span>
+           <span class="popup-text">${product?.price}€</span>
         </div>
         <div class="popup-title-background">
-           <span class="popup-text">${ad.title}</span>
+           <span class="popup-text">${product?.title}</span>
         </div>
-        <img class="popup-picture" src="${ad.picture}"></img>
+        <img class="popup-picture" src="${product?.picture}"></img>
         <input type="image" class="popup-close-button" src="images/schließen.jpg"></input>
      </div>`)
     
-    content.addEventListener('click', this.onClickPopup.bind(this, ad))
+    content.addEventListener('click', this.onClickPopup.bind(this, product))
     
-    this.customPopup.setLatLng(ad.latLng)
+    this.customPopup.setLatLng(product.latLng)
       .setContent(content)
       .openOn(this.map);
   }
   
-  onClickPopup(ad) {
-    // TODO: nur ein Workaround, später schön machen
-    document.getElementById("popup-allInformations").style.display = "block"
-    
-    //alert(`Popup der Anzeige mit der ID ${ad.id} wurde angeklickt. Bald werden in diesem Fall die Details zu der Anzeige angezeigt.`);
+  onClickPopup(product) {  
+    this.props.onSelectedProductChanged(product);
   }
   
   htmlToElement(html) {
