@@ -154,7 +154,8 @@ class LeafletMap extends React.Component {
         <input type="image" class="popup-close-button" src="images/schließen.jpg"></input>
      </div>`)
     
-    content.addEventListener('click', this.onClickPopup.bind(this, product))
+    content.addEventListener('click', this.onClickPopup.bind(this, product));
+    content.children[3].addEventListener('click', this.onClickPopupCloseButton.bind(this));
     
     this.customPopup.setLatLng(product.latLng)
       .setContent(content)
@@ -163,6 +164,10 @@ class LeafletMap extends React.Component {
   
   onClickPopup(product) {  
     this.props.onSelectedProductChanged(product);
+  }
+  
+  onClickPopupCloseButton() {  
+    this.map.closePopup();
   }
   
   htmlToElement(html) {
