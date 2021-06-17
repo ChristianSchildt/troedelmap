@@ -18,7 +18,7 @@ var products = [
   {
     id: 1,
     title: "Tablet",
-    description: "Hier steht später eine Beschreibung",
+    description: "Hier steht später eine Tablet-Beschreibung",
     price: "50",
     picture: "https://i.imgur.com/uKTW3Z7.jpg",
     latLng: [51.451248895848934, 7.261168763806634]
@@ -26,7 +26,7 @@ var products = [
   {
     id: 2,
     title: "Desktop PC",
-    description: "Hier steht später eine Beschreibung",
+    description: "Hier steht später eine DesktopPC-Beschreibung",
     price: "600",
     picture: "https://i.imgur.com/3XmZRU7.jpg",
     latLng:  [51.44922427794989, 7.258648379933391],
@@ -35,7 +35,7 @@ var products = [
   {
     id: 3,
     title: "Smartphone",
-    description: "Hier steht später eine Beschreibung",
+    description: "Hier steht später eine Smartphone-Beschreibung",
     price: "70",
     picture: "https://i.imgur.com/WbEqy8d.jpg",
     latLng:[51.44892189700104, 7.254645487136491],
@@ -43,7 +43,7 @@ var products = [
   {
     id: 4,
     title: "Java ist auch eine Insel",
-    description: "Hier steht später eine Beschreibung",
+    description: "Hier steht später eine Buch-Beschreibung",
     price: "5",
     picture: "https://i.imgur.com/cJwW7BF.jpg",
     latLng: null,

@@ -5,11 +5,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ImageButton from '../components/ImageButton';
-import PopupBackground from '../components/PopupBackground';
+import BigPopup from '../components/BigPopup';
 import Picture from '../components/Picture';
 import LeafletMap from '../components/LeafletMap'
 import InputField from '../components/InputField'
-import BigInputField from '../components/BigInputField'
 import Text from '../components/Text';
 
 function MapPage() {
@@ -80,50 +79,25 @@ function MapPage() {
           </Col>
         </Row>
         {selectedProduct &&
-          <PopupBackground id="popup-allInformations">
-            <Row>
-              <Col md={12}>
-              <ImageButton 
-                className="popup-close" 
-                src="/images/schließen.jpg"
-                onClick={() => setSelectedProduct(null)}>
-              </ImageButton>
-              </Col>
-              <Col md={12} className="md-pb-2">
-                <Picture id="picture-product" src={selectedProduct?.picture}></Picture>
-              </Col>
-              <Col md={12} className="md-pb-2">
-                <InputField id="text-center"
-                  value={selectedProduct?.title}>
-                </InputField>
-              </Col>
-              <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
-                <InputField id="text-center2"
-                  value="200€">
-                </InputField>
-              </Col>
-              <Col md={12} className="md-pb-2">
-                <BigInputField id="text-center3" 
-                rows={8} 
-                  value={selectedProduct?.description}>
-                </BigInputField>
-              </Col>
-            </Row>
-            <Row className="md-pb-2 text-center">
-              <Col md={2}>
-                <Picture id="picture-seller" src="images/seller.jpg"></Picture>
-              </Col>
-              <Col md={10}>
-                <Row></Row>
-                <InputField id="anbietermail"
-                  value="anbietermail@gmx.de">
-                </InputField>
-                <InputField id="anbietertelefon"
-                  value="01578 1623974345">
-                </InputField>
-              </Col>
-            </Row>
-          </PopupBackground>
+          <BigPopup id="popup-allInformations" 
+            imgButtonClassName1="popup-close"
+            imgButtonSrc1="/images/schließen.jpg"
+            imgButtonOnClick1={() => setSelectedProduct(null)}
+            pictureId1="picture-product"
+            pictureSrc1={selectedProduct?.picture}
+            inputFieldId1="text-center"
+            inputFieldValue1={selectedProduct?.title}
+            inputFieldId2="text-center2"
+            inputFieldValue2={selectedProduct?.price}
+            bigInputFieldId1="text-center3"
+            bigInputFieldValue1={selectedProduct?.description}
+            pictureId2="picture-seller"
+            pictureSrc2="images/seller.jpg"
+            inputFieldId3="anbietermail"
+            inputFieldValue3="anbietermail@gmx.de"
+            inputFieldId4="anbietertelefon"
+            inputFieldValue4="01578 1623974345">
+          </BigPopup>
         }
       </Container>
     </div>
