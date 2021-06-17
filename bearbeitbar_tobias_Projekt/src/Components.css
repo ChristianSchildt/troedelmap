@@ -194,11 +194,13 @@
 /*--------pictures-------------------------------------------------------*/
 /* Muss für einige Bilder eventuell noch verfeinert werden */
 
-#picture-laptop
+#picture-product
 {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    width: 350px;
     height: 200px;
     margin-top: 1em;
-    /*Picture muss noch ausgerichtet werden*/
     border-radius: 1em;
     object-fit: cover;
     margin-bottom: 1rem;
