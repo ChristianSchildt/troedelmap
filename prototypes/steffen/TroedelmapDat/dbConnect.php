@@ -176,11 +176,11 @@
             return $result;
         }
 
-        function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$id)
+        function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$id,$pn)
         {
-            $sqlUP="UPDATE benutzerdaten SET produkt_id=?,pname=?, beschreibung=?, preis=?, bildlink=? WHERE id_benutzer=?";
+            $sqlUP="UPDATE benutzerdaten SET produkt_id=?,pname=?, beschreibung=?, preis=?, bildlink=? WHERE id_benutzer=? AND pname=?";
             $statement = $this->conn->prepare($sqlUP);
-            $result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild,$id]);
+            $result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild,$id,$pn]);
             return $result;
         }
 

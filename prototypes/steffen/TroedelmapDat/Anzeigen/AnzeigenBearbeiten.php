@@ -24,23 +24,24 @@
 		
 		$username=$_SESSION['sess_user'];
 		$id;
-		$p_id;
-		$produkt_name;
+		$p_name;
 
 		echo "Welche Anzeige soll bearbeitet werden?<br/>";
 	
-		$sqlid="SELECT benutzerkonto.bk_id, produkt.pname FROM benutzerkonto
+		$sqlid="SELECT benutzerkonto.bk_id FROM benutzerkonto
 		INNER JOIN produkt ON produkt.id_benutzer=benutzerkonto.bk_id WHERE bname='$username'";
 		foreach($database->conn->query($sqlid) as $row)
 		{
 			$id=$row['bk_id'];
-			echo $row['pname']."<br/>";
 		}
 
-		
+		foreach ($_POST['name'] as $key => $val) 
+		{
+			$p_name=$_POST['name'][$key];
+			echo $_POST['name'][1];
+		}
 
-
-		$result="SELECT * FROM produkt WHERE id_benutzer='$id'";
+		$result="SELECT * FROM produkt WHERE id_benutzer='$id' AND pname='$p_name'";
 		foreach($database->conn->query($result) as $row)
 		{
 			$name=$row['pname'];
@@ -65,6 +66,7 @@
 			<input id="beschreibung" type="textarea" name="beschr" value="<?php echo $beschreibung;?>"><br />
 			<input id="preis" type="number" step="0.01" name="preis" value="<?php echo $preis;?>"><br />
 			<input id="bild" type="text" name="bild" value="<?php echo $bild;?>"><br />
+			<input id="name"  name="pn" value="<?php echo $_POST['name'];?>">
 			<button type="submit">Aenderung uebernehmen?</button>
 		</form>
 	</div>

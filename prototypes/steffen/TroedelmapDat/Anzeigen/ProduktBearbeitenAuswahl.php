@@ -17,16 +17,30 @@
 	}
 	else 
 	{
-		$database=new dbConnection();
-		$sql="	SELECT produkt.produkt_id, produkt.pname,benutzerkonto.bk_id, benutzerkonto.bname, benutzerdaten.bd_id FROM produkt
-			 	LEFT JOIN benutzerkonto ON benutzerkonto.bk_id=produkt.id_benutzer
-			 	LEFT JOIN benutzerdaten ON benutzerkonto.bk_id=benutzerdaten.id_benutzer";
+		$_SESSION['sess_user'];
 
-			 	foreach ($database->conn->query($sql)as$row) 
-			 	{
-			 		echo $row['produkt_id']." ".$row['pname']." - ".$row['bk_id']." ".$row['bname'].
-			 		" - ".$row['bd_id']."<br/>";
-			 	}
+		$database=new dbConnection();
+		
+		$username=$_SESSION['sess_user'];
+		$product;
+
+		$sqlproduct="SELECT produkt.pname, produkt.beschreibung, produkt.preis, produkt.bildlink, produkt.id_benutzer, benutzerkonto.bk_id 
+			FROM produkt 
+			INNER JOIN benutzerkonto ON produkt.id_benutzer=benutzerkonto.bk_id 
+			WHERE benutzerkonto.bk_id IN (	SELECT bk_id 
+										FROM benutzerkonto 
+										WHERE bname='$username')";
+		foreach ($database->conn->query($sqlproduct) as $row)
+		{
+			echo $row['pname']."<br/> ".$row['beschreibung']."<br/> ".$row['preis']."<br/> ";
+			#$bild=$row['bildlink'];
+			echo "<img src='" . $row['bildlink'] . "' height='130' width='150'> "."<br/>";
+			echo "<form method='post' action='AnzeigenBearbeiten.php'>
+					<input id='name' name='name[]' value='".$row['pname']."'>
+					<button type='submit'>Bearbeiten</button>";
+			echo "</br>";		
+		}
+
 	}
 
 ?>

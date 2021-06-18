@@ -53,6 +53,7 @@
       		<a href="../Anzeigen/AnzeigeAllerProdukte.php">Alle Produkte ansehen</a>
       		<a href="../Userdata/UserDatenBearbeiten.php">Ihre Daten bearbeiten</a>
       		<a href="../Anzeigen/Anzeigenbearbeiten.php">Anzeigen bearbeiten</a>
+      		<a href="../Anzeigen/ProduktBearbeitenAuswahl.php">Anzeigen bearbeiten</a>
 			<h2>Hallo, <?=$_SESSION['sess_user'];?>!</h2>
 		</body>  
 		</html>  
