@@ -1,12 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import Picture from '../components/Picture';
 import TextHeading from '../components/TextHeading';
-import Text from '../components/Text';
 import InputField from '../components/InputField';
 
 function LoginPage() {

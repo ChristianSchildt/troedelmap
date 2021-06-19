@@ -3,9 +3,9 @@ import '../Components.css';
 
 class Text extends React.Component{
 
-    constructor(props) {
+    /*constructor(props) {
         super(props)
-        }
+        }*/
     render(){
         return(
             <span id={this.props.id} className="text">

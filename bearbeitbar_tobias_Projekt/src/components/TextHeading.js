@@ -3,9 +3,9 @@ import '../Components.css';
 
 class TextHeading extends React.Component{
 
-    constructor(props) {
+    /*constructor(props) {
         super(props)
-        }
+        }*/
     render(){
         return(
             <h1 id={this.props.id} className="text textHeading">

@@ -7,7 +7,8 @@ class Picture extends React.Component {
     return (
         <img 
           id={this.props.id} 
-          src={this.props.src} 
+          src={this.props.src}
+          alt={this.props.alt}
         />
     )
   }

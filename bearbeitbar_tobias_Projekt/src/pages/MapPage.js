@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +8,6 @@ import BigPopup from '../components/BigPopup';
 import Picture from '../components/Picture';
 import LeafletMap from '../components/LeafletMap'
 import InputField from '../components/InputField'
-import Text from '../components/Text';
 
 function MapPage() {
   const [selectedProduct, setSelectedProduct] = useState(null);

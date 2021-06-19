@@ -29,20 +29,23 @@ class BigPopup extends React.Component {
                 <Col md={12} className="md-pb-2">
                     <InputField 
                         id={this.props.inputFieldId1}
-                        value={this.props.inputFieldValue1}>
+                        value={this.props.inputFieldValue1}
+                        readOnly={true}>
                     </InputField>
                 </Col>
                 <Col md={{ span: 6, offset: 3}} className="text-center md-pb-2">
                     <InputField 
                         id={this.props.inputFieldId2}
-                        value={this.props.inputFieldValue2}>
+                        value={this.props.inputFieldValue2}
+                        readOnly={true}>
                     </InputField>
                 </Col>
                 <Col md={12} className="md-pb-2">
                     <BigInputField 
                         id={this.props.bigInputFieldId1} 
                         rows={8} 
-                        value={this.props.bigInputFieldValue1}>
+                        value={this.props.bigInputFieldValue1}
+                        readOnly={true}> 
                     </BigInputField>
                 </Col>
             </Row>
@@ -57,11 +60,13 @@ class BigPopup extends React.Component {
                 <Row></Row>
                     <InputField 
                         id={this.props.inputFieldId3}
-                        value={this.props.inputFieldValue3}>
+                        value={this.props.inputFieldValue3}
+                        readOnly={true}>
                     </InputField>
                     <InputField 
                         id={this.props.inputFieldId4}
-                        value={this.props.inputFieldValue4}>
+                        value={this.props.inputFieldValue4}
+                        readOnly={true}>
                     </InputField>
                 </Col>    
             </Row>

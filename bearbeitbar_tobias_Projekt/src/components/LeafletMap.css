@@ -106,6 +106,7 @@
   background-size: cover;
   position: absolute;
   border-radius: 20px;
+  object-fit: cover;
 }
 .popup-close-button {
   width: 16px;

@@ -1,12 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
 import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
-import FormControl from 'react-bootstrap/FormControl';
 import BigInputField from '../components/BigInputField';
 import InputField from '../components/InputField';
 import Text from '../components/Text';
@@ -80,14 +78,14 @@ function TroedelEditPage() {
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="produktnamefield" 
-                  placeholder="Produktname">
+                    placeholder="Produktname">
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={{ span: 6, offset: 3}} className="text-center">
                   <InputField id="preisfield" 
-                  placeholder="Preis (in Euro)">
+                    placeholder="Preis (in Euro)">
                   </InputField>
                 </Col>
               </Row>
@@ -96,35 +94,35 @@ function TroedelEditPage() {
                   <BigInputField
                     id="EingabeEmail"
                     placeholder="Produktbeschreibung"
-                    rows={4}
-                  ></BigInputField>
+                    rows={4}>
+                  </BigInputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="strassefield" 
-                  placeholder="Straße">
+                    placeholder="Straße">
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="hausnummerfield" 
-                  placeholder="Hausnummer">
+                    placeholder="Hausnummer">
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="postleitzahlfield" 
-                  placeholder="Postleitzahl">
+                    placeholder="Postleitzahl">
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="ortfield" 
-                  placeholder="Ort">
+                    placeholder="Ort">
                   </InputField>
                 </Col>
               </Row>
@@ -132,7 +130,7 @@ function TroedelEditPage() {
             <Row>
               <Col md={{ span: 6, offset: 3}} className="text-center">
                 <Text id="pagenr"
-                value="1/1">
+                  value="0/0">
                 </Text>
               </Col>
             </Row>
