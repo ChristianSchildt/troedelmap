@@ -86,7 +86,7 @@ function MapPage() {
             inputFieldId1="text-center"
             inputFieldValue1={selectedProduct?.title}
             inputFieldId2="text-center2"
-            inputFieldValue2={selectedProduct?.price}
+            inputFieldValue2={selectedProduct?.price + "€"}
             bigInputFieldId1="text-center3"
             bigInputFieldValue1={selectedProduct?.description}
             pictureId2="picture-seller"
