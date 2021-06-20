@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,9 +7,25 @@ import Picture from '../components/Picture';
 import Text from '../components/Text';
 import InputField from '../components/InputField';
 import BigInputField from '../components/BigInputField';
+import { on } from 'process';
 
 
 function TroedelInsertPage() {
+  const inputName = useRef(null);
+  const inputBeschreibung = useRef(null);
+  const inputPreis = useRef(null);
+  const inputStrasse = useRef(null);
+  const inputHausnummer = useRef(null);
+  const inputPlz = useRef(null);
+  const inputOrt = useRef(null);
+  
+  const onAddButtonClick = () => {
+    // TODO: Daten an Datenbank weitergeben
+    console.log(`${inputName.current.state?.value}, ${inputBeschreibung.current.state?.value}, ...`);
+    
+    alert("Trödel wurde hinzugefügt!")
+  };
+   
   return (
     <div className="troedelInsertPage">
       <Container fluid>
@@ -39,6 +55,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="produktnamefield" 
+                  ref={inputName}
                   placeholder="Produktname">
                   </InputField>
               </Col>
@@ -47,6 +64,7 @@ function TroedelInsertPage() {
               <Col md={12} className="text-center">
                   <BigInputField
                     id="EingabeEmail"
+                    ref={inputBeschreibung}
                     placeholder="Produktbeschreibung"
                     rows={4}
                   ></BigInputField>
@@ -55,6 +73,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="preisfield" 
+                  ref={inputPreis}
                   placeholder="Preis (in Euro)">
                 </InputField>
               </Col>
@@ -62,6 +81,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="strassefield" 
+                  ref={inputStrasse}
                   placeholder="Straße">
                 </InputField>
               </Col>
@@ -69,6 +89,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="hausnummerfield" 
+                  ref={inputHausnummer}
                   placeholder="Hausnummer">
                 </InputField>
               </Col>
@@ -76,6 +97,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="postleitzahlfield" 
+                  ref={inputPlz}
                   placeholder="Postleitzahl">
                 </InputField>
               </Col>
@@ -83,6 +105,7 @@ function TroedelInsertPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="ortfield" 
+                  ref={inputOrt}
                   placeholder="Ort">
                 </InputField>
               </Col>
@@ -108,7 +131,7 @@ function TroedelInsertPage() {
                   className="orangeBackground" 
                   id="button-addMyTroedel"
                   href="/map"
-                  onClick={() => alert("Trödel wurde hinzugefügt!")} 
+                  onClick={onAddButtonClick.bind(this)}
                   value="Meinen Trödel hinzufügen">
                 </Button>
               </Col>
