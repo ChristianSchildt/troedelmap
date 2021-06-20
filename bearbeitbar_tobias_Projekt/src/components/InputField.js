@@ -3,9 +3,11 @@ import '../Components.css';
 
 class InputField extends React.Component{
 
-    /*constructor(props) {
-        super(props)
-        }*/
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+    }
+   
     render(){
         return(
             <input
@@ -15,7 +17,7 @@ class InputField extends React.Component{
                 value={this.props.value}
                 defaultValue={this.props.defaultValue}
                 placeholder={this.props.placeholder}
-                onChange={event => console.log("value changed")}
+                onChange={(event) => this.setState({value: event.target.value})}
                 readOnly={this.props.readOnly}
             />
         )
