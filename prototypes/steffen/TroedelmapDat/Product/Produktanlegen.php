@@ -23,8 +23,8 @@
 			<input id="product" type="text" name="product" placeholder="Produktname..."><br />
 			<input id="beschreibung" type="textarea" name="beschr" placeholder="Beschreibung"><br />
 			<input id="preis" type="number" step="0.01" name="preis"><br />
-			<input id="bild" type="text" name="bild" placeholder="Laden Sie ein Bild hoch"><br />
-			<button type="submit">Produkt hochladen</button>
+			<input type="file" name="file" placeholder="Laden Sie ein Bild hoch"><br />
+			<input type="submit" value="Upload"/>
 		
 		</form>
 	</div>
@@ -33,5 +33,6 @@
 </html>
 
 <?php
+		
 	}
 ?>

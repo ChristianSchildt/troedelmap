@@ -82,7 +82,7 @@
             return false;
             }
          
-            $sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, bildlink, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
+            $sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
             $statement = $this->conn->prepare($sql);
             $result = $statement->execute([$pname, $beschreibung, $preis, $bild,$uID]);
             return $result;
