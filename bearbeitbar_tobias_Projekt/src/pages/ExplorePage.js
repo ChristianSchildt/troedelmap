@@ -28,54 +28,49 @@ function ExplorePage() {
         </Row>
         <Row>
           <Col md={12} className="text-center md-pb-5 titel">
- 
-            <Row>
-              <Col md={12} className="text-center md-pb-5 titel">
-                <Text 
-                  id="Einleitung1"
-                  value="Du bist Student an der FH-Bochum?">
-                </Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center md-pb-5 titel">
-              <Text 
-                  id="Einleitung2"
-                  value="Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.">
-                </Text>
-                
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center md-pb-5 titel">
-              <Text 
-                  id="Einleitung3"
-                  value="Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.">
-                </Text>
-                
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center md-pb-5 titel">
-              <Text 
-                  id="Einleitung4"
-                  value="Und das Beste ist, es ist auch während Corona möglich.">
-                </Text>
-                
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} className="text-center">
-              <Button 
-                className="orangeBackground" 
-                id="bePartOfTheCommunity" 
-                href="/userRegistration" 
-                value="Werde jetzt Teil der Community">
-              </Button>
-              </Col>
-            </Row>
+            <Text 
+              id="Einleitung1"
+              value="Du bist Student an der FH-Bochum?">
+            </Text>
           </Col>
-      </Row>
+        </Row>
+        <Row>
+          <Col md={12} className="text-center md-pb-5 titel">
+          <Text 
+              id="Einleitung2"
+              value="Gut... dann stellen wir dir jetzt die optimale Handelsplattform zur Verfügung.">
+            </Text>
+            
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12} className="text-center md-pb-5 titel">
+          <Text 
+              id="Einleitung3"
+              value="Innerhalb weniger Klicks, kannst du hier kaufen und verkaufen was auch immer du möchtest.">
+            </Text>
+            
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12} className="text-center md-pb-5 titel">
+          <Text 
+              id="Einleitung4"
+              value="Und das Beste ist, es ist auch während Corona möglich.">
+            </Text>
+            
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12} className="text-center">
+          <Button 
+            className="orangeBackground" 
+            id="bePartOfTheCommunity" 
+            href="/userRegistration" 
+            value="Werde jetzt Teil der Community">
+          </Button>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
