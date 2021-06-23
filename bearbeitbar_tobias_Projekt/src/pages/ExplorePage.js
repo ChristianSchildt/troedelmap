@@ -26,8 +26,8 @@ function ExplorePage() {
             </Button>
           </Col>
         </Row>
-        <Row>
-          <Col md={12} className="text-center md-pb-5 titel">
+        <Row className="middleCenter align-items-center">
+          <Col md={12}>
  
             <Row>
               <Col md={12} className="text-center md-pb-5 titel">

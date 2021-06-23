@@ -307,3 +307,7 @@ div > .form-control, div > .inputField
 #top-bar {
     height: 4em;
 }
+
+.middleCenter {
+    height: 80vh;
+}
