@@ -15,8 +15,8 @@ function MapPage() {
   const searchbar = useRef(null);
   
   const applyMapFilter = () => {
-    map.current.setFilter(searchbar.current.state.value)
-    setSelectedProduct(null)
+    map.current.setFilter(searchbar.current.state.value);
+    setSelectedProduct(null);
   }
   
   return (
@@ -34,7 +34,7 @@ function MapPage() {
                 type="search" //not supported in some Browsers, e.g. Firefox
                 placeholder="Was suchst du?"
                 onKeyDown={(event) => {if (event.key === 'Enter') applyMapFilter();}}
-                onsearch={ () => {if (!searchbar.current.state.value) applyMapFilter();}} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
+                onsearch={() => {if (!searchbar.current.state.value) applyMapFilter();}} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
                 >
               </InputField>
               <ImageButton 
