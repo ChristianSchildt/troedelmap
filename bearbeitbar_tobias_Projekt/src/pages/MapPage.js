@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +11,13 @@ import InputField from '../components/InputField'
 
 function MapPage() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const map = useRef(null);
+  const searchbar = useRef(null);
+  
+  const applyMapFilter = () => {
+    map.current.setFilter(searchbar.current.state.value)
+    setSelectedProduct(null)
+  }
   
   return (
     <div className="mapPage">
@@ -23,13 +30,17 @@ function MapPage() {
 
             <InputGroup>
               <InputField id="searchbar"
-                type="search"
-                placeholder="Was suchst du?">
+                ref={searchbar}
+                type="search" //not supported in some Browsers, e.g. Firefox
+                placeholder="Was suchst du?"
+                onKeyDown={(event) => {if (event.key === 'Enter') applyMapFilter();}}
+                onsearch={ () => {if (!searchbar.current.state.value) applyMapFilter();}} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
+                >
               </InputField>
               <ImageButton 
                 id="button-search" 
                 src="images/lupe.jpg" 
-                onClick={() => alert("Suche wird gestartet!")}>
+                onClick={applyMapFilter}>
               </ImageButton>
             </InputGroup>
           </Col>
@@ -73,7 +84,7 @@ function MapPage() {
         </Row>
         <Row>
           <Col md={12} id="LeafletMapWrapper">
-            <LeafletMap onSelectedProductChanged={product => setSelectedProduct(product)}/>
+            <LeafletMap ref={map} onSelectedProductChanged={product => setSelectedProduct(product)}/>
           </Col>
         </Row>
         {selectedProduct &&

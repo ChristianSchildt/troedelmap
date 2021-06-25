@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import '../Components.css';
 
 class InputField extends React.Component{
@@ -18,9 +19,16 @@ class InputField extends React.Component{
                 defaultValue={this.props.defaultValue}
                 placeholder={this.props.placeholder}
                 onChange={(event) => this.setState({value: event.target.value})}
+                onKeyDown={this.props.onKeyDown}
                 readOnly={this.props.readOnly}
             />
         )
+    }
+    
+    componentDidMount() {
+        // React does not support onsearch html attribute
+        var el = ReactDOM.findDOMNode(this);
+        el.onsearch = this.props.onsearch;
     }
 }
 

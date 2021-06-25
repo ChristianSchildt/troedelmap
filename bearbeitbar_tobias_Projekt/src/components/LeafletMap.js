@@ -56,10 +56,21 @@ var products = [
 class LeafletMap extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      exampleState: "test1", // weiß nicht, ob wir states hier überhaupt brauchen
-    };
   }
+  
+  /**
+   * "public" methods
+   */
+  
+  setFilter(filter) {
+    this.filter = filter ? filter.toLowerCase() : filter;
+    this.updateMap();
+  }
+  
+  
+  /**
+   * "private" methods
+   */
   
   render() {
     return (
@@ -104,11 +115,17 @@ class LeafletMap extends React.Component {
   }
   
   updateMap() {
-    //first clear markers
+    //first clear map
     this.layerGroupMarkers.clearLayers();
+    this.map.closePopup();
     
     for (var i = 0; i < products.length; i++) {
       let product = products[i];
+      
+      // check filter
+      if (this.filter && !(product.title.toLowerCase().includes(this.filter) || product.description.toLowerCase().includes(this.filter))) {
+        continue;
+      }
       
       //--- just testing converting address to position on map
       if (product.latLng === null) {
@@ -120,6 +137,7 @@ class LeafletMap extends React.Component {
       }
       //--- END just testing converting address to position on map
       
+      // create marker
       let customMarker;
       if (!product.radius) {
           customMarker = L.marker(product.latLng, {icon: this.marker})         
