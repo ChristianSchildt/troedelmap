@@ -155,7 +155,7 @@ class LeafletMap extends React.Component {
      </div>`)
     
     content.addEventListener('click', this.onClickPopup.bind(this, product));
-    content.children[3].addEventListener('click', this.onClickPopupCloseButton.bind(this));
+    content.children[3].addEventListener('click', (event) => {event.stopPropagation(); this.onClickPopupCloseButton();});
     
     this.customPopup.setLatLng(product.latLng)
       .setContent(content)
