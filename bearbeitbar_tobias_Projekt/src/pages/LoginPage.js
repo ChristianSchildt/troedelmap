@@ -143,7 +143,7 @@ class LoginPage extends React.Component {
                   <Button 
                     className="orangeBackground" 
                     id="button-login"
-                    //href="/map" 
+                    href="/map" //Muss dann über SQL erfolgen?
                     value="Einloggen"
                     onClick={this.onLoginButtonClick.bind(this)}>
                   </Button>
