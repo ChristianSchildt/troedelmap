@@ -8,21 +8,20 @@ import TextHeading from '../components/TextHeading';
 import InputField from '../components/InputField';
 
 class LoginPage extends React.Component {
-  ////////SQL Beispielcode///////
   
-    constructor(props) {                            //Konstruktor nicht löschen, enthält wichtige Dinge für die Refs
+    constructor(props) {      //Konstruktor nicht löschen, enthält wichtige Dinge für die Refs
         super(props)
         this.inputEmail = React.createRef();
         this.inputPasswort = React.createRef(); 
-        this.state = {
-            todos: [],
-            input: ""
-        }
-        this.updateInput = this.updateInput.bind(this)
-        this.addToDo = this.addToDo.bind(this)
+                            this.state = { ////////SQL Beispielcode///////
+                                todos: [], ////////SQL Beispielcode///////
+                                input: "" ////////SQL Beispielcode///////
+                            } ////////SQL Beispielcode///////
+                            this.updateInput = this.updateInput.bind(this) ////////SQL Beispielcode///////
+                            this.addToDo = this.addToDo.bind(this) ////////SQL Beispielcode///////
     }
 
-    onLoginButtonClick = () => {                              //hat auch mit den Refs zutun, nicht löschen
+    onLoginButtonClick = () => {  //Nicht löschen, hat auch mit den Refs zutun.
       //TODO: Daten an Datenbank weitergeben
       console.log(`${this.inputEmail.current.state?.value}`);
       console.log(`${this.inputPasswort.current.state?.value}`);
@@ -30,78 +29,68 @@ class LoginPage extends React.Component {
       alert('Sie haben Sich eingeloggt.')
     }
 
-    componentDidMount() {
-        fetch('http://localhost:8080/api/todos') 
-        .then(response => response.json())
-        .then(data => {
-            this.setState({
-                todos: data
-            })
-        })
-    }
+                            componentDidMount() { ////////SQL Beispielcode///////
+                                fetch('http://localhost:8080/api/todos')
+                                .then(response => response.json())
+                                .then(data => {
+                                    this.setState({
+                                        todos: data
+                                    })
+                                })
+                            } ////////SQL Beispielcode///////
 
-    updateInput(e) {
-        const value = e.target.value
-        this.setState({ input: value })
-    }
+                            updateInput(e) { ////////SQL Beispielcode///////
+                                const value = e.target.value
+                                this.setState({ input: value })
+                            } ////////SQL Beispielcode///////
 
-    addToDo() {
-        fetch('http://localhost:8080/api/todos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({"descr" : this.state.input}) }) 
-            .then(res => res.json())
-            .then((result) => {
-                this.setState((currentState) => {
-                    return {
-                        todos: currentState.todos.concat(result),
-                        input: ""
-                    }
-                })
-            })
-    }
+                            addToDo() { ////////SQL Beispielcode///////
+                                fetch('http://localhost:8080/api/todos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({"descr" : this.state.input}) })  ////////SQL Beispielcode///////
+                                    .then(res => res.json())
+                                    .then((result) => {
+                                        this.setState((currentState) => {
+                                            return {
+                                                todos: currentState.todos.concat(result),
+                                                input: ""
+                                            }
+                                        })
+                                    })
+                            } ////////SQL Beispielcode///////
 
-    deleteToDo(id){
-        fetch('http://localhost:8080/api/todos/' + id, { method: 'DELETE' })
-            .then(res => res.json())
-            .then((result) => {
-                this.setState((state) => {
-                    return {
-                        todos: state.todos.filter((val) => val.id !== result[0].id)
-                    }
+                            deleteToDo(id){ ////////SQL Beispielcode///////
+                                fetch('http://localhost:8080/api/todos/' + id, { method: 'DELETE' })
+                                    .then(res => res.json())
+                                    .then((result) => {
+                                        this.setState((state) => {
+                                            return {
+                                                todos: state.todos.filter((val) => val.id !== result[0].id)
+                                            }
+                                        })
+                                    })
+                            } ////////SQL Beispielcode///////
 
-                })
-            })
-    }
-
-    ////////SQL Beispielcode///////
 
     render() {
       return (
         <div className="loginPage">
-          <h3>BeispielSQL Abfrage (Error, weil andere Datenbank)</h3>
-          <ul>
-              {this.state.todos.map((element) => (
-                  <li key={element.id}>{element.descr}
-                      <button onClick={() => this.deleteToDo(element.id)}>Delete</button>
-                  </li>
-              ))}
-          </ul>
-          <input
-              type="text"
-              value={this.state.input}
-              onChange={this.updateInput}
-          ></input><button onClick={this.addToDo}>Add</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
+          
+          
+                            <h3 ////////SQL Beispielcode/////// 
+                            >BeispielSQL Abfrage (Error, weil andere Datenbank)</h3>
+                            <ul>
+                                {this.state.todos.map((element) => ( 
+                                    <li key={element.id}>{element.descr}
+                                        <button onClick={() => this.deleteToDo(element.id)}>Delete</button>
+                                    </li>
+                                ))} 
+                            </ul>
+                            <input
+                                type="text"
+                                value={this.state.input}
+                                onChange={this.updateInput}
+                            ////////SQL Beispielcode///////
+                            ></input><button onClick={this.addToDo}>Add</button>
+          
 
 
         <Container fluid>
@@ -154,7 +143,7 @@ class LoginPage extends React.Component {
                   <Button 
                     className="orangeBackground" 
                     id="button-login"
-                    href="/map" 
+                    //href="/map" 
                     value="Einloggen"
                     onClick={this.onLoginButtonClick.bind(this)}>
                   </Button>

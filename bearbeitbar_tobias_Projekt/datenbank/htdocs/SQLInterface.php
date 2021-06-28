@@ -168,7 +168,8 @@ final class ToDoInterface {
 
 
 
-	/*
+	/* ////////SQL Beispielcode///////
+	
     public function selectToDos(){
         $sql = "SELECT * FROM ToDo;";
         return $this->conn->query($sql);
