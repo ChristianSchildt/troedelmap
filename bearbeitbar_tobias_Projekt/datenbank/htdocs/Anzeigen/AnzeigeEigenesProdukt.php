@@ -25,7 +25,7 @@
 		$username=$_SESSION['sess_user'];
 		$product;
 
-		$sqlproduct="SELECT produkt.pname, produkt.beschreibung, produkt.preis, produkt.bildlink, produkt.id_benutzer, benutzerkonto.bk_id 
+		$sqlproduct="SELECT produkt.pname, produkt.beschreibung, produkt.preis, produkt.bild, produkt.id_benutzer, benutzerkonto.bk_id 
 			FROM produkt 
 			INNER JOIN benutzerkonto ON produkt.id_benutzer=benutzerkonto.bk_id 
 			WHERE benutzerkonto.bk_id IN (	SELECT bk_id 
@@ -34,8 +34,7 @@
 		foreach ($database->conn->query($sqlproduct) as $row)
 		{
 			echo $row['pname']."<br/> ".$row['beschreibung']."<br/> ".$row['preis']."<br/> ";
-			#$bild=$row['bildlink'];
-			echo "<img src='" . $row['bildlink'] . "' height='130' width='150'> "."<br/>";		
+			echo "<img src='../Product/uploads/" . $row['bild'] . "' height='130' width='150'> "."<br/>";		
 		}
 		
 	}

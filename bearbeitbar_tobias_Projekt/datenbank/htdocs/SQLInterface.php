@@ -64,7 +64,7 @@ final class ToDoInterface {
 		return false;
 		}
 	 
-		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, bildlink, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
+		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?);";    
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$pname, $beschreibung, $preis, $bild,$uID]);
 		return $result;
@@ -158,11 +158,11 @@ final class ToDoInterface {
 		return $result;
 	}
 
-	public function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$id,$pn)
+	public function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$pn)
 	{
-		$sqlUP="UPDATE benutzerdaten SET produkt_id=?,pname=?, beschreibung=?, preis=?, bildlink=? WHERE id_benutzer=? AND pname=?";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?, bild=? WHERE pname='$pn'";
 		$statement = $this->conn->prepare($sqlUP);
-		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild,$id,$pn]);
+		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild, $pn]);
 		return $result;
 	}
 

@@ -47,7 +47,9 @@
 			$name=$row['pname'];
 			$beschreibung=$row['beschreibung'];
 			$preis=$row['preis'];
-			$bild=$row['bildlink'];	
+			$bild=$row['bild'];	
+			$idB=$row['id_benutzer'];
+
 		}
 	
 	}
@@ -61,13 +63,13 @@
 <body>
 
 	<div id="produkt-form">
-		<form method="post" action="AnzeigenEditResult.php">
+		<form method="post" action="AnzeigenEditResult.php" enctype="multipart/form-data">
 			<input id="pname" type="text" name="pname" value="<?php echo $name;?>"><br />
 			<input id="beschreibung" type="textarea" name="beschr" value="<?php echo $beschreibung;?>"><br />
 			<input id="preis" type="number" step="0.01" name="preis" value="<?php echo $preis;?>"><br />
-			<input id="bild" type="text" name="bild" value="<?php echo $bild;?>"><br />
-			<input id="name"  name="pn" value="<?php echo $_POST['name'];?>">
-			<button type="submit">Aenderung uebernehmen?</button>
+			<input id="bild" type="file" name="file" value="<?php echo "<img src='../Product/uploads/" . $row['bild'] . "' height='130' width='150'> "."<br/>";?>"><br />
+			<input type="hidden" id="name"  name="pn" value="<?php echo $name;?>">
+			<input type="submit" value="Upload"/>
 		</form>
 	</div>
 </body>
