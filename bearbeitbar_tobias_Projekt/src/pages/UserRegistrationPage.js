@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,6 +9,25 @@ import InputField from '../components/InputField';
 
 
 function UserRegistrationPage() {
+
+  const inputBenutzername = useRef(null);
+  const inputEmail = useRef(null);
+  const inputPasswort = useRef(null);
+  const inputPasswortWiederholen = useRef(null);
+  const inputKontaktinfos = useRef(null);
+
+  const onRegistrationButtonClick = () => {
+    // TODO: Daten an Datenbank weitergeben
+    console.log(`${inputBenutzername.current.state?.value}`);
+    console.log(`${inputEmail.current.state?.value}`);
+    console.log(`${inputPasswort.current.state?.value}`);
+    console.log(`${inputPasswortWiederholen.current.state?.value}`);
+    console.log(`${inputKontaktinfos.current.state?.value}`);
+
+    alert("Sie haben sich registriert.")
+  };
+
+
   return (
     <div className="userRegistrationPage">
       <Container fluid>
@@ -38,6 +57,7 @@ function UserRegistrationPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="benutzernamefield"
+                  ref={inputBenutzername}
                   placeholder="Benutzername">
                 </InputField>
               </Col>
@@ -46,6 +66,7 @@ function UserRegistrationPage() {
               <Col md={12} className="text-center">
                 <InputField id="emailfield"
                   type="email" 
+                  ref={inputEmail}
                   placeholder="Email">
                 </InputField>
               </Col>
@@ -54,6 +75,7 @@ function UserRegistrationPage() {
               <Col md={12} className="text-center">
                 <InputField id="passwordfield"
                   type="password" 
+                  ref={inputPasswort}
                   placeholder="Passwort">
                 </InputField>
               </Col>
@@ -62,6 +84,7 @@ function UserRegistrationPage() {
               <Col md={12} className="text-center">
                 <InputField id="passwordfield2" 
                   type="password"
+                  ref={inputPasswortWiederholen}
                   placeholder="Passwort wiederholen">
                 </InputField>
               </Col>
@@ -69,6 +92,7 @@ function UserRegistrationPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="kontaktinfofield"
+                  ref={inputKontaktinfos}
                   placeholder="Kontaktinfos">
                 </InputField>
               </Col>
@@ -93,7 +117,7 @@ function UserRegistrationPage() {
                   className="orangeBackground" 
                   id="button-registration" 
                   href="/login" 
-                  onClick={() => alert("Sie haben sich registriert.")} 
+                  onClick={onRegistrationButtonClick.bind(this)} 
                   value="Registrieren">
                 </Button>
               </Col>

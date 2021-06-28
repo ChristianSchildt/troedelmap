@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,6 +8,24 @@ import Text from '../components/Text';
 import InputField from '../components/InputField';
 
 function UserEditPage() {
+
+  const inputBenutzername = useRef(null);
+  const inputEmail = useRef(null);
+  const inputPasswort = useRef(null);
+  const inputPasswortWiederholen = useRef(null);
+  const inputKontaktinfos = useRef(null);
+
+  const onAcceptChanges = () => {
+    // TODO: Daten an Datenbank weitergeben
+    console.log(`${inputBenutzername.current.state?.value}`);
+    console.log(`${inputEmail.current.state?.value}`);
+    console.log(`${inputPasswort.current.state?.value}`);
+    console.log(`${inputPasswortWiederholen.current.state?.value}`);
+    console.log(`${inputKontaktinfos.current.state?.value}`);
+
+    alert("Änderungen wurden übernommen!")
+  }
+
   return (
     <div className="userEditPage">
       <Container fluid>
@@ -37,7 +55,8 @@ function UserEditPage() {
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="benutzernamefield" 
-                placeholder="Benutzername">
+                placeholder="Benutzername"
+                ref={inputBenutzername}>
                 </InputField>
               </Col>
             </Row>
@@ -45,7 +64,8 @@ function UserEditPage() {
               <Col md={12} className="text-center">
                 <InputField id="emailfield"
                   type="email"
-                  placeholder="Email">
+                  placeholder="Email"
+                  ref={inputEmail}>
                 </InputField>
               </Col>
             </Row>
@@ -53,7 +73,8 @@ function UserEditPage() {
               <Col md={12} className="text-center">
                 <InputField id="passwordfield"
                   type="password" 
-                  placeholder="Passwort">
+                  placeholder="Passwort"
+                  ref={inputPasswort}>
                 </InputField>
               </Col>
             </Row>
@@ -61,14 +82,16 @@ function UserEditPage() {
               <Col md={12} className="text-center">
                 <InputField id="passwordfield2" 
                   type="password"
-                  placeholder="Passwort wiederholen">
+                  placeholder="Passwort wiederholen"
+                  ref={inputPasswortWiederholen}>
                 </InputField>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
                 <InputField id="kontaktinfofield" 
-                  placeholder="Kontaktinfos">
+                  placeholder="Kontaktinfos"
+                  ref={inputKontaktinfos}>
                 </InputField>
               </Col>
             </Row>
@@ -89,7 +112,7 @@ function UserEditPage() {
                   className="orangeBackground" 
                   id="button-acceptChanges"
                   href="/map"
-                  onClick={() => alert("Änderungen wurden übernommen!")} 
+                  onClick={onAcceptChanges.bind(this)} 
                   value="Änderungen übernehmen">
                 </Button>
               </Col>

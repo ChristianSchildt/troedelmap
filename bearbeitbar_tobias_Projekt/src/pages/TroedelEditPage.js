@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +11,29 @@ import Text from '../components/Text';
 
 
 function TroedelEditPage() {
+
+  const inputProduktname = useRef(null);
+  const inputProduktpreis = useRef(null);
+  const inputProduktbeschreibung = useRef(null);
+  const inputStraße = useRef(null);
+  const inputHausnummer = useRef(null);
+  const inputPostleitzahl = useRef(null);
+  const inputOrt = useRef(null);
+
+  const onFinishButtonClick = () => {
+    // TODO: Daten an Datenbank weitergeben
+    console.log(`${inputProduktname.current.state?.value}`);
+    console.log(`${inputProduktpreis.current.state?.value}`);
+    console.log(`${inputProduktbeschreibung.current.state?.value}`);
+    console.log(`${inputStraße.current.state?.value}`);
+    console.log(`${inputHausnummer.current.state?.value}`);
+    console.log(`${inputPostleitzahl.current.state?.value}`);
+    console.log(`${inputOrt.current.state?.value}`);
+    
+    alert("Ihr Artikel wurde aktualisiert!")
+  };
+  
+
   return (
     <div className="troedelInsertPage">
       <Container fluid>
@@ -59,7 +82,7 @@ function TroedelEditPage() {
                   <Button 
                     className="whiteBackground" 
                     id="button-finish"
-                    onClick={() => alert("Ihr Artikel wurde aktualisiert!")} 
+                    onClick={onFinishButtonClick.bind(this)} 
                     value="Fertig">
                   </Button>
                 </Col>
@@ -78,14 +101,16 @@ function TroedelEditPage() {
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="produktnamefield" 
-                    placeholder="Produktname">
+                    placeholder="Produktname"
+                    ref={inputProduktname}>
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={{ span: 6, offset: 3}} className="text-center">
                   <InputField id="preisfield" 
-                    placeholder="Preis (in Euro)">
+                    placeholder="Preis (in Euro)"
+                    ref={inputProduktpreis}>
                   </InputField>
                 </Col>
               </Row>
@@ -94,6 +119,7 @@ function TroedelEditPage() {
                   <BigInputField
                     id="EingabeEmail"
                     placeholder="Produktbeschreibung"
+                    ref={inputProduktbeschreibung}
                     rows={4}>
                   </BigInputField>
                 </Col>
@@ -101,28 +127,32 @@ function TroedelEditPage() {
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="strassefield" 
-                    placeholder="Straße">
+                    placeholder="Straße"
+                    ref={inputStraße}>
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="hausnummerfield" 
-                    placeholder="Hausnummer">
+                    placeholder="Hausnummer"
+                    ref={inputHausnummer}>
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="postleitzahlfield" 
-                    placeholder="Postleitzahl">
+                    placeholder="Postleitzahl"
+                    ref={inputPostleitzahl}>
                   </InputField>
                 </Col>
               </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="ortfield" 
-                    placeholder="Ort">
+                    placeholder="Ort"
+                    ref={inputOrt}>
                   </InputField>
                 </Col>
               </Row>

@@ -8,17 +8,26 @@ import TextHeading from '../components/TextHeading';
 import InputField from '../components/InputField';
 
 class LoginPage extends React.Component {
-
   ////////SQL Beispielcode///////
-
-    constructor(props) {
+  
+    constructor(props) {                            //Konstruktor nicht löschen, enthält wichtige Dinge für die Refs
         super(props)
+        this.inputEmail = React.createRef();
+        this.inputPasswort = React.createRef(); 
         this.state = {
             todos: [],
             input: ""
         }
         this.updateInput = this.updateInput.bind(this)
         this.addToDo = this.addToDo.bind(this)
+    }
+
+    onLoginButtonClick = () => {                              //hat auch mit den Refs zutun, nicht löschen
+      //TODO: Daten an Datenbank weitergeben
+      console.log(`${this.inputEmail.current.state?.value}`);
+      console.log(`${this.inputPasswort.current.state?.value}`);
+
+      alert('Sie haben Sich eingeloggt.')
     }
 
     componentDidMount() {
@@ -126,7 +135,7 @@ class LoginPage extends React.Component {
                     id="EingabeEmail"
                     type="email" 
                     placeholder="Email"
-                    
+                    ref={this.inputEmail}
                   />
                 </Col>
               </Row>
@@ -136,7 +145,7 @@ class LoginPage extends React.Component {
                     id="EingabePassword"
                     type="password"
                     placeholder="Password"
-                    
+                    ref={this.inputPasswort}
                   />
                 </Col>
               </Row>
@@ -146,7 +155,8 @@ class LoginPage extends React.Component {
                     className="orangeBackground" 
                     id="button-login"
                     href="/map" 
-                    value="Einloggen">
+                    value="Einloggen"
+                    onClick={this.onLoginButtonClick.bind(this)}>
                   </Button>
                 </Col>
               </Row>

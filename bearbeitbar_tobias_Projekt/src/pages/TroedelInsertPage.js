@@ -21,8 +21,14 @@ function TroedelInsertPage() {
   
   const onAddButtonClick = () => {
     // TODO: Daten an Datenbank weitergeben
-    console.log(`${inputName.current.state?.value}, ${inputBeschreibung.current.state?.value}, ...`);
-    
+    console.log(`${inputName.current.state?.value}`);
+    console.log(`${inputBeschreibung.current.state?.value}`);
+    console.log(`${inputPreis.current.state?.value}`);
+    console.log(`${inputStrasse.current.state?.value}`);
+    console.log(`${inputHausnummer.current.state?.value}`);
+    console.log(`${inputPlz.current.state?.value}`);
+    console.log(`${inputOrt.current.state?.value}`);
+
     alert("Trödel wurde hinzugefügt!")
   };
    
