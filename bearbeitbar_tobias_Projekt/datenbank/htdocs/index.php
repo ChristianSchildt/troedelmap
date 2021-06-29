@@ -53,7 +53,35 @@
 
         /*$app->get(...
             $this->get(’db’);
-        );*/
+        );
+        
+        $app->get('/api/todos', function (Request $request, Response $response, array $args){
+            $todoCreator = new ToDoInterface($this->get('db'));
+            $todos = $todoCreator->selectTodos()->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode($todos));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+
+        $app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
+            $todo_id = $args["todo_id"];
+            if(is_numeric($todo_id)){
+                $todoCreator = new ToDoInterface($this->get('db'));
+                $todo = $todoCreator->deleteTodo($todo_id)->fetchAll(PDO::FETCH_ASSOC);
+                $response->getBody()->write(json_encode($todo));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }
+            return $response->withStatus(400);
+        });
+
+        $app->post('/api/todos', function (Request $request, Response $response, array $args){
+            $rawData = $request->getBody();
+            $todoCreator = new ToDoInterface($this->get('db'));
+            $todo = $todoCreator->insertTodo(json_decode($rawData, true))->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode($todo));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+        
+        */
 
     /*SQLFunktion sind in SQLInterface.sql*/
 
