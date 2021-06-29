@@ -53,16 +53,16 @@
 
         /*$app->get(...
             $this->get(’db’);
-        );
+        );*/
         
-        $app->get('/api/todos', function (Request $request, Response $response, array $args){
-            $todoCreator = new ToDoInterface($this->get('db'));
-            $todos = $todoCreator->selectTodos()->fetchAll(PDO::FETCH_ASSOC);
+        $app->get('/api/products', function (Request $request, Response $response, array $args){
+            $todoCreator = new SQLInterface($this->get('db'));
+            $products = $todoCreator->get_product()->fetchAll(PDO::FETCH_ASSOC);
             $response->getBody()->write(json_encode($todos));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
+        /*$app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
             $todo_id = $args["todo_id"];
             if(is_numeric($todo_id)){
                 $todoCreator = new ToDoInterface($this->get('db'));

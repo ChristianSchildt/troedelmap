@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,6 +10,7 @@ import LeafletMap from '../components/LeafletMap'
 import InputField from '../components/InputField'
 
 function MapPage() {
+  const [products, setProducts] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const map = useRef(null);
   const searchbar = useRef(null);
@@ -18,6 +19,18 @@ function MapPage() {
     map.current.setFilter(searchbar.current.state.value);
     setSelectedProduct(null);
   }
+  
+  
+    // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    console.log("componentDidMount");
+    fetch('http://localhost:8080/api/products')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    
+  });
   
   return (
     <div className="mapPage">
