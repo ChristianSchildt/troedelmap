@@ -9,7 +9,7 @@
 
 
     $container->set('db', function() {
-        $dbhost = 'localhost';
+        $dbhost = 'mariadb';
         $dbuser = 'root';
         $dbpass = 'allgemein';
         $db ='troedelmap';
