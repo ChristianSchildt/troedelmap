@@ -270,6 +270,7 @@ div > .form-control, div > .inputField
     width: -moz-available;  
     margin: 0em 1em 0em 1em;
     margin-bottom: 1rem;
+    outline: none;
 }
   
   #logoicon {
