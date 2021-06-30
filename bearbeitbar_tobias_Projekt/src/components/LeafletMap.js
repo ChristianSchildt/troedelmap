@@ -6,51 +6,6 @@ import { adressToLatLng } from '../utils'
 
 // Koordinaten wurden zum testen aus Google Maps kopiert
 var latLngHsBochum = [51.44791892028939, 7.270757727589923];
-var products = [
-  {
-    id: 0,
-    title: "Laptop",
-    description: "Nur 1 Jahr alt. Kann Gebrauchsspuren haben. Bitte anrufen oder eine Mail schreiben.",
-    price: "200",
-    picture: "https://i.imgur.com/Um9Oibd.jpg",
-    latLng: [51.45239101208025, 7.262910997134508]
-  },
-  {
-    id: 1,
-    title: "Tablet",
-    description: "Hier steht später eine Tablet-Beschreibung",
-    price: "50",
-    picture: "https://i.imgur.com/uKTW3Z7.jpg",
-    latLng: [51.451248895848934, 7.261168763806634]
-  },
-  {
-    id: 2,
-    title: "Desktop PC",
-    description: "Hier steht später eine DesktopPC-Beschreibung",
-    price: "600",
-    picture: "https://i.imgur.com/3XmZRU7.jpg",
-    latLng:  [51.44922427794989, 7.258648379933391],
-    radius: 50
-  },
-  {
-    id: 3,
-    title: "Smartphone",
-    description: "Hier steht später eine Smartphone-Beschreibung",
-    price: "70",
-    picture: "https://i.imgur.com/WbEqy8d.jpg",
-    latLng:[51.44892189700104, 7.254645487136491],
-  },
-  {
-    id: 4,
-    title: "Java ist auch eine Insel",
-    description: "Hier steht später eine Buch-Beschreibung",
-    price: "5",
-    picture: "https://i.imgur.com/cJwW7BF.jpg",
-    latLng: null,
-    address: "Soldnerstraße 18, 44801 Bochum, Germany"
-  }
-];
-
 
 // der Einfachheit halber heißt die Klasse nicht "Map", da es bereits einen Typ mit diesem Namen gibt
 class LeafletMap extends React.Component {
@@ -80,8 +35,13 @@ class LeafletMap extends React.Component {
   
   componentDidMount() {
     this.initMap();
-    this.updateMap();
     this.updatePosition();
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.products !== this.props.products) {
+      this.updateMap();
+    }
   }
   
   initMap() {  
@@ -119,18 +79,19 @@ class LeafletMap extends React.Component {
     this.layerGroupMarkers.clearLayers();
     this.map.closePopup();
     
-    for (var i = 0; i < products.length; i++) {
-      let product = products[i];
+    for (var i = 0; i < this.props.products.length; i++) {
+      let p = this.props.products[i];
       
       // check filter
-      if (this.filter && !(product.title.toLowerCase().includes(this.filter) || product.description.toLowerCase().includes(this.filter))) {
+      if (this.filter && !(p.pname.toLowerCase().includes(this.filter) || p.beschreibung.toLowerCase().includes(this.filter))) {
         continue;
       }
       
       //--- just testing converting address to position on map
-      if (product.latLng === null) {
-        adressToLatLng(product.address, (function(latLng) {
-          product.latLng = latLng;
+      if (!p.latLng) {
+        const addr = `${p.strasse} + ${p.hausnr}, ${p.plz} ${p.ort}, Germany`;
+        adressToLatLng(addr, (function(latLng) {
+          p.latLng = latLng;
           this.updateMap();
         }).bind(this));
         continue;
@@ -139,17 +100,17 @@ class LeafletMap extends React.Component {
       
       // create marker
       let customMarker;
-      if (!product.radius) {
-          customMarker = L.marker(product.latLng, {icon: this.marker})         
+      if (!p.radius) {
+          customMarker = L.marker(p.latLng, {icon: this.marker})         
       } else {
-          customMarker = L.circle(product.latLng, product.radius, {
+          customMarker = L.circle(p.latLng, p.radius, {
               color: '#F48C06',
               fillColor: '#F48C06',
               fillOpacity: 0.5,
           })
       }
       customMarker.addTo(this.layerGroupMarkers)
-          .on('click', this.onClickMarker.bind(this, product));
+          .on('click', this.onClickMarker.bind(this, p));
     }
   }
   
@@ -163,12 +124,12 @@ class LeafletMap extends React.Component {
     // es wird ein String genutzt, da Babel ein React Element erzeugen würde
     var content = this.htmlToElement(`<div class="popup-background">
         <div class="popup-price-background">
-           <span class="popup-text">${product?.price}€</span>
+           <span class="popup-text">${product?.preis}€</span>
         </div>
         <div class="popup-title-background">
-           <span class="popup-text">${product?.title}</span>
+           <span class="popup-text">${product?.pname}</span>
         </div>
-        <img class="popup-picture" src="${product?.picture}"></img>
+        <img class="popup-picture" src="${product?.bild}"></img>
         <input type="image" class="popup-close-button" src="images/schließen.jpg"></input>
      </div>`)
     
