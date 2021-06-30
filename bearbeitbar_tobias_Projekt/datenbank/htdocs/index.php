@@ -5,8 +5,8 @@
     use DI\Container;
     require 'SQLInterface.php';
     require 'vendor/autoload.php';
-    $container = new Container();
 
+    $container = new Container();
 
     $container->set('db', function() {
         $dbhost = 'mariadb';
@@ -30,8 +30,9 @@
     });
 
     AppFactory::setContainer($container);
+    
     $app = AppFactory::create();
-
+    
     $app->options('/{routes:.+}', function ($request, $response, $args) {
         return $response;
     });
@@ -43,7 +44,6 @@
                 ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     });
-
 
     $app->get('/test/{name}', function (Request $request, Response $response, array $args){
         $name = $args['name'];
@@ -70,27 +70,34 @@
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
+
+		$app->get('/api/todos', function (Request $request, Response $response, array $args){
+            $todoCreator = new SQLInterface($this->get('db'));
+            $todos = $todoCreator->selectTodos()->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode($todos));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
         
-        /*$app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
+        $app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
             $todo_id = $args["todo_id"];
             if(is_numeric($todo_id)){
-                $todoCreator = new ToDoInterface($this->get('db'));
+                $todoCreator = new SQLInterface($this->get('db'));
                 $todo = $todoCreator->deleteTodo($todo_id)->fetchAll(PDO::FETCH_ASSOC);
                 $response->getBody()->write(json_encode($todo));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }
             return $response->withStatus(400);
         });
-
+        
         $app->post('/api/todos', function (Request $request, Response $response, array $args){
             $rawData = $request->getBody();
-            $todoCreator = new ToDoInterface($this->get('db'));
+            $todoCreator = new SQLInterface($this->get('db'));
             $todo = $todoCreator->insertTodo(json_decode($rawData, true))->fetchAll(PDO::FETCH_ASSOC);
             $response->getBody()->write(json_encode($todo));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
         
-        */
+        
 
     /*SQLFunktion sind in SQLInterface.sql*/
 

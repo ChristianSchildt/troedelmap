@@ -168,7 +168,7 @@ final class SQLInterface {
 
 
 
-	/* ////////SQL Beispielcode///////
+	 ////////SQL Beispielcode///////
 	
     public function selectToDos(){
         $sql = "SELECT * FROM ToDo;";
@@ -188,6 +188,6 @@ final class SQLInterface {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$todo["descr"]]);
         return $stmt;
-    }*/
+    }
 
 }

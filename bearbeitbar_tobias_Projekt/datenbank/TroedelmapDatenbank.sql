@@ -15,7 +15,25 @@
 
 -- Exportiere Datenbank Struktur für troedelmap
 CREATE DATABASE IF NOT EXISTS `troedelmap` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'allgemein';
+
+GRANT ALL PRIVILEGES ON troedelmap.* TO 'root'@'%' IDENTIFIED BY 'allgemein';
+FLUSH PRIVILEGES;
+
 USE `troedelmap`;
+
+DROP TABLE IF EXISTS ToDo;
+
+CREATE TABLE ToDo
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	descr VARCHAR(60) NOT NULL
+);
+
+INSERT INTO ToDo VALUES(NULL, "Wohnung putzen");
+INSERT INTO ToDo VALUES(NULL, "Essen kochen");
+
 
 -- Exportiere Struktur von Tabelle troedelmap.benutzerdaten
 CREATE TABLE IF NOT EXISTS `benutzerdaten` (

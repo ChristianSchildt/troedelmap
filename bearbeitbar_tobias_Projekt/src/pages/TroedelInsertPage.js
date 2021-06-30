@@ -31,7 +31,7 @@ function TroedelInsertPage() {
       id_benutzer: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
-    fetch('http://localhost:8080/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    fetch('http://localhost:8080/api/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
     .then((result) => {console.log(result)})
 
@@ -142,7 +142,7 @@ function TroedelInsertPage() {
                 <Button 
                   className="orangeBackground" 
                   id="button-addMyTroedel"
-                  href="/map"
+                  //href="/map" //Zum SQL testen auskommentiert
                   onClick={onAddButtonClick.bind(this)}
                   value="Meinen Trödel hinzufügen">
                 </Button>

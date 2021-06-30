@@ -13,14 +13,14 @@ class LoginPage extends React.Component {
         super(props)
         this.inputEmail = React.createRef();
         this.inputPasswort = React.createRef(); 
-                            /*
+                            
                             this.state = { ////////SQL Beispielcode///////
                                 todos: [], ////////SQL Beispielcode///////
                                 input: "" ////////SQL Beispielcode///////
                             } ////////SQL Beispielcode///////
                             this.updateInput = this.updateInput.bind(this) ////////SQL Beispielcode///////
                             this.addToDo = this.addToDo.bind(this) ////////SQL Beispielcode///////
-                            */
+                            
     }
 
     onLoginButtonClick = () => {  //Nicht löschen, hat auch mit den Refs zutun.
@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
       alert('Sie haben Sich eingeloggt.')
     }
 
-                            /*
+
                             componentDidMount() { ////////SQL Beispielcode///////
                                 fetch('http://localhost:8080/api/todos')
                                 .then(response => response.json())
@@ -91,12 +91,9 @@ class LoginPage extends React.Component {
                                 onChange={this.updateInput}
                             ////////SQL Beispielcode///////
                             ></input><button onClick={this.addToDo}>Add</button>
-                            */
+                            
           
 
-    render() {
-      return (
-        <div className="loginPage">
         <Container fluid>
           <Row>
             <Col md={3}>
