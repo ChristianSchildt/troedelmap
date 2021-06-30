@@ -62,6 +62,15 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
+        $app->post('/api/products/add', function (Request $request, Response $response, array $args){
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, true);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
+            $response->getBody()->write(json_encode($product));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+        
         /*$app->delete('/api/todos/{todo_id}', function (Request $request, Response $response, array $args){
             $todo_id = $args["todo_id"];
             if(is_numeric($todo_id)){

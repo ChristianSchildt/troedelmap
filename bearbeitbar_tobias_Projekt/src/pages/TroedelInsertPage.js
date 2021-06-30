@@ -20,14 +20,21 @@ function TroedelInsertPage() {
   const inputOrt = useRef(null);
   
   const onAddButtonClick = () => {
-    // TODO: Daten an Datenbank weitergeben
-    console.log(`${inputName.current.state?.value}`);
-    console.log(`${inputBeschreibung.current.state?.value}`);
-    console.log(`${inputPreis.current.state?.value}`);
-    console.log(`${inputStrasse.current.state?.value}`);
-    console.log(`${inputHausnummer.current.state?.value}`);
-    console.log(`${inputPlz.current.state?.value}`);
-    console.log(`${inputOrt.current.state?.value}`);
+    let product = {
+      pname: inputName.current.state?.value,
+      beschreibung: inputBeschreibung.current.state?.value,
+      preis: inputPreis.current.state?.value,
+      strasse: inputStrasse.current.state?.value,
+      hausnr: inputHausnummer.current.state?.value,
+      plz: inputPlz.current.state?.value,
+      ort: inputOrt.current.state?.value,
+      bild: null, //TODO: bild einfügen
+      id_benutzer: 1 //TODO: soll später der tatsächliche Nutzer sein
+    }
+    
+    fetch('http://localhost:8080/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    .then(res => res.json())
+    .then((result) => {console.log(result)})
 
     alert("Trödel wurde hinzugefügt!")
   };
