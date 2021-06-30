@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `produkt` (
 -- Exportiere Daten aus Tabelle troedelmap.produkt: ~2 rows (ungefähr)
 /*!40000 ALTER TABLE `produkt` DISABLE KEYS */;
 INSERT INTO `produkt` (`produkt_id`, `pname`, `beschreibung`, `preis`, `strasse`, `hausnr`, `plz`, `ort`, `bild`, `id_benutzer`) VALUES
-	(49, 'Tisch', 'ein tisch aus holz', 187.69, 'Soldnerstraße', '18', '44801', 'Bochum', _binary 0x6D6173736976686F6C7A2D74697363682D65696368652D6E6163682D6D6173732E6A7067, 1),
-	(51, 'Tisch2', 'ein zweiter tisch', 187.69, 'Soldnerstraße', '21', '44801', 'Bochum', _binary 0x313735362E706E67, 1);
+	(49, 'Tisch', 'ein tisch aus holz', 187.69, 'Soldnerstrasse', '18', '44801', 'Bochum', _binary 0x6D6173736976686F6C7A2D74697363682D65696368652D6E6163682D6D6173732E6A7067, 1),
+	(51, 'Tisch2', 'ein zweiter tisch', 187.69, 'Soldnerstrasse', '21', '44801', 'Bochum', _binary 0x313735362E706E67, 1);
 /*!40000 ALTER TABLE `produkt` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
