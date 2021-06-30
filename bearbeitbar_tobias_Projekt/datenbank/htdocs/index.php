@@ -56,9 +56,9 @@
         );*/
         
         $app->get('/api/products', function (Request $request, Response $response, array $args){
-            $todoCreator = new SQLInterface($this->get('db'));
-            $products = $todoCreator->get_product()->fetchAll(PDO::FETCH_ASSOC);
-            $response->getBody()->write(json_encode($todos));
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $products = $sqlinterface->get_product();
+            $response->getBody()->write(json_encode($products));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
