@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +8,6 @@ import BigPopup from '../components/BigPopup';
 import Picture from '../components/Picture';
 import LeafletMap from '../components/LeafletMap'
 import InputField from '../components/InputField'
-import { render } from '@testing-library/react';
 
 class MapPage extends React.Component {
   constructor(props) {
@@ -29,7 +28,6 @@ class MapPage extends React.Component {
   
   // Similar to componentDidMount and componentDidUpdate:
   componentDidMount() {
-    console.log("componentDidMount");
     fetch('http://localhost:8080/api/products')
     .then(response => response.json())
     .then(data => {

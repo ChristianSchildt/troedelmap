@@ -9,10 +9,7 @@ var latLngHsBochum = [51.44791892028939, 7.270757727589923];
 
 // der Einfachheit halber heißt die Klasse nicht "Map", da es bereits einen Typ mit diesem Namen gibt
 class LeafletMap extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
+   
   /**
    * "public" methods
    */
