@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Picture from '../components/Picture';
 import Text from '../components/Text';
 import InputField from '../components/InputField';
+import FileInput from '../components/FileInput';
 
 function UserEditPage() {
 
@@ -15,6 +16,9 @@ function UserEditPage() {
   const inputPasswortWiederholen = useRef(null);
   const inputKontaktinfos = useRef(null);
 
+  const [image, setImage] = useState(0);    
+  const [imageData, setImageData] = useState(0);    //Hier muss als default noch das bisherige Bild aus der Datenbank eingefügt werden
+
   const onAcceptChanges = () => {
     // TODO: Daten an Datenbank weitergeben
     console.log(`${inputBenutzername.current.state?.value}`);
@@ -22,8 +26,21 @@ function UserEditPage() {
     console.log(`${inputPasswort.current.state?.value}`);
     console.log(`${inputPasswortWiederholen.current.state?.value}`);
     console.log(`${inputKontaktinfos.current.state?.value}`);
+    console.log(image);
 
     alert("Änderungen wurden übernommen!")
+  }
+
+  const fileSelectedHandler = event => {
+    if(event.target.files[0])
+    {
+      setImage(event.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImageData(reader.result);
+      });
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   return (
@@ -97,13 +114,16 @@ function UserEditPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                {/* Profilbild */}
-                <Button 
-                  className="whiteBackground" 
-                  id="button-editUserPicture"
-                  onClick={() => alert("Profilbild wurde aktualisiert.")} 
-                  value="Profilbild bearbeiten">
-                </Button>
+                <Picture 
+                  id="picture-laptop-big" 
+                  src={imageData}
+                  alt="Bildersatz">
+                </Picture>
+                <FileInput
+                  inputId="fileInputProduktbild"
+                  labelValue="Produktbild auswählen"
+                  inputOnChange={fileSelectedHandler.bind(this)}>  
+                </FileInput>
               </Col>
             </Row>
             <Row>
