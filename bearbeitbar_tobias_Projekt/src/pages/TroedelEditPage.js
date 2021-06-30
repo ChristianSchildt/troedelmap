@@ -1,13 +1,13 @@
-import React, { useRef} from 'react';
+import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '../components/Button';
-import ImageButton from '../components/ImageButton';
 import Picture from '../components/Picture';
 import BigInputField from '../components/BigInputField';
 import InputField from '../components/InputField';
 import Text from '../components/Text';
+import FileInput from '../components/FileInput';
 
 
 function TroedelEditPage() {
@@ -20,6 +20,9 @@ function TroedelEditPage() {
   const inputPostleitzahl = useRef(null);
   const inputOrt = useRef(null);
 
+  const [image, setImage] = useState(0);    
+  const [imageData, setImageData] = useState(0);    //Hier muss als default noch das bisherige Bild aus der Datenbank eingefügt werden
+
   const onFinishButtonClick = () => {
     // TODO: Daten an Datenbank weitergeben
     console.log(`${inputProduktname.current.state?.value}`);
@@ -29,9 +32,22 @@ function TroedelEditPage() {
     console.log(`${inputHausnummer.current.state?.value}`);
     console.log(`${inputPostleitzahl.current.state?.value}`);
     console.log(`${inputOrt.current.state?.value}`);
+    console.log(image);
     
     alert("Ihr Artikel wurde aktualisiert!")
   };
+
+  const fileSelectedHandler = event => {
+    if(event.target.files[0])
+    {
+      setImage(event.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImageData(reader.result);
+      });
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
   
 
   return (
@@ -88,16 +104,19 @@ function TroedelEditPage() {
                 </Col>
               </Row>
               <Row>
-              <Col md={12} className="text-center">
-                {/* Produktbild
-                Zum Ändern anklicken */}
-                <ImageButton 
-                  id="picture-laptop-big" 
-                  src="images/laptop.jpg"
-                  onClick={() => alert("Ihr Bild wurde aktualisiert.")}>
-                </ImageButton>
-              </Col>
-            </Row>
+                <Col md={12} className="text-center">
+                  <Picture 
+                    id="picture-laptop-big" 
+                    src={imageData}
+                    alt="Bildersatz">
+                  </Picture>
+                  <FileInput
+                    inputId="fileInputProduktbild"
+                    labelValue="Produktbild auswählen"
+                    inputOnChange={fileSelectedHandler.bind(this)}>  
+                  </FileInput>
+                </Col>
+              </Row>
               <Row>
                 <Col md={12} className="text-center">
                   <InputField id="produktnamefield" 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +7,8 @@ import Picture from '../components/Picture';
 import Text from '../components/Text';
 import InputField from '../components/InputField';
 import BigInputField from '../components/BigInputField';
+import FileInput from '../components/FileInput';
+import { on } from 'process';
 
 
 function TroedelInsertPage() {
@@ -17,8 +19,11 @@ function TroedelInsertPage() {
   const inputHausnummer = useRef(null);
   const inputPlz = useRef(null);
   const inputOrt = useRef(null);
+
+  const [image, setImage] = useState(0);
   
   const onAddButtonClick = () => {
+    
     let product = {
       pname: inputName.current.state?.value,
       beschreibung: inputBeschreibung.current.state?.value,
@@ -27,7 +32,7 @@ function TroedelInsertPage() {
       hausnr: inputHausnummer.current.state?.value,
       plz: inputPlz.current.state?.value,
       ort: inputOrt.current.state?.value,
-      bild: null, //TODO: bild einfügen
+      bild: image, //TODO: bild einfügen
       id_benutzer: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
@@ -37,6 +42,10 @@ function TroedelInsertPage() {
 
     alert("Trödel wurde hinzugefügt!")
   };
+
+  const fileSelectedHandler = event => {
+    setImage(event.target.files[0]);
+  }
    
   return (
     <div className="troedelInsertPage">
@@ -123,18 +132,12 @@ function TroedelInsertPage() {
               </Col>
             </Row>
             <Row>
-              <Col md={6} className="text-center">
-                <Text id="produktbildwahl"
-                  value="Produktbild auswählen">
-                </Text>
-              </Col>
-              <Col md={6}className="text-center">
-                <Button 
-                  className="whiteBackground" 
-                  id="choose"
-                  onClick={() => alert("Produktbild wurde ausgewählt.")} 
-                  value="Auswählen">
-                </Button>
+              <Col md={12} className="text-center">
+                <FileInput
+                  inputId="fileInputProduktbild"
+                  labelValue="Produktbild auswählen"
+                  inputOnChange={fileSelectedHandler.bind(this)}>  
+                </FileInput>
               </Col>
             </Row>
             <Row>

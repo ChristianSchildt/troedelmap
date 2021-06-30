@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Picture from '../components/Picture';
 import TextHeading from '../components/TextHeading';
 import InputField from '../components/InputField';
+import FileInput from '../components/FileInput';
 
 
 function UserRegistrationPage() {
@@ -16,6 +17,8 @@ function UserRegistrationPage() {
   const inputPasswortWiederholen = useRef(null);
   const inputKontaktinfos = useRef(null);
 
+  const [image, setImage] = useState(0);
+
   const onRegistrationButtonClick = () => {
     // TODO: Daten an Datenbank weitergeben
     console.log(`${inputBenutzername.current.state?.value}`);
@@ -23,9 +26,14 @@ function UserRegistrationPage() {
     console.log(`${inputPasswort.current.state?.value}`);
     console.log(`${inputPasswortWiederholen.current.state?.value}`);
     console.log(`${inputKontaktinfos.current.state?.value}`);
+    console.log(image);
 
     alert("Sie haben sich registriert.")
   };
+
+  const fileSelectedHandler = event => {
+    setImage(event.target.files[0]);
+  }
 
 
   return (
@@ -99,20 +107,15 @@ function UserRegistrationPage() {
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                {/* Profilbild */}
-                <Button 
-                  className="whiteBackground" 
-                  id="button-chooseUserPicture" 
-                  onClick={() => alert("Profilbild wurde ausgewählt!")} 
-                  value="Profilbild auswählen (optional)">
-                </Button>
+                <FileInput
+                  inputId="fileInputProfilbild"
+                  labelValue="Profilbild auswählen (optional)"
+                  inputOnChange={fileSelectedHandler.bind(this)}>  
+                </FileInput>
               </Col>
             </Row>
             <Row>
               <Col md={12} className="text-center">
-                {/* <a href = "/login"><button type="button" className="btn btn-light">
-                  Registrieren
-                </button></a> */}
                 <Button 
                   className="orangeBackground" 
                   id="button-registration" 
