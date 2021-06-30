@@ -60,6 +60,10 @@ CREATE TABLE IF NOT EXISTS `produkt` (
   `pname` varchar(30) DEFAULT NULL,
   `beschreibung` varchar(120) DEFAULT NULL,
   `preis` float DEFAULT NULL,
+  `strasse` varchar(30) DEFAULT NULL,
+  `hausnr` varchar(10) DEFAULT NULL,
+  `plz` varchar(10) DEFAULT NULL,
+  `ort` varchar(30) DEFAULT NULL,
   `bild` blob DEFAULT NULL,
   `id_benutzer` int(11) DEFAULT NULL,
   PRIMARY KEY (`produkt_id`),
@@ -69,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `produkt` (
 
 -- Exportiere Daten aus Tabelle troedelmap.produkt: ~2 rows (ungefähr)
 /*!40000 ALTER TABLE `produkt` DISABLE KEYS */;
-INSERT INTO `produkt` (`produkt_id`, `pname`, `beschreibung`, `preis`, `bild`, `id_benutzer`) VALUES
-	(49, 'Tisch', 'ein tisch aus holz', 187.69, _binary 0x6D6173736976686F6C7A2D74697363682D65696368652D6E6163682D6D6173732E6A7067, 1),
-	(51, 'Tisch2', 'ein zweiter tisch', 187.69, _binary 0x313735362E706E67, 1);
+INSERT INTO `produkt` (`produkt_id`, `pname`, `beschreibung`, `preis`, `strasse`, `hausnr`, `plz`, `ort`, `bild`, `id_benutzer`) VALUES
+	(49, 'Tisch', 'ein tisch aus holz', 187.69, 'Soldnerstraße', '18', '44801', 'Bochum', _binary 0x6D6173736976686F6C7A2D74697363682D65696368652D6E6163682D6D6173732E6A7067, 1),
+	(51, 'Tisch2', 'ein zweiter tisch', 187.69, 'Soldnerstraße', '21', '44801', 'Bochum', _binary 0x313735362E706E67, 1);
 /*!40000 ALTER TABLE `produkt` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
