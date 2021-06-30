@@ -50,14 +50,14 @@ class MapPage extends React.Component {
                   ref={this.searchbar}
                   type="search" //not supported in some Browsers, e.g. Firefox
                   placeholder="Was suchst du?"
-                  onKeyDown={(event) => {if (event.key === 'Enter') this.applyMapFilter();}}
-                  onsearch={() => {if (!this.searchbar.current.state.value) this.applyMapFilter();}} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
+                  onKeyDown={((event) => {if (event.key === 'Enter') this.applyMapFilter();}).bind(this)}
+                  onsearch={(() => {if (!this.searchbar.current.state.value) this.applyMapFilter();}).bind(this)} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
                   >
                 </InputField>
                 <ImageButton 
                   id="button-search" 
                   src="images/lupe.jpg" 
-                  onClick={this.applyMapFilter}>
+                  onClick={this.applyMapFilter.bind(this)}>
                 </ImageButton>
               </InputGroup>
             </Col>
