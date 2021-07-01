@@ -23,6 +23,8 @@ FLUSH PRIVILEGES;
 
 USE `troedelmap`;
 
+
+/* SQL Beispiel */
 DROP TABLE IF EXISTS ToDo;
 
 CREATE TABLE ToDo
@@ -33,6 +35,7 @@ CREATE TABLE ToDo
 
 INSERT INTO ToDo VALUES(NULL, "Wohnung putzen");
 INSERT INTO ToDo VALUES(NULL, "Essen kochen");
+/* SQL Beispiel */
 
 
 -- Exportiere Struktur von Tabelle troedelmap.benutzerdaten

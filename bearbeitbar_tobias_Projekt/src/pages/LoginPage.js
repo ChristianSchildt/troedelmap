@@ -16,10 +16,21 @@ class LoginPage extends React.Component {
                             
                             this.state = { ////////SQL Beispielcode///////
                                 todos: [], ////////SQL Beispielcode///////
-                                input: "" ////////SQL Beispielcode///////
+                                input: "", ////////SQL Beispielcode///////
+
+                                usernameInput: '', ////////LOGIN Beispielcode///////
+                                passwordInput: '', ////////LOGIN Beispielcode///////
+                                refresh_token: '', ////////LOGIN Beispielcode///////
+                                access_token: '', ////////LOGIN Beispielcode///////
+                                username: '', ////////LOGIN Beispielcode///////
+
                             } ////////SQL Beispielcode///////
                             this.updateInput = this.updateInput.bind(this) ////////SQL Beispielcode///////
                             this.addToDo = this.addToDo.bind(this) ////////SQL Beispielcode///////
+
+                          this.updateUsernameField = this.updateUsernameField.bind(this) ////////LOGIN Beispielcode///////
+                          this.updatePasswordField = this.updatePasswordField.bind(this) ////////LOGIN Beispielcode///////
+                          this.handleSubmit = this.handleSubmit.bind(this) ////////LOGIN Beispielcode///////
                             
     }
 
@@ -73,9 +84,85 @@ class LoginPage extends React.Component {
                             } ////////SQL Beispielcode///////
 
 
+                            ////////LOGIN Beispielcode///////
+                              updateUsernameField(event) {
+                                  this.setState({
+                                      usernameInput: event.target.value
+                                  })
+                              }
+                          
+                              updatePasswordField(event) {
+                                  this.setState({
+                                      passwordInput: event.target.value
+                                  })
+                              }
+                          
+                              handleSubmit(event) {
+                                  event.preventDefault();
+                                  let formData = new FormData()
+                                  formData.append("grant_type", "password")
+                                  formData.append("client_id", "reactapp")
+                                  formData.append("client_secret", "abc123")
+                                  formData.append("username", this.state.usernameInput)
+                                  formData.append("password", this.state.passwordInput)
+                                  formData.append("scope", 'admin')
+                          
+                                  const requestOptions = {
+                                      method: 'POST',
+                                      body: formData
+                                  }
+                                  fetch('http://localhost:8080/api/auth', requestOptions)
+                                      .then(response => response.json())
+                                      .then(data => {
+                                          if (data.access_token) {
+                                              this.setState(currentState => ({
+                                                  access_token: data.access_token,
+                                                  refresh_token: data.refresh_token,
+                                                  username: currentState.usernameInput
+                                              }))
+                                          }
+                                          else {
+                                              alert("Wrong credentials");
+                                          }
+                                          this.setState({
+                                              passwordInput: '',
+                                              usernameInput: ''
+                                          })
+                                      })
+                              }
+                          
+                          
     render() {
-      return (
-        <div className="loginPage">
+        if (this.state.refresh_token === '') {  ////////LOGIN Beispielcode///////
+            return (
+              <div className="loginPage">
+                    <h1>Login</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Username:
+                                </td>
+                                    <td>
+                                        <input type="text" name="username" onChange={this.updateUsernameField} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Password:
+                                </td>
+                                    <td>
+                                        <input type="password" name="password" onChange={this.updatePasswordField} />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <input type="submit" value="Login"  ////////LOGIN Beispielcode///////
+                         />
+                    </form>
+
+        
                             <h3 ////////SQL Beispielcode/////// 
                             >BeispielSQL Abfrage (Error, weil andere Datenbank)</h3>
                             <ul>
@@ -153,9 +240,16 @@ class LoginPage extends React.Component {
             </Col>
           </Row>
         </Container>
-      </div>
-    );
-  }
+        </div>
+            )   ////////LOGIN Beispielcode///////
+
+        }   ////////LOGIN Beispielcode///////
+        else {   ////////LOGIN Beispielcode///////
+            return (   ////////LOGIN Beispielcode///////
+                <h1>You are logged in as {this.state.username}</h1>   ////////LOGIN Beispielcode///////
+            )   ////////LOGIN Beispielcode///////
+        }   ////////LOGIN Beispielcode///////
+    }
 }
 
 
