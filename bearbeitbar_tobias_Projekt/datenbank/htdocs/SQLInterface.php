@@ -59,10 +59,6 @@ final class SQLInterface {
 		if ($preis == NULL || empty($preis)){
 		return false;
 		}
-
-		if ($bild == NULL || empty($bild)){
-		return false;
-		}
 	 
 		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?);";    
 		$statement = $this->conn->prepare($sql);
