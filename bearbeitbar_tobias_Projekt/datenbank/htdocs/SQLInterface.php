@@ -157,7 +157,7 @@ final class SQLInterface {
 		return $result;
 	}
 
-	public function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$pn)
+	public function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$pn)//Muss noch an die neue Produkt Tabelle angepasst werden.
 	{
 		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?, bild=? WHERE pname='$pn'";
 		$statement = $this->conn->prepare($sqlUP);

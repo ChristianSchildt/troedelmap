@@ -9,7 +9,7 @@
     $container = new Container();
 
     $container->set('db', function() {
-        $dbhost = 'mariadb';
+        $dbhost = 'localhost';
         $dbuser = 'root';
         $dbpass = 'allgemein';
         $db ='troedelmap';
@@ -51,9 +51,21 @@
         return $response;
     });
 
-        /*$app->get(...
-            $this->get(’db’);
-        );*/
+        $app->get('/api/user', function (Request $request, Response $response, array $args){
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $user = $sqlinterface->get_user();
+            $response->getBody()->write(json_encode($user));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+
+        $app->post('/api/user/add', function(Request $request, Response $response, array $args){
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, false);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $user = $sqlinterface->add_user($data->bname, $data->email, $data->passwort);
+            $response->getBody()->write(json_encode($product));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
         
         $app->get('/api/products', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));
@@ -70,6 +82,44 @@
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
+
+        $app->get('/api/userdata', function (Request $request, Response $response, array $args){
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $userdata = $sqlinterface->get_userdata();
+            $response->getBody()->write(json_encode($user));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+
+        $app->post('/api/userdata/add', function(Request $request, Response $response, array $args){
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, false);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon);
+            $response->getBody()->write(json_encode($product));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+
+        $app->put('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
+        {
+            $userID=$args["userID"];
+            if(is_numeric($userID)){
+                $updateCreator=new SQLInterface($this->get('db'));
+                $update=$updateCreator->updateUser($data->strasse, $data->plz, $data->ort, $data->telefon);
+                $response->getBody()->write(json_encode($update));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }
+        });
+
+        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
+        {
+            $productID=$args["productID"];
+            if(is_numeric($productID)){
+                $updateCreator=new SQLInterface($this->get('db'));
+                $update=$updateCreator->updateAnzeige($data->strasse, $data->plz, $data->ort, $data->telefon);
+                $response->getBody()->write(json_encode($update));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }
+        })
 
 		$app->get('/api/todos', function (Request $request, Response $response, array $args){
             $todoCreator = new SQLInterface($this->get('db'));
