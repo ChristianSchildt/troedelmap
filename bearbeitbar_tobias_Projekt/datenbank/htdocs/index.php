@@ -3,6 +3,19 @@
     use Psr\Http\Message\ResponseInterface as Response;
     use Slim\Factory\AppFactory;
     use DI\Container;
+
+    /* OAuth
+    use League\OAuth2\Server\AuthorizationServer;
+    use League\OAuth2\Server\Exception\OAuthServerException;
+    use League\OAuth2\Server\Grant\PasswordGrant;
+
+    use WT2Uebung\Repositories\ClientRepository;
+    use WT2Uebung\Repositories\AccessTokenRepository;
+    use WT2Uebung\Repositories\ScopeRepository;
+    use WT2Uebung\Repositories\RefreshTokenRepository;
+    use WT2Uebung\Repositories\UserRepository;
+    */
+
     require 'SQLInterface.php';
     require 'vendor/autoload.php';
 
@@ -151,6 +164,72 @@
 
     /*SQLFunktion sind in SQLInterface.sql*/
 
+        /* OAuth
+        //OAuth//
+        $container = new Container();
+
+        $container->set('oauth2server', function(){
+            $settings = [
+                "clientRepository" => new ClientRepository(),
+                "accessTokenRepository" => new AccessTokenRepository(),
+                "scopeRepository" => new ScopeRepository(),
+                "pathToPrivateKey" => 'file:///opt/keys/private.key',
+                "encryptionKey" => ':`J:)?/7FFTMv"4X]l0~ECxr"\v}XoX\7p+REOg}'
+            ];
+        
+            $server = new AuthorizationServer(
+                $settings['clientRepository'],
+                $settings['accessTokenRepository'],
+                $settings['scopeRepository'],
+                $settings['pathToPrivateKey'],
+                $settings['encryptionKey']
+            );
+        
+            $grant = new PasswordGrant(
+                new UserRepository(),
+                new RefreshTokenRepository()
+            );
+            $grant->setRefreshTokenTTL(new \DateInterval('P1M')); // refresh tokens will expire after 1 month
+        
+            $server->enableGrantType(
+                $grant,
+                new \DateInterval('PT4H') // access tokens will expire after 4 hours to test
+            );
+        
+            return $server;
+        });
+        
+        AppFactory::setContainer($container);
+        
+        $app = AppFactory::create();
+        
+        $app->options('/{routes:.+}', function ($request, $response, $args) {
+            return $response;
+        });
+        
+        $app->add(function ($request, $handler) {
+            $response = $handler->handle($request);
+            return $response
+                    ->withHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+                    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+        });
+        
+        
+        $app->post('/api/auth', function (Request $request, Response $response, array $args){
+            $server = $this->get('oauth2server');
+            try {
+                return $server->respondToAccessTokenRequest($request, $response);
+            } catch(OauthServerException $exception){
+                return $exception->generateHttpResponse($response);
+            } catch(\Exception $exception){
+                $body = $response->getBody();
+                $body->write($exception->getMessage());
+        
+                return $response->withStatus(500)->withBody($body);
+            } 
+        });
+        */
         
     $app->run();
 ?>
