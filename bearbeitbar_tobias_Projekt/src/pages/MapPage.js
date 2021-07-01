@@ -26,11 +26,11 @@ class MapPage extends React.Component {
   }
   
   
-  // Similar to componentDidMount and componentDidUpdate:
   componentDidMount() {
     fetch('http://localhost:8080/api/products')
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       this.setState({products: data});
     })
   }
