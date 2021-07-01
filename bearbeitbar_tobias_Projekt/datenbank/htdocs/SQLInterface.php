@@ -48,17 +48,20 @@ final class SQLInterface {
 
 	public function add_product($pname, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID){
 
-		if ($pname == NULL || empty($pname)){
+		/*if ($pname == NULL || empty($pname)){
+			error_log("pname empty");
 		 return false;
 		}
 	 
 		if ($beschreibung == NULL || empty($beschreibung)){
+			error_log("beschreibung empty");
 		return false;
 		}
 
 		if ($preis == NULL || empty($preis)){
+			error_log("beschreibung empty");
 		return false;
-		}
+		}*/
 	 
 		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?);";    
 		$statement = $this->conn->prepare($sql);
