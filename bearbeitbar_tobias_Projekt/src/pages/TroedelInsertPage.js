@@ -33,7 +33,7 @@ function TroedelInsertPage() {
       plz: inputPlz.current.state?.value,
       ort: inputOrt.current.state?.value,
       bild: image, //TODO: bild einfügen
-      id_benutzer: 1 //TODO: soll später der tatsächliche Nutzer sein
+      uID: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
     fetch('http://localhost:8080/api/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
