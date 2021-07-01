@@ -64,7 +64,7 @@
 
         $app->post('/api/products/add', function (Request $request, Response $response, array $args){
             $rawData = $request->getBody();
-            $data = json_decode($rawData, true);
+            $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
             $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
             $response->getBody()->write(json_encode($product));
