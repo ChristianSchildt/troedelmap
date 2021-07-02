@@ -15,7 +15,6 @@ class InputField extends React.Component{
                 id={this.props.id}
                 type={this.props.type}
                 className="inputField"
-                value={this.props.value}
                 defaultValue={this.props.defaultValue}
                 placeholder={this.props.placeholder}
                 onChange={(event) => this.setState({value: event.target.value})}

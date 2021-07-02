@@ -123,12 +123,12 @@
             }
         });
 
-        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
+        $app->put('/api/products/{productid}', function(Request $request, Response $response, array $args)
         {
             $productID=$args["productID"];
             if(is_numeric($productID)){
                 $updateCreator=new SQLInterface($this->get('db'));
-                $update=$updateCreator->updateAnzeige($data->strasse, $data->plz, $data->ort, $data->telefon);
+                $update=$updateCreator->updateAnzeige($productID, $data->pname, $data->beschreibung, $data->pname, $data->preis);
                 $response->getBody()->write(json_encode($update));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }

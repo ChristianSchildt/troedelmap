@@ -39,16 +39,22 @@ class TroedelEditPage extends React.Component {
     })
   }
   
-  onFinishButtonClick() {
-    // TODO: Daten an Datenbank weitergeben
-    console.log(`${this.inputProduktname.current.state?.value}`);
-    console.log(`${this.inputProduktpreis.current.state?.value}`);
-    console.log(`${this.inputProduktbeschreibung.current.state?.value}`);
-    console.log(`${this.inputStraße.current.state?.value}`);
-    console.log(`${this.inputHausnummer.current.state?.value}`);
-    console.log(`${this.inputPostleitzahl.current.state?.value}`);
-    console.log(`${this.inputOrt.current.state?.value}`);
-    console.log(this.image);
+  onFinishButtonClick() {   
+    let product = {
+      pname: this.inputProduktname.current.state?.value,
+      beschreibung: this.inputProduktbeschreibung.current.state?.value,
+      preis: this.inputProduktpreis.current.state?.value,
+      strasse: this.inputStraße.current.state?.value,
+      hausnr: this.inputHausnummer.current.state?.value,
+      plz: this.inputPostleitzahl.current.state?.value,
+      ort: this.inputOrt.current.state?.value,
+      bild: this.image,
+    }
+    
+    const productId = this.state.products[this.state.currentProductIndex].id;
+    fetch(`http://localhost:8080/api/product/${productId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    .then(res => res.json())
+    .then((result) => {console.log(result)});
     
     alert("Ihr Artikel wurde aktualisiert!");
   };
@@ -137,7 +143,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <InputField id="produktnamefield" 
                       placeholder="Produktname"
-                      value={this.state.products[this.state.currentProductIndex]?.pname}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.pname}
                       ref={this.inputProduktname}>
                     </InputField>
                   </Col>
@@ -146,7 +152,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={{ span: 6, offset: 3}} className="text-center">
                     <InputField id="preisfield" 
                       placeholder="Preis (in Euro)"
-                      value={this.state.products[this.state.currentProductIndex]?.preis}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.preis}
                       ref={this.inputProduktpreis}>
                     </InputField>
                   </Col>
@@ -156,7 +162,7 @@ class TroedelEditPage extends React.Component {
                     <BigInputField
                       id="EingabeEmail"
                       placeholder="Produktbeschreibung"
-                      value={this.state.products[this.state.currentProductIndex]?.beschreibung}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.beschreibung}
                       ref={this.inputProduktbeschreibung}
                       rows={4}>
                     </BigInputField>
@@ -166,7 +172,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <InputField id="strassefield" 
                       placeholder="Straße"
-                      value={this.state.products[this.state.currentProductIndex]?.strasse}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.strasse}
                       ref={this.inputStraße}>
                     </InputField>
                   </Col>
@@ -175,7 +181,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <InputField id="hausnummerfield" 
                       placeholder="Hausnummer"
-                      value={this.state.products[this.state.currentProductIndex]?.hausnr}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.hausnr}
                       ref={this.inputHausnummer}>
                     </InputField>
                   </Col>
@@ -184,7 +190,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <InputField id="postleitzahlfield" 
                       placeholder="Postleitzahl"
-                      value={this.state.products[this.state.currentProductIndex]?.plz}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.plz}
                       ref={this.inputPostleitzahl}>
                     </InputField>
                   </Col>
@@ -193,7 +199,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <InputField id="ortfield" 
                       placeholder="Ort"
-                      value={this.state.products[this.state.currentProductIndex]?.ort}
+                      defaultValue={this.state.products[this.state.currentProductIndex]?.ort}
                       ref={this.inputOrt}>
                     </InputField>
                   </Col>

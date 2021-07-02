@@ -13,7 +13,6 @@ class BigInputField extends React.Component{
             <textarea
                 id={this.props.id}
                 className="inputField bigInputField"
-                value={this.props.value}
                 defaultValue={this.props.defaultValue}
                 placeholder={this.props.placeholder}
                 rows={this.props.rows}
