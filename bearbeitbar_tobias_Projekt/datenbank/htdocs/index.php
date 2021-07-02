@@ -76,7 +76,7 @@
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
             $user = $sqlinterface->add_user($data->bname, $data->email, $data->passwort);
-            $response->getBody()->write(json_encode($product));
+            $response->getBody()->write(json_encode($user));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
         
@@ -99,7 +99,7 @@
         $app->get('/api/userdata', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));
             $userdata = $sqlinterface->get_userdata();
-            $response->getBody()->write(json_encode($user));
+            $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
@@ -108,7 +108,7 @@
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
             $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon);
-            $response->getBody()->write(json_encode($product));
+            $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
