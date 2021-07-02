@@ -157,11 +157,27 @@ final class SQLInterface {
 		return $result;
 	}
 
-	public function updateAnzeige($pId, $name, $beschreibung, $preis, $bild,$pn)//Muss noch an die neue Produkt Tabelle angepasst werden.
+	public function updateAnzeige($pId, $name, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID)
 	{
-		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?, bild=? WHERE pname='$pn'";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pn'";
 		$statement = $this->conn->prepare($sqlUP);
 		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild, $pn]);
+		return $result;
+	}
+
+	public function deleteAnzeige($pID)
+	{
+		$sqlDelete="DELETE FROM produkt WHERE pID=?";
+		$statement = $this->conn->prepare($sqlDelete);
+		$result = $statement->execute([$pId]);
+		return $result;
+	}
+
+	public function deleteUser($bk_id)
+	{
+		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=?";
+		$statement = $this->conn->prepare($sqlDelete);
+		$result = $statement->execute([$bk_id]);
 		return $result;
 	}
 
