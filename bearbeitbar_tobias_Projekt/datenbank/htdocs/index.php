@@ -132,7 +132,7 @@
                 $response->getBody()->write(json_encode($update));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }
-        })
+        });
 
 		$app->get('/api/todos', function (Request $request, Response $response, array $args){
             $todoCreator = new SQLInterface($this->get('db'));
