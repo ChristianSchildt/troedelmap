@@ -128,17 +128,17 @@ class TroedelEditPage extends React.Component {
                 <Row>
                   <Col md={12} className="text-center">
                     <Picture 
-                      id="picture-laptop-big" 
+                      id="picture-preview" 
                       src={this.state.imageData}
                       alt="Bildersatz">
                     </Picture>
-                    <FileInput
-                      inputId="fileInputProduktbild"
-                      labelValue="Produktbild auswählen"
-                      inputOnChange={this.fileSelectedHandler.bind(this)}>  
-                    </FileInput>
                   </Col>
                 </Row>
+                  <FileInput
+                    inputId="fileInputProduktbildEdit"
+                    labelValue="Produktbild auswählen"
+                    inputOnChange={this.fileSelectedHandler.bind(this)}>  
+                  </FileInput>
                 <Row>
                   <Col md={12} className="text-center">
                     <InputField id="produktnamefield" 

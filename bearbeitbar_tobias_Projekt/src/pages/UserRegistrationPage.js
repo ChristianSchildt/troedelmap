@@ -105,15 +105,11 @@ function UserRegistrationPage() {
                 </InputField>
               </Col>
             </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                <FileInput
-                  inputId="fileInputProfilbild"
-                  labelValue="Profilbild auswählen (optional)"
-                  inputOnChange={fileSelectedHandler.bind(this)}>  
-                </FileInput>
-              </Col>
-            </Row>
+              <FileInput
+                inputId="fileInputProfilbildRegistration"
+                labelValue="Profilbild auswählen (optional)"
+                inputOnChange={fileSelectedHandler.bind(this)}>  
+              </FileInput>
             <Row>
               <Col md={12} className="text-center">
                 <Button 

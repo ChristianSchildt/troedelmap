@@ -115,13 +115,13 @@ function UserEditPage() {
             <Row>
               <Col md={12} className="text-center">
                 <Picture 
-                  id="picture-laptop-big" 
+                  id="picture-preview" 
                   src={imageData}
                   alt="Bildersatz">
                 </Picture>
                 <FileInput
-                  inputId="fileInputProduktbild"
-                  labelValue="Produktbild auswählen"
+                  inputId="fileInputProfilbildEdit"
+                  labelValue="Profilbild auswählen"
                   inputOnChange={fileSelectedHandler.bind(this)}>  
                 </FileInput>
               </Col>

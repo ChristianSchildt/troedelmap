@@ -32,7 +32,7 @@ function TroedelInsertPage() {
       hausnr: inputHausnummer.current.state?.value,
       plz: inputPlz.current.state?.value,
       ort: inputOrt.current.state?.value,
-      bild: image, //TODO: bild einfügen
+      bild: image,
       uID: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
@@ -131,15 +131,11 @@ function TroedelInsertPage() {
                 </InputField>
               </Col>
             </Row>
-            <Row>
-              <Col md={12} className="text-center">
-                <FileInput
-                  inputId="fileInputProduktbild"
-                  labelValue="Produktbild auswählen"
-                  inputOnChange={fileSelectedHandler.bind(this)}>  
-                </FileInput>
-              </Col>
-            </Row>
+              <FileInput
+                inputId="fileInputProduktbildInsert"
+                labelValue="Produktbild auswählen"
+                inputOnChange={fileSelectedHandler.bind(this)}>  
+              </FileInput>
             <Row>
               <Col md={12} className="text-center">
                 <Button 
