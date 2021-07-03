@@ -89,9 +89,10 @@
 
         $app->post('/api/products/add', function (Request $request, Response $response, array $args){
             $rawData = $request->getBody();
-            $data = json_decode($rawData, false);
+            $data = json_decode($rawData, true);
             $sqlinterface = new SQLInterface($this->get('db'));
             $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
+            #var_dump($sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID));
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
@@ -107,7 +108,7 @@
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon, $data->id_benutzer);
+            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon, 1);
             $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });

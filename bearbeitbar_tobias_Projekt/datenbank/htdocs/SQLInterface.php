@@ -47,21 +47,6 @@ final class SQLInterface {
 	}
 
 	public function add_product($pname, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID){
-
-		/*if ($pname == NULL || empty($pname)){
-			error_log("pname empty");
-		 return false;
-		}
-	 
-		if ($beschreibung == NULL || empty($beschreibung)){
-			error_log("beschreibung empty");
-		return false;
-		}
-
-		if ($preis == NULL || empty($preis)){
-			error_log("beschreibung empty");
-		return false;
-		}*/
 	 
 		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?) RETURNING *;";    
 		$statement = $this->conn->prepare($sql);
@@ -74,7 +59,7 @@ final class SQLInterface {
 		$userdata = [];
 		$sql = "SELECT * FROM benutzerdaten;";
 		#$product = $this->conn->query($sql)->fetchAll(PDO::FETCH_CLASS, 'benutzerdaten'); 
-		$userdata = $this->conn->query($sql); 
+		$userdata = $this->conn->query($sql)->fetchAll(); 
 
 		return $userdata;
 	}
