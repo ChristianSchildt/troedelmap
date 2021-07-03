@@ -41,6 +41,7 @@ class TroedelEditPage extends React.Component {
   
   onFinishButtonClick() {   
     let product = {
+      produkt_id: this.state.products[this.state.currentProductIndex].produkt_id,
       pname: this.inputProduktname.current.state?.value,
       beschreibung: this.inputProduktbeschreibung.current.state?.value,
       preis: this.inputProduktpreis.current.state?.value,
@@ -49,10 +50,19 @@ class TroedelEditPage extends React.Component {
       plz: this.inputPostleitzahl.current.state?.value,
       ort: this.inputOrt.current.state?.value,
       bild: this.image,
+      uID: 1
     }
     
-    const productId = this.state.products[this.state.currentProductIndex].id;
-    fetch(`http://localhost:8080/api/product/${productId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    const productId = this.state.products[this.state.currentProductIndex].produkt_id;
+    const pn = this.state.products[this.state.currentProductIndex].pname;
+    const beschr = this.state.products[this.state.currentProductIndex].produkt_id;
+    const pr = this.state.products[this.state.currentProductIndex].pname;
+    const str = this.state.products[this.state.currentProductIndex].produkt_id;
+    const hsr = this.state.products[this.state.currentProductIndex].pname;
+    const postl = this.state.products[this.state.currentProductIndex].produkt_id;
+    const o = this.state.products[this.state.currentProductIndex].pname;
+    
+    fetch(`http://localhost:8080/api/productUpdate/`+ productId, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
     .then((result) => {console.log(result)});
     

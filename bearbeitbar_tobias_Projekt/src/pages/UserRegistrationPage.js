@@ -20,13 +20,24 @@ function UserRegistrationPage() {
   const [image, setImage] = useState(0);
 
   const onRegistrationButtonClick = () => {
-    // TODO: Daten an Datenbank weitergeben
+
+    let user ={
+      bname: inputBenutzername.current.state?.value,
+      email: inputEmail.current.state?.value,
+      passwort: inputPasswort.current.state?.value
+    }
+    
+    fetch('http://localhost:8080/api/user/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
+    .then(res => res.json())
+    .then((result) => {console.log(result)})
+
+
     console.log(`${inputBenutzername.current.state?.value}`);
     console.log(`${inputEmail.current.state?.value}`);
     console.log(`${inputPasswort.current.state?.value}`);
-    //console.log(`${inputPasswortWiederholen.current.state?.value}`);
-    //console.log(`${inputKontaktinfos.current.state?.value}`);
-    //console.log(image);
+    console.log(`${inputPasswortWiederholen.current.state?.value}`);
+    console.log(`${inputKontaktinfos.current.state?.value}`);
+    console.log(image);
 
     alert("Sie haben sich registriert.")
   };

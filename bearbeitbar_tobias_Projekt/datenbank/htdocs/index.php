@@ -89,10 +89,10 @@
 
         $app->post('/api/products/add', function (Request $request, Response $response, array $args){
             $rawData = $request->getBody();
-            $data = json_decode($rawData, true);
+            $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
-            #var_dump($sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID));
+            $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort,5, $data->uID);
+           # echo var_dump($sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID));
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
@@ -113,7 +113,7 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->post('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
+        $app->put('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
         {
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
@@ -123,12 +123,12 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->post('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
+        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
         {
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
+            $product = $sqlinterface->updateAnzeige($data->produkt_id, $data->pname, $data->beschreibung, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, 6, $data->uID);
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });

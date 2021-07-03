@@ -48,7 +48,7 @@ final class SQLInterface {
 
 	public function add_product($pname, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID){
 	 
-		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?) RETURNING *;";    
+		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, preis, strasse, hausnr, plz, ort, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?) RETURNING *;";    
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$pname, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID]);
 		return $result;
@@ -144,9 +144,9 @@ final class SQLInterface {
 
 	public function updateAnzeige($pId, $name, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID)
 	{
-		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pId' RETURNING *;";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=?, bild=?, id_benutzer=? WHERE produkt_id=?";
 		$statement = $this->conn->prepare($sqlUP);
-		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild]);
+		$result = $statement->execute([$pId, $name, $beschreibung, $preis,$strasse, $hausnr, $plz, $ort, $bild, $uID]);
 		return $result;
 	}
 
