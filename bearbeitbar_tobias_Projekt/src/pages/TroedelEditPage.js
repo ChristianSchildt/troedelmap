@@ -80,6 +80,16 @@ class TroedelEditPage extends React.Component {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
+
+  deleteToDo(){
+    const productId = this.state.products[this.state.currentProductIndex].produkt_id;
+
+    fetch('http://localhost:8080/api/product/' + productId, { method: 'DELETE' })
+        .then(res => res.json())
+        .then((result) => {console.log(result)});
+
+        alert("Ihr Artikel wurde gelöscht!");
+  }
   
   render() {
     return (
@@ -114,7 +124,7 @@ class TroedelEditPage extends React.Component {
                     <Button 
                       className="whiteBackground" 
                       id="button-delete"
-                      onClick={() => alert("Sie haben Ihren Artikel gelöscht!")}
+                      onClick={this.deleteToDo.bind(this)} 
                       value="Löschen">
                     </Button>
                   </Col>

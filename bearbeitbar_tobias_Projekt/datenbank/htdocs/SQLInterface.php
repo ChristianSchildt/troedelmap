@@ -152,9 +152,9 @@ final class SQLInterface {
 
 	public function deleteAnzeige($pID)
 	{
-		$sqlDelete="DELETE FROM produkt WHERE pID=? RETURNING *;";
+		$sqlDelete="DELETE FROM produkt WHERE produkt_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
-		$result = $statement->execute([$pID]);
+		$statement->execute([$pID]);
 		return $statement;
 	}
 
@@ -162,7 +162,7 @@ final class SQLInterface {
 	{
 		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
-		$result = $statement->execute([$bk_id]);
+		$statement->execute([$bk_id]);
 		return $statement;
 	}
 
