@@ -10,14 +10,6 @@ class FileInput extends React.Component {
         <div>
           <Row>
             <Col md={12} className="text-center">
-              <label 
-                  htmlFor={this.props.inputId}>
-                  {this.props.labelValue}
-              </label>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} className="text-center">
               <input 
                   type="file" 
                   className="form-control-file"

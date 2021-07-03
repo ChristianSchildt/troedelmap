@@ -155,7 +155,7 @@
             if(is_numeric($user_id)){
                 $userCreator = new SQLInterface($this->get('db'));
                 $user = $userCreator->deleteUser($user_id)->fetchAll(PDO::FETCH_ASSOC);
-                $response->getBody()->write(json_encode($todo));
+                $response->getBody()->write(json_encode($user));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }
             return $response->withStatus(400);
@@ -167,7 +167,7 @@
             if(is_numeric($product_id)){
                 $productCreator = new SQLInterface($this->get('db'));
                 $product = $productCreator->deleteAnzeige($product_id)->fetchAll(PDO::FETCH_ASSOC);
-                $response->getBody()->write(json_encode($todo));
+                $response->getBody()->write(json_encode($product));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }
             return $response->withStatus(400);

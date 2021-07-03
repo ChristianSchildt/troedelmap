@@ -31,7 +31,7 @@ final class SQLInterface {
 		return false;
 		}
 	 
-		$sql = "INSERT INTO benutzerkonto (bk_id, bname, email, passwort) VALUES (NULL,?,?,?);";  
+		$sql = "INSERT INTO benutzerkonto (bk_id, bname, email, passwort) VALUES (NULL,?,?,?) RETURNING *;";
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$bname, $email, $passwort]);
 		return $result;
@@ -63,7 +63,7 @@ final class SQLInterface {
 		return false;
 		}*/
 	 
-		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?);";    
+		$sql = "INSERT INTO produkt (produkt_id, pname, beschreibung, strasse, hausnr, plz, ort, preis, bild, id_benutzer) VALUES (NULL,?,?,?,?,?,?,?,?,?) RETURNING *;";    
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$pname, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID]);
 		return $result;
@@ -97,7 +97,7 @@ final class SQLInterface {
 		return false;
 		}
 	 
-		$sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?,?,?,?);";  
+		$sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?,?,?,?) RETURNING *;";  
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$strasse, $plz, $ort, $telefon,$id]);
 		return $result;
@@ -151,7 +151,7 @@ final class SQLInterface {
 
 	public function updateUser($strasse, $plz, $ort, $telefon,$id)
 	{
-		$sqlUP="UPDATE benutzerdaten SET strasse=?, plz=?, ort=?, telefon=? WHERE id_benutzer=?";
+		$sqlUP="UPDATE benutzerdaten SET strasse=?, plz=?, ort=?, telefon=? WHERE id_benutzer=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlUP);
 		$result = $statement->execute([$strasse, $plz, $ort, $telefon,$id]);
 		return $result;
@@ -159,7 +159,7 @@ final class SQLInterface {
 
 	public function updateAnzeige($pId, $name, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID)
 	{
-		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pn'";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pn' RETURNING *;";
 		$statement = $this->conn->prepare($sqlUP);
 		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild, $pn]);
 		return $result;
@@ -167,15 +167,15 @@ final class SQLInterface {
 
 	public function deleteAnzeige($pID)
 	{
-		$sqlDelete="DELETE FROM produkt WHERE pID=?";
+		$sqlDelete="DELETE FROM produkt WHERE pID=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
-		$result = $statement->execute([$pId]);
+		$result = $statement->execute([$pID]);
 		return $result;
 	}
 
 	public function deleteUser($bk_id)
 	{
-		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=?";
+		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$result = $statement->execute([$bk_id]);
 		return $result;
