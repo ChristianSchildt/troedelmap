@@ -16,6 +16,7 @@ class LoginPage extends React.Component {
                             
                             this.state = { ////////SQL Beispielcode///////
                                 todos: [], ////////SQL Beispielcode///////
+                                user:[],
                                 input: "", ////////SQL Beispielcode///////
 
                                 usernameInput: '', ////////LOGIN Beispielcode///////
@@ -27,6 +28,7 @@ class LoginPage extends React.Component {
                             } ////////SQL Beispielcode///////
                             this.updateInput = this.updateInput.bind(this) ////////SQL Beispielcode///////
                             this.addToDo = this.addToDo.bind(this) ////////SQL Beispielcode///////
+                            this.addUser=this.addUser.bind(this)
 
                           this.updateUsernameField = this.updateUsernameField.bind(this) ////////LOGIN Beispielcode///////
                           this.updatePasswordField = this.updatePasswordField.bind(this) ////////LOGIN Beispielcode///////
@@ -42,7 +44,20 @@ class LoginPage extends React.Component {
       alert('Sie haben Sich eingeloggt.')
     }
 
+                            addUser(){
+                              fetch('http://localhost:8080/api/user/add', {method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({"descr" : this.state.input}) })
+                              .then(res=>res.json())
+                              .then((result)=>{
+                                this.setState((currentState)=>{
+                                  return {
+                                    user: currentState.user.concat(result),
+                                    input: ""
+                                  }
+                                })
+                              })
+                            }
 
+                            
                             componentDidMount() { ////////SQL Beispielcode///////
                                 fetch('http://localhost:8080/api/todos')
                                 .then(response => response.json())
@@ -52,6 +67,7 @@ class LoginPage extends React.Component {
                                     })
                                 })
                             } ////////SQL Beispielcode///////
+                            
 
                             updateInput(e) { ////////SQL Beispielcode///////
                                 const value = e.target.value

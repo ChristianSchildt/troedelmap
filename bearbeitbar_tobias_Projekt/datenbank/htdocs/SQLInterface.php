@@ -5,9 +5,27 @@ final class SQLInterface {
 
     private $conn;
 
-    public function __construct(PDO $conn){
-        $this->conn = $conn;
-    }
+	public function __construct()
+	{
+	   $dbhost = 'localhost:3306';
+	   $dbuser = 'root';
+	   $dbpass = 'allgemein';
+	   $db ='troedelmap';
+
+	   $dsn = "mysql:host=$dbhost;port=3306;dbname=$db";
+
+	   $options = [
+		   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+		   PDO::ATTR_CASE => PDO::CASE_NATURAL
+	   ];
+
+	   try{
+				$this->conn = new PDO($dsn, $dbuser, $dbpass, $options);
+	   } 
+	   catch(PDOException $e){
+		   echo "Verbindungsaufbau gescheitert: " . $e->getMessage();
+	   }
+   }
 	
 	public function get_user() {
 		$users = [];

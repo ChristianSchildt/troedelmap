@@ -24,9 +24,9 @@ function UserRegistrationPage() {
     console.log(`${inputBenutzername.current.state?.value}`);
     console.log(`${inputEmail.current.state?.value}`);
     console.log(`${inputPasswort.current.state?.value}`);
-    console.log(`${inputPasswortWiederholen.current.state?.value}`);
-    console.log(`${inputKontaktinfos.current.state?.value}`);
-    console.log(image);
+    //console.log(`${inputPasswortWiederholen.current.state?.value}`);
+    //console.log(`${inputKontaktinfos.current.state?.value}`);
+    //console.log(image);
 
     alert("Sie haben sich registriert.")
   };
