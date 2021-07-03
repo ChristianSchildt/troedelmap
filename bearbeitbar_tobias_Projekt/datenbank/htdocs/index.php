@@ -200,7 +200,7 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
         
-        
+       
 
     /*SQLFunktion sind in SQLInterface.sql*/
 
