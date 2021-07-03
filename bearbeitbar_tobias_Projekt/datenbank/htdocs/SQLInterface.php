@@ -144,7 +144,7 @@ final class SQLInterface {
 
 	public function updateAnzeige($pId, $name, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID)
 	{
-		$sqlUP="UPDATE produkt SET pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=?, bild=?, id_benutzer=? WHERE produkt_id=?";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=?, bild=?, id_benutzer=? WHERE produkt_id=?";
 		$statement = $this->conn->prepare($sqlUP);
 		$result = $statement->execute([$pId, $name, $beschreibung, $preis,$strasse, $hausnr, $plz, $ort, $bild, $uID]);
 		return $result;
