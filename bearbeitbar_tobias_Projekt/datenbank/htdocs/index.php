@@ -22,7 +22,7 @@
     $container = new Container();
 
     $container->set('db', function() {
-        $dbhost = 'mariadb';
+        $dbhost = 'localhost';
         $dbuser = 'root';
         $dbpass = 'allgemein';
         $db ='troedelmap';
@@ -107,47 +107,29 @@
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon);
+            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon, $data->id_benutzer);
             $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->put('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
+        $app->post('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
         {
-            $userID=$args["userID"];
-            if(is_numeric($userID)){
-                $updateCreator=new SQLInterface($this->get('db'));
-                $update=$updateCreator->updateUser($data->strasse, $data->plz, $data->ort, $data->telefon);
-                $response->getBody()->write(json_encode($update));
-                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-            }
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, false);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon, $data->id_benutzer);
+            $response->getBody()->write(json_encode($userdata));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-
-        $app->put('/api/produktUpdate/{userid}', function(Request $request, Response $response, array $args)
+        $app->post('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
         {
-            $userID=$args["userID"];
-            if(is_numeric($userID)){
-                $updateCreator=new SQLInterface($this->get('db'));
-                $update=$updateCreator->updateUser($data->strasse, $data->plz, $data->ort, $data->telefon);
-                $response->getBody()->write(json_encode($update));
-                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-            }
-        });
-
-        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
-        {
-            $productID=$args["productID"];
-            if(is_numeric($productID)){
-                $updateCreator=new SQLInterface($this->get('db'));
-
-                $update=$updateCreator->updateAnzeige($productID, $data->pname, $data->beschreibung, $data->pname, $data->preis);
-
-                $update=$updateCreator->updateAnzeige($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
-
-                $response->getBody()->write(json_encode($update));
-                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-            }
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, false);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $product = $sqlinterface->add_product($data->pname, $data->beschreibung, $data->pname, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, $data->bild, $data->uID);
+            $response->getBody()->write(json_encode($product));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
         $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
@@ -162,11 +144,11 @@
         });
 
         
-        $app->delete('/api/prooduct/{product_id}', function (Request $request, Response $response, array $args){
+        $app->delete('/api/product/{product_id}', function (Request $request, Response $response, array $args){
             $product_id = $args["product_id"];
             if(is_numeric($product_id)){
-                $productCreator = new SQLInterface($this->get('db'));
-                $product = $productCreator->deleteAnzeige($product_id)->fetchAll(PDO::FETCH_ASSOC);
+                $todoCreator = new SQLInterface($this->get('db'));
+                $product = $todoCreator->deleteAnzeige($product_id)->fetchAll(PDO::FETCH_ASSOC);
                 $response->getBody()->write(json_encode($product));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }

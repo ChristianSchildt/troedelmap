@@ -159,9 +159,9 @@ final class SQLInterface {
 
 	public function updateAnzeige($pId, $name, $beschreibung, $preis, $strasse, $hausnr, $plz, $ort, $bild, $uID)
 	{
-		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pn' RETURNING *;";
+		$sqlUP="UPDATE produkt SET produkt_id=?,pname=?, beschreibung=?, preis=?,strasse=?, hausnr=?, plz=?, ort=? bild=? WHERE pname='$pId' RETURNING *;";
 		$statement = $this->conn->prepare($sqlUP);
-		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild, $pn]);
+		$result = $statement->execute([$pId, $name, $beschreibung, $preis, $bild]);
 		return $result;
 	}
 
@@ -170,7 +170,7 @@ final class SQLInterface {
 		$sqlDelete="DELETE FROM produkt WHERE pID=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$result = $statement->execute([$pID]);
-		return $result;
+		return $statement;
 	}
 
 	public function deleteUser($bk_id)
@@ -178,7 +178,7 @@ final class SQLInterface {
 		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$result = $statement->execute([$bk_id]);
-		return $result;
+		return $statement;
 	}
 
 
