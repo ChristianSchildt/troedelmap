@@ -29,7 +29,10 @@ function UserRegistrationPage() {
     
     fetch('http://localhost:8080/api/user/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
     .then(res => res.json())
-    .then((result) => {console.log(result)})
+    .then((result) => {
+      console.log(result);
+      alert("Sie haben sich registriert.");
+    })
 
 
     console.log(`${inputBenutzername.current.state?.value}`);
@@ -39,7 +42,7 @@ function UserRegistrationPage() {
     console.log(`${inputKontaktinfos.current.state?.value}`);
     console.log(image);
 
-    alert("Sie haben sich registriert.")
+    
   };
 
   const fileSelectedHandler = event => {
@@ -126,7 +129,7 @@ function UserRegistrationPage() {
                 <Button 
                   className="orangeBackground" 
                   id="button-registration" 
-                  href="/login" 
+                  //href="/login" 
                   onClick={onRegistrationButtonClick.bind(this)} 
                   value="Registrieren">
                 </Button>

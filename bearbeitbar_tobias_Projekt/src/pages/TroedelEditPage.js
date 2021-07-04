@@ -64,9 +64,10 @@ class TroedelEditPage extends React.Component {
     
     fetch(`http://localhost:8080/api/productUpdate/`+ productId, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
-    .then((result) => {console.log(result)});
-    
-    alert("Ihr Artikel wurde aktualisiert!");
+    .then((result) => {
+      console.log(result);
+      alert("Ihr Artikel wurde aktualisiert!");
+    });
   };
 
   fileSelectedHandler(event) {
@@ -86,9 +87,10 @@ class TroedelEditPage extends React.Component {
 
     fetch('http://localhost:8080/api/product/' + productId, { method: 'DELETE' })
         .then(res => res.json())
-        .then((result) => {console.log(result)});
-
-        alert("Ihr Artikel wurde gelöscht!");
+        .then((result) => {
+          console.log(result)
+          alert("Ihr Artikel wurde gelöscht!");
+        });
   }
   
   render() {

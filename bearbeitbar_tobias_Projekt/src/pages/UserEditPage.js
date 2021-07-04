@@ -52,7 +52,10 @@ class UserEditPage extends React.Component
 
       fetch(`http://localhost:8080/api/userUpdate/{this.state.user[1].bk_id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
       .then(res => res.json())
-      .then((result) => {console.log(result)});
+      .then((result) => {
+        console.log(result);
+        alert("Änderungen wurden übernommen!");
+      });
 
       console.log(`${this.inputBenutzername.current.state?.value}`);
       console.log(`${this.inputEmail.current.state?.value}`);
@@ -60,8 +63,6 @@ class UserEditPage extends React.Component
       console.log(`${this.inputPasswortWiederholen.current.state?.value}`);
       console.log(`${this.inputKontaktinfos.current.state?.value}`);
       console.log(this.state.image);
-
-      alert("Änderungen wurden übernommen!")
     // }
   }
 

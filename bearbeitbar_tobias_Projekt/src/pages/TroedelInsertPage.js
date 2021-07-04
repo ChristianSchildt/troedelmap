@@ -38,9 +38,13 @@ function TroedelInsertPage() {
     
     fetch('http://localhost:8080/api/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
-    .then((result) => {console.log(result)})
+    .then((result) => {
+      console.log(result);
+      alert("Trödel wurde hinzugefügt!")
+    })
+    console.log(product);
 
-    alert("Trödel wurde hinzugefügt!")
+
   };
 
   const fileSelectedHandler = event => {

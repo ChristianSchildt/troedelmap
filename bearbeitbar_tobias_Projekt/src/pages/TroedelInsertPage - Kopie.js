@@ -42,9 +42,10 @@ class TroedelInsertPage extends React.Component {
     
     fetch('http://localhost:8080/api/products/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({"descr" : this.state.input}) })
     .then(res => res.json())
-    .then((result) => {console.log(result)})
-
-    alert("Trödel wurde hinzugefügt!")
+    .then((result) => {
+      console.log(result);
+      alert("Trödel wurde hinzugefügt!");
+    });
   };
   
   render() {
