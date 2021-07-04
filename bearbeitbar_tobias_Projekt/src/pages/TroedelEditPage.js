@@ -42,13 +42,13 @@ class TroedelEditPage extends React.Component {
   onFinishButtonClick() {   
     let product = {
       produkt_id: this.state.products[this.state.currentProductIndex].produkt_id,
-      pname: this.inputProduktname.current.state?.value,
-      beschreibung: this.inputProduktbeschreibung.current.state?.value,
-      preis: this.inputProduktpreis.current.state?.value,
-      strasse: this.inputStraße.current.state?.value,
-      hausnr: this.inputHausnummer.current.state?.value,
-      plz: this.inputPostleitzahl.current.state?.value,
-      ort: this.inputOrt.current.state?.value,
+      pname: this.inputProduktname.current.getValue(),
+      beschreibung: this.inputProduktbeschreibung.current.getValue(),
+      preis: this.inputProduktpreis.current.getValue(),
+      strasse: this.inputStraße.current.getValue(),
+      hausnr: this.inputHausnummer.current.getValue(),
+      plz: this.inputPostleitzahl.current.getValue(),
+      ort: this.inputOrt.current.getValue(),
       bild: this.image,
       uID: 1
     }

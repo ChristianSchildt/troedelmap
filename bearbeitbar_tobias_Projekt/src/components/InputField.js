@@ -29,6 +29,10 @@ class InputField extends React.Component{
         var el = ReactDOM.findDOMNode(this);
         el.onsearch = this.props.onsearch;
     }
+    
+    getValue() {
+        return this.state.value !== "" ? this.state.value : (this.props.defaultValue || "") 
+    }
 }
 
 export default InputField;

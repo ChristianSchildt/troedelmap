@@ -22,6 +22,9 @@ class BigInputField extends React.Component{
         )
     }
     
+    getValue() {
+        return this.state.value !== "" ? this.state.value : (this.props.defaultValue || "") 
+    }
 }
 
 export default BigInputField;
