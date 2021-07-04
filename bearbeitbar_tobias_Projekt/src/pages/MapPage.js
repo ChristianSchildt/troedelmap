@@ -21,7 +21,7 @@ class MapPage extends React.Component {
   }
   
   applyMapFilter() {
-    this.map.current.setFilter(this.searchbar.current.state.value);
+    this.map.current.setFilter(this.searchbar.current.getValue());
     this.setState({selectedProduct: null});
   }
   
@@ -51,7 +51,7 @@ class MapPage extends React.Component {
                   type="search" //not supported in some Browsers, e.g. Firefox
                   placeholder="Was suchst du?"
                   onKeyDown={((event) => {if (event.key === 'Enter') this.applyMapFilter();}).bind(this)}
-                  onsearch={(() => {if (!this.searchbar.current.state.value) this.applyMapFilter();}).bind(this)} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
+                  onsearch={(() => {if (!this.searchbar.current.getValue()) this.applyMapFilter();}).bind(this)} //not supported in some Browsers, e.g. Firefox. Event just used for clear via type="search" x-button 
                   >
                 </InputField>
                 <ImageButton 

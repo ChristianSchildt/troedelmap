@@ -45,9 +45,9 @@ class UserEditPage extends React.Component
     
       // TODO: Daten an Datenbank weitergeben
       let user = {
-        bname: this.inputBenutzername.current.state?.value,  
-        email: this.inputEmail.current.state?.value,
-        passwort: this.inputPasswort.current.state?.value
+        bname: this.inputBenutzername.current.getValue(),  
+        email: this.inputEmail.current.getValue(),
+        passwort: this.inputPasswort.current.getValue()
       }
 
       fetch(`http://localhost:8080/api/userUpdate/{this.state.user[1].bk_id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
