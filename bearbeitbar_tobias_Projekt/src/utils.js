@@ -12,6 +12,11 @@ export function callAjax(url, callback) {
 
 export function adressToLatLng(address, callback) {
     callAjax('https://nominatim.openstreetmap.org/search?format=json&q='+encodeURIComponent(address), function(data) {
+        if (data === '[]') {
+            callback(null);
+            return;
+        }
+    
         var parsedData = JSON.parse(data)
         // wir nehmen erst mal an, dass das Ergebnis eindeutig ist.
         callback([parseFloat(parsedData[0].lat), parseFloat(parsedData[0].lon)]);

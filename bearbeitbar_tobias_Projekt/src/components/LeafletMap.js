@@ -84,8 +84,8 @@ class LeafletMap extends React.Component {
         continue;
       }
       
-      //--- just testing converting address to position on map
-      if (!p.latLng) {
+      //--- convert address to position on map
+      if (p.latLng === undefined) {
         const addr = `${p.strasse} + ${p.hausnr}, ${p.plz} ${p.ort}, Germany`;
         adressToLatLng(addr, (function(latLng) {
           p.latLng = latLng;
@@ -93,21 +93,24 @@ class LeafletMap extends React.Component {
         }).bind(this));
         continue;
       }
-      //--- END just testing converting address to position on map
       
-      // create marker
-      let customMarker;
-      if (!p.radius) {
-          customMarker = L.marker(p.latLng, {icon: this.marker})         
+      if (p.latLng !== null) {
+        // create marker
+        let customMarker;
+        if (!p.radius) {
+            customMarker = L.marker(p.latLng, {icon: this.marker})         
+        } else {
+            customMarker = L.circle(p.latLng, p.radius, {
+                color: '#F48C06',
+                fillColor: '#F48C06',
+                fillOpacity: 0.5,
+            })
+        }
+        customMarker.addTo(this.layerGroupMarkers)
+            .on('click', this.onClickMarker.bind(this, p));
       } else {
-          customMarker = L.circle(p.latLng, p.radius, {
-              color: '#F48C06',
-              fillColor: '#F48C06',
-              fillOpacity: 0.5,
-          })
+        console.log(`Position für Produkt mit der ID ${p.produkt_id} konnte nicht ermittelt werden.`);
       }
-      customMarker.addTo(this.layerGroupMarkers)
-          .on('click', this.onClickMarker.bind(this, p));
     }
   }
   
