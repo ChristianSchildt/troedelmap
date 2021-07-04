@@ -134,7 +134,15 @@ final class SQLInterface {
 		return $correct;
 	}
 
-	public function updateUser($strasse, $plz, $ort, $telefon,$id)
+	public function updateUser($bk_id, $bname, $email, $passwort) //gerade beim Ausprobieren
+	{
+		$sqlUP = "UPDATE benutzerkonto SET bname=?, email=?, passwort=? WHERE bk_id=? RETURNING *;";
+		$statement = $this->conn->prepare($sqlUP);
+		$result = $statement->execute([$bname, $email, $passwort, $bk_id]);
+		return $result;
+	}
+
+	public function updateUserdata($strasse, $plz, $ort, $telefon,$id)
 	{
 		$sqlUP="UPDATE benutzerdaten SET strasse=?, plz=?, ort=?, telefon=? WHERE id_benutzer=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlUP);
@@ -163,6 +171,17 @@ final class SQLInterface {
 		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$statement->execute([$bk_id]);
+		return $statement;
+	}
+
+	public function joinUserWithUserdata($bd_id) //funktioniert die?
+	{
+		$sqlJoin = "SELECT bk.bname, bk.email, bd.strasse, bd.plz, bd.ort, bd.telefon, bd.id_benutzer 
+					FROM benutzerkonto bk 
+					INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer 
+					WHERE bd.bk_id IN (SELECT bd_id FROM benutzderdaten WHERE bd_id=?);";
+		$statement = $this->conn->prepare($sqlJoin);
+		$result = $statement->execute([$bd_id]);
 		return $statement;
 	}
 

@@ -63,7 +63,7 @@
         $response->getBody()->write("Hello, $name");
         return $response;
     });
-
+//-----------------------------User-----------------------------------------------------------------
         $app->get('/api/user', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));
             $user = $sqlinterface->get_user();
@@ -79,7 +79,36 @@
             $response->getBody()->write(json_encode($user));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
+
+        //gerade beim Ausprobieren
+        $app->put('/api/userUpdate/{user_id}', function (Request $request, Response $response, array $args)
+        {
+            $user_id = $args["user_id"];
+            if(is_numeric($user_id))
+            {
+                $rawData = $request->getBody();
+                $data = json_decode($rawData, false);
+                $sqlinterface = new SQLInterface($this->get('db'));
+                $user = $sqlinterface->updateUser($data->bk_id, $data->bname, $data->email, $data->passwort);
+                $response->getBody()->write(json_encode($user));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }   
+            return $response->withStatus(400); 
+        });
+
+
         
+        $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
+            $user_id = $args["user_id"];
+            if(is_numeric($user_id)){
+                $userCreator = new SQLInterface($this->get('db'));
+                $user = $userCreator->deleteUser($user_id)->fetchAll(PDO::FETCH_ASSOC);
+                $response->getBody()->write(json_encode($user));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }
+            return $response->withStatus(400);
+        });
+//--------------------------Products----------------------------------------------------------------        
         $app->get('/api/products', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));
             $products = $sqlinterface->get_product();
@@ -96,7 +125,28 @@
             $response->getBody()->write(json_encode($product));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
-
+        
+        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
+        {
+            $rawData = $request->getBody();
+            $data = json_decode($rawData, false);
+            $sqlinterface = new SQLInterface($this->get('db'));
+            $product = $sqlinterface->updateAnzeige($data->produkt_id, $data->pname, $data->beschreibung, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, 6, $data->uID);
+            $response->getBody()->write(json_encode($product));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        });
+        
+        $app->delete('/api/product/{product_id}', function (Request $request, Response $response, array $args){
+            $product_id = $args["product_id"];
+            if(is_numeric($product_id)){
+                $todoCreator = new SQLInterface($this->get('db'));
+                $product = $todoCreator->deleteAnzeige($product_id)->fetchAll(PDO::FETCH_ASSOC);
+                $response->getBody()->write(json_encode($product));
+                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+            }
+            return $response->withStatus(400);
+        });
+//--------------------------Userdata---------------------------------------------------------------
         $app->get('/api/userdata', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));
             $userdata = $sqlinterface->get_userdata();
@@ -113,48 +163,27 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->put('/api/userUpdate/{userid}', function(Request $request, Response $response, array $args)
+        $app->put('/api/userdataUpdate/{userid}', function(Request $request, Response $response, array $args)
         {
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $userdata = $sqlinterface->add_userdata($data->strasse, $data->plz, $data->ort, $data->telefon, $data->id_benutzer);
+            $userdata = $sqlinterface->updateUserdata($data->strasse, $data->plz, $data->ort, $data->telefon, $data->id_benutzer);
             $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
+//---------------------------Join-Routes-------------------------------------------------------------
+        // $app->get('/api/userJoinWithUserdata', function (Request $request, Response $response, array $args){
+        //     $user_id = 1;
+        //     if(is_numeric($user_id)){
+        //         $userCreator = new SQLInterface($this->get('db'));
+        //         $user = $userCreator->joinUserWithUserdata($user_id)->fetchAll(PDO::FETCH_ASSOC);
+        //         $response->getBody()->write(json_encode($user));
+        //         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        //     }
+        //     return $response->withStatus(400);
+        // });  //Schauen ob ich die noch brauche
 
-        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
-        {
-            $rawData = $request->getBody();
-            $data = json_decode($rawData, false);
-            $sqlinterface = new SQLInterface($this->get('db'));
-            $product = $sqlinterface->updateAnzeige($data->produkt_id, $data->pname, $data->beschreibung, $data->preis, $data->strasse, $data->hausnr, $data->plz, $data->ort, 6, $data->uID);
-            $response->getBody()->write(json_encode($product));
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-        });
-
-        $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
-            $user_id = $args["user_id"];
-            if(is_numeric($user_id)){
-                $userCreator = new SQLInterface($this->get('db'));
-                $user = $userCreator->deleteUser($user_id)->fetchAll(PDO::FETCH_ASSOC);
-                $response->getBody()->write(json_encode($user));
-                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-            }
-            return $response->withStatus(400);
-        });
-
-        
-        $app->delete('/api/product/{product_id}', function (Request $request, Response $response, array $args){
-            $product_id = $args["product_id"];
-            if(is_numeric($product_id)){
-                $todoCreator = new SQLInterface($this->get('db'));
-                $product = $todoCreator->deleteAnzeige($product_id)->fetchAll(PDO::FETCH_ASSOC);
-                $response->getBody()->write(json_encode($product));
-                return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-            }
-            return $response->withStatus(400);
-        });
 
 
 		$app->get('/api/todos', function (Request $request, Response $response, array $args){
@@ -182,9 +211,6 @@
             $response->getBody()->write(json_encode($todo));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
-        
-       
-
     /*SQLFunktion sind in SQLInterface.sql*/
 
         /* OAuth
