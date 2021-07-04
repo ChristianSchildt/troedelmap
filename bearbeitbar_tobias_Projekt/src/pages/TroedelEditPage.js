@@ -128,20 +128,12 @@ class TroedelEditPage extends React.Component {
                       value="Löschen">
                     </Button>
                   </Col>
-                  <Col xs={4} className="text-center">
-                    <Button 
-                      className="whiteBackground" 
-                      id="button-edit"
-                      onClick={() => alert("Sie können nun Ihren Artikel bearbeiten.")} 
-                      value="Bearbeiten">
-                    </Button>
-                  </Col>
-                  <Col xs={4} className="text-center">
+                  <Col xs={{ span: 4, offset: 3}} className="text-center">
                     <Button 
                       className="whiteBackground" 
                       id="button-finish"
                       onClick={this.onFinishButtonClick.bind(this)} 
-                      value="Fertig">
+                      value="Überarbeiten">
                     </Button>
                   </Col>
                 </Row>
