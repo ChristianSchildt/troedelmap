@@ -21,8 +21,11 @@ function TroedelInsertPage() {
   const inputOrt = useRef(null);
 
   const [image, setImage] = useState(0);
+  const [imageData, setImageData] = useState(0);
   
   const onAddButtonClick = () => {
+    
+    
     
     let product = {
       pname: inputName.current.state?.value,
@@ -32,7 +35,7 @@ function TroedelInsertPage() {
       hausnr: inputHausnummer.current.state?.value,
       plz: inputPlz.current.state?.value,
       ort: inputOrt.current.state?.value,
-      bild: image,
+      bild: imageData,
       uID: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
@@ -48,9 +51,18 @@ function TroedelInsertPage() {
   };
 
   const fileSelectedHandler = event => {
-    setImage(event.target.files[0]);
+    if(event.target.files[0])
+    {
+      setImage(event.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImageData(reader.result);
+        console.log(reader.result)
+      });
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
-   
+  
   return (
     <div className="troedelInsertPage">
       <Container fluid>

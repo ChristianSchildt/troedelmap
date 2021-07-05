@@ -49,7 +49,7 @@ class TroedelEditPage extends React.Component {
       hausnr: this.inputHausnummer.current.getValue(),
       plz: this.inputPostleitzahl.current.getValue(),
       ort: this.inputOrt.current.getValue(),
-      bild: this.image,
+      bild: this.state.imageData,
       uID: 1
     }
     
@@ -151,7 +151,7 @@ class TroedelEditPage extends React.Component {
                   <Col md={12} className="text-center">
                     <Picture 
                       id="picture-preview" 
-                      src={this.state.imageData}
+                      src={this.state.imageData || this.state.products[this.state.currentProductIndex]?.bild}
                       alt="Bildersatz">
                     </Picture>
                   </Col>
