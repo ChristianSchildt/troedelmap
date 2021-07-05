@@ -50,7 +50,7 @@ class UserEditPage extends React.Component
         passwort: this.inputPasswort.current.getValue()
       }
 
-      fetch(`http://localhost:8080/api/userUpdate/{this.state.user[1].bk_id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
+      fetch('http://localhost:8080/api/userUpdate/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -64,6 +64,19 @@ class UserEditPage extends React.Component
       console.log(`${this.inputKontaktinfos.current.state?.value}`);
       console.log(this.state.image);
     // }
+  }
+
+  onDeleteButtonClick()
+  {
+    const userId = this.state.user[0].bk_id;
+    console.log("UserId= "+userId);
+
+    fetch('http://localhost:8080/api/user/' + userId, { method: 'DELETE' })
+      .then(res => res.json())
+      .then((result) => {
+        console.log(result)
+        alert("Ihr Benutzerkonto wurde gelöscht!");
+      });
   }
 
   fileSelectedHandler (event) {
@@ -109,7 +122,7 @@ class UserEditPage extends React.Component
                 <Col md={12} className="text-center">
                   <InputField id="benutzernamefield" 
                   placeholder="Benutzername"
-                  defaultValue={this.state.user[1]?.bname}    //TODO: Index muss noch per Login-Identität gesetzt werden?
+                  defaultValue={this.state.user[0]?.bname}    //TODO: Index muss noch per Login-Identität gesetzt werden?
                   ref={this.inputBenutzername}>
                   </InputField>
                 </Col>
@@ -119,7 +132,7 @@ class UserEditPage extends React.Component
                   <InputField id="emailfield"
                     type="email"
                     placeholder="Email"
-                    defaultValue={this.state.user[1]?.email}   //TODO: Index muss noch per Login-Identität gesetzt werden?
+                    defaultValue={this.state.user[0]?.email}   //TODO: Index muss noch per Login-Identität gesetzt werden?
                     ref={this.inputEmail}>
                   </InputField>
                 </Col>
@@ -185,8 +198,8 @@ class UserEditPage extends React.Component
                   <Button 
                     className="orangeBackground" 
                     id="button-deleteUserAccount"
-                    href="/"
-                    onClick={() => alert("Sie haben Ihr Benutzerkonto gelöscht!")} 
+                    // href="/"
+                    onClick={this.onDeleteButtonClick.bind(this)} 
                     value="Benutzerkonto löschen">
                   </Button>
                 </Col>

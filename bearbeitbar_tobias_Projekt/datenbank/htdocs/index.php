@@ -97,12 +97,12 @@
         });
 
 
-        
-        $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
+        //gerade beim Ausprobieren
+        $app->delete('/api/user/{user_id}/', function (Request $request, Response $response, array $args){
             $user_id = $args["user_id"];
             if(is_numeric($user_id)){
                 $userCreator = new SQLInterface($this->get('db'));
-                $user = $userCreator->deleteUser($user_id)->fetchAll(PDO::FETCH_ASSOC);
+                $user = $userCreator->deleteUserUserdataProducts($user_id)->fetchAll(PDO::FETCH_ASSOC);
                 $response->getBody()->write(json_encode($user));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }
@@ -172,6 +172,17 @@
             $response->getBody()->write(json_encode($userdata));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
+
+        // $app->delete('/api/userdata/{userdata_id}', function (Request $request, Response $response, array $args){
+        //     $userdata_id = $args["userdata_id"];
+        //     if(is_numeric($userdata_id)){
+        //         $userCreator = new SQLInterface($this->get('db'));
+        //         $userdata = $userCreator->deleteUserdata($userdata_id)->fetchAll(PDO::FETCH_ASSOC);
+        //         $response->getBody()->write(json_encode($userdata));
+        //         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        //     }
+        //     return $response->withStatus(400);
+        // });
 //---------------------------Join-Routes-------------------------------------------------------------
         // $app->get('/api/userJoinWithUserdata', function (Request $request, Response $response, array $args){
         //     $user_id = 1;

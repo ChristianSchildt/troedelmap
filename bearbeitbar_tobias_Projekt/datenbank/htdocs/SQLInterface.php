@@ -166,13 +166,21 @@ final class SQLInterface {
 		return $statement;
 	}
 
-	public function deleteUser($bk_id)
-	{
+	public function deleteUserUserdataProducts($bk_id)
+	{	  
 		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$statement->execute([$bk_id]);
 		return $statement;
 	}
+
+	// public function deleteUserdata($id_benutzer)
+	// {
+	// 	$sqlDelete="DELETE FROM benutzerdaten WHERE id_benutzer=? RETURNING*;";
+	// 	$statement = $this->conn->prepare($sqlDelete);
+	// 	$statement->execute([$id_benutzer]);
+	// 	return $statement;
+	// }
 
 	public function joinUserWithUserdata($bd_id) //funktioniert die?
 	{
