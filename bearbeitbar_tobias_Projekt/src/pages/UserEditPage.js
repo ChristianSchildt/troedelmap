@@ -47,7 +47,8 @@ class UserEditPage extends React.Component
       let user = {
         bname: this.inputBenutzername.current.getValue(),  
         email: this.inputEmail.current.getValue(),
-        passwort: this.inputPasswort.current.getValue()
+        passwort: this.inputPasswort.current.getValue(),
+        kontaktinfo: this.inputKontaktinfos.current.getValue()
       }
 
       fetch('http://localhost:8080/api/userUpdate/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
@@ -161,7 +162,7 @@ class UserEditPage extends React.Component
                 <Col md={12} className="text-center">
                   <InputField id="kontaktinfofield" 
                     placeholder="Kontaktinfos"
-                    defaultValue=""                  //TODO: Hier müssen noch die Kontaktinformationen hinzugefügt werden
+                    defaultValue={this.state.user[0]?.telefon}                  //TODO: Hier müssen noch die Kontaktinformationen hinzugefügt werden
                     ref={this.inputKontaktinfos}>
                   </InputField>
                 </Col>

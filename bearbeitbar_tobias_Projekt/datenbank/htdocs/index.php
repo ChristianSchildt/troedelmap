@@ -89,7 +89,7 @@
                 $rawData = $request->getBody();
                 $data = json_decode($rawData, false);
                 $sqlinterface = new SQLInterface($this->get('db'));
-                $user = $sqlinterface->updateUser($user_id, $data->bname, $data->email, $data->passwort);
+                $user = $sqlinterface->updateUser($user_id, $data->bname, $data->email, $data->passwort, $data->kontaktinfo);
                 $response->getBody()->write(json_encode($user));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }   

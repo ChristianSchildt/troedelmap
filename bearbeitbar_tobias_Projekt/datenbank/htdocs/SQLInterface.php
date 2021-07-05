@@ -11,7 +11,7 @@ final class SQLInterface {
 	
 	public function get_user() {
 		$users = [];
-		$sql = "SELECT * From benutzerkonto;";
+		$sql = "SELECT bk.bk_id, bk.bname, bk.email, bd.telefon From benutzerkonto bk INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer;";
 		$users = $this->conn->query($sql)->fetchAll();
 
 		return $users;
@@ -134,11 +134,11 @@ final class SQLInterface {
 		return $correct;
 	}
 
-	public function updateUser($bk_id, $bname, $email, $passwort) //gerade beim Ausprobieren
+	public function updateUser($bk_id, $bname, $email, $passwort, $kontaktinfo)
 	{
-		$sqlUP = "UPDATE benutzerkonto SET bname=?, email=?, passwort=? WHERE bk_id=?;";
+		$sqlUP = "UPDATE benutzerkonto bk INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer SET bk.bname=?, bk.email=?, bk.passwort=?, bd.telefon=? WHERE bk.bk_id=?;";
 		$statement = $this->conn->prepare($sqlUP);
-		$result = $statement->execute([$bname, $email, $passwort, $bk_id]);
+		$result = $statement->execute([$bname, $email, $passwort, $kontaktinfo, $bk_id]);
 		return $result;
 	}
 
