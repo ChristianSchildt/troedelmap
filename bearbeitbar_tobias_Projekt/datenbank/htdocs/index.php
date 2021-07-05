@@ -96,8 +96,6 @@
             return $response->withStatus(400); 
         });
 
-
-        //gerade beim Ausprobieren
         $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
             $user_id = $args["user_id"];
             if(is_numeric($user_id)){

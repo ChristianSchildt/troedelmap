@@ -38,33 +38,35 @@ class UserEditPage extends React.Component
   }
 
   onAcceptChanges = () => {
-    //
-    // if(this.inputPasswort == this.inputPasswortWiederholen)
-    // {
-
     
-      // TODO: Daten an Datenbank weitergeben
       let user = {
         bname: this.inputBenutzername.current.getValue(),  
         email: this.inputEmail.current.getValue(),
         passwort: this.inputPasswort.current.getValue(),
+        passwortWiederholen: this.inputPasswortWiederholen.current.getValue(),
         kontaktinfo: this.inputKontaktinfos.current.getValue()
       }
+    
+    if(user.passwort == user.passwortWiederholen)
+    {
+        fetch('http://localhost:8080/api/userUpdate/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
+        .then(res => res.json())
+        .then((result) => {
+          console.log(result);
+          alert("Änderungen wurden übernommen!");
+        });
 
-      fetch('http://localhost:8080/api/userUpdate/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
-      .then(res => res.json())
-      .then((result) => {
-        console.log(result);
-        alert("Änderungen wurden übernommen!");
-      });
-
-      console.log(`${this.inputBenutzername.current.state?.value}`);
-      console.log(`${this.inputEmail.current.state?.value}`);
-      console.log(`${this.inputPasswort.current.state?.value}`);
-      console.log(`${this.inputPasswortWiederholen.current.state?.value}`);
-      console.log(`${this.inputKontaktinfos.current.state?.value}`);
-      console.log(this.state.image);
-    // }
+        console.log(`${this.inputBenutzername.current.state?.value}`);
+        console.log(`${this.inputEmail.current.state?.value}`);
+        console.log(`${this.inputPasswort.current.state?.value}`);
+        console.log(`${this.inputPasswortWiederholen.current.state?.value}`);
+        console.log(`${this.inputKontaktinfos.current.state?.value}`);
+        console.log(this.state.image);
+    }
+    else
+    {
+      alert("Passwörter stimmen nicht überein.");
+    }
   }
 
   onDeleteButtonClick()

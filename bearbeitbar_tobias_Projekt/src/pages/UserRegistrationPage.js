@@ -22,26 +22,32 @@ function UserRegistrationPage() {
   const onRegistrationButtonClick = () => {
 
     let user ={
-      bname: inputBenutzername.current.state?.value,
-      email: inputEmail.current.state?.value,
-      passwort: inputPasswort.current.state?.value
+      bname: inputBenutzername.current.getValue(),
+      email: inputEmail.current.getValue(),
+      passwort: inputPasswort.current.getValue(),
+      passwortWiederholen: inputPasswortWiederholen.current.getValue()
     }
-    
-    fetch('http://localhost:8080/api/user/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
-    .then(res => res.json())
-    .then((result) => {
-      console.log(result);
-      alert("Sie haben sich registriert.");
-    })
 
+    if(user.passwort == user.passwortWiederholen)
+    {
+      fetch('http://localhost:8080/api/user/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
+      .then(res => res.json())
+      .then((result) => {
+        console.log(result);
+        alert("Sie haben sich registriert.");
+      })
 
-    console.log(`${inputBenutzername.current.state?.value}`);
-    console.log(`${inputEmail.current.state?.value}`);
-    console.log(`${inputPasswort.current.state?.value}`);
-    console.log(`${inputPasswortWiederholen.current.state?.value}`);
-    console.log(`${inputKontaktinfos.current.state?.value}`);
-    console.log(image);
-
+      console.log(`${inputBenutzername.current.state?.value}`);
+      console.log(`${inputEmail.current.state?.value}`);
+      console.log(`${inputPasswort.current.state?.value}`);
+      console.log(`${inputPasswortWiederholen.current.state?.value}`);
+      console.log(`${inputKontaktinfos.current.state?.value}`);
+      console.log(image);
+    }
+    else
+    {
+      alert("Passwörter stimmen nicht überein.");
+    }
     
   };
 
