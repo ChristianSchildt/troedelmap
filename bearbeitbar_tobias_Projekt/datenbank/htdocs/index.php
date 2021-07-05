@@ -89,7 +89,7 @@
                 $rawData = $request->getBody();
                 $data = json_decode($rawData, false);
                 $sqlinterface = new SQLInterface($this->get('db'));
-                $user = $sqlinterface->updateUser($data->bk_id, $data->bname, $data->email, $data->passwort);
+                $user = $sqlinterface->updateUser($user_id, $data->bname, $data->email, $data->passwort);
                 $response->getBody()->write(json_encode($user));
                 return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
             }   
@@ -98,7 +98,7 @@
 
 
         //gerade beim Ausprobieren
-        $app->delete('/api/user/{user_id}/', function (Request $request, Response $response, array $args){
+        $app->delete('/api/user/{user_id}', function (Request $request, Response $response, array $args){
             $user_id = $args["user_id"];
             if(is_numeric($user_id)){
                 $userCreator = new SQLInterface($this->get('db'));
@@ -108,6 +108,7 @@
             }
             return $response->withStatus(400);
         });
+        
 //--------------------------Products----------------------------------------------------------------        
         $app->get('/api/products', function (Request $request, Response $response, array $args){
             $sqlinterface = new SQLInterface($this->get('db'));

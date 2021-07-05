@@ -136,7 +136,7 @@ final class SQLInterface {
 
 	public function updateUser($bk_id, $bname, $email, $passwort) //gerade beim Ausprobieren
 	{
-		$sqlUP = "UPDATE benutzerkonto SET bname=?, email=?, passwort=? WHERE bk_id=? RETURNING *;";
+		$sqlUP = "UPDATE benutzerkonto SET bname=?, email=?, passwort=? WHERE bk_id=?;";
 		$statement = $this->conn->prepare($sqlUP);
 		$result = $statement->execute([$bname, $email, $passwort, $bk_id]);
 		return $result;
@@ -168,7 +168,7 @@ final class SQLInterface {
 
 	public function deleteUserUserdataProducts($bk_id)
 	{	  
-		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=? RETURNING *;";
+		$sqlDelete="DELETE FROM benutzerkonto WHERE bk_id=?;";
 		$statement = $this->conn->prepare($sqlDelete);
 		$statement->execute([$bk_id]);
 		return $statement;
