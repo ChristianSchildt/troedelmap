@@ -40,7 +40,7 @@ final class SQLInterface {
 	public function get_product(){
 
 		$product = [];
-		$sql = "SELECT * FROM produkt;";
+		$sql = "SELECT p.*, bk.email, bd.telefon FROM produkt p INNER JOIN benutzerkonto bk ON p.id_benutzer = bk.bk_id INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer;";
 		$product = $this->conn->query($sql)->fetchAll(); 
 
 		return $product;

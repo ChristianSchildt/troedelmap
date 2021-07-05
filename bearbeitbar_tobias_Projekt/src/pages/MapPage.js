@@ -122,9 +122,9 @@ class MapPage extends React.Component {
               pictureId2="picture-seller"
               pictureSrc2="images/seller.jpg"
               inputFieldId3="anbietermail"
-              inputFieldValue3="anbietermail@gmx.de"
+              inputFieldValue3={this.state.selectedProduct?.email}
               inputFieldId4="anbietertelefon"
-              inputFieldValue4="01578 1623974345">
+              inputFieldValue4={this.state.selectedProduct?.telefon}>
             </BigPopup>
           }
         </Container>

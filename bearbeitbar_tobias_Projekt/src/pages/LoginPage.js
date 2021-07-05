@@ -14,22 +14,13 @@ class LoginPage extends React.Component {
         this.inputEmail = React.createRef();
         this.inputPasswort = React.createRef(); 
                             
-                            this.state = { ////////SQL Beispielcode///////
-                                todos: [], ////////SQL Beispielcode///////
-                                user:[],
-                                input: "", ////////SQL Beispielcode///////
-
+                            this.state = { ////////LOGIN Beispielcode///////
                                 usernameInput: '', ////////LOGIN Beispielcode///////
                                 passwordInput: '', ////////LOGIN Beispielcode///////
                                 refresh_token: '', ////////LOGIN Beispielcode///////
                                 access_token: '', ////////LOGIN Beispielcode///////
                                 username: '', ////////LOGIN Beispielcode///////
-
-                            } ////////SQL Beispielcode///////
-                            this.updateInput = this.updateInput.bind(this) ////////SQL Beispielcode///////
-                            this.addToDo = this.addToDo.bind(this) ////////SQL Beispielcode///////
-                            this.addUser=this.addUser.bind(this)
-
+                            }
                           this.updateUsernameField = this.updateUsernameField.bind(this) ////////LOGIN Beispielcode///////
                           this.updatePasswordField = this.updatePasswordField.bind(this) ////////LOGIN Beispielcode///////
                           this.handleSubmit = this.handleSubmit.bind(this) ////////LOGIN Beispielcode///////
@@ -58,7 +49,7 @@ class LoginPage extends React.Component {
                             }
 
                             
-                            componentDidMount() { ////////SQL Beispielcode///////
+                            /*componentDidMount() { ////////SQL Beispielcode///////
                                 fetch('http://localhost:8080/api/todos')
                                 .then(response => response.json())
                                 .then(data => {
@@ -98,6 +89,7 @@ class LoginPage extends React.Component {
                                         })
                                     })
                             } ////////SQL Beispielcode///////
+                            */
 
 
                             ////////LOGIN Beispielcode///////
@@ -177,26 +169,6 @@ class LoginPage extends React.Component {
                         <input type="submit" value="Login"  ////////LOGIN Beispielcode///////
                          />
                     </form>
-
-        
-                            <h3 ////////SQL Beispielcode/////// 
-                            >BeispielSQL Abfrage (Error, weil andere Datenbank)</h3>
-                            <ul>
-                                {this.state.todos.map((element) => ( 
-                                    <li key={element.id}>{element.descr}
-                                        <button onClick={() => this.deleteToDo(element.id)}>Delete</button>
-                                    </li>
-                                ))} 
-                            </ul>
-                            <input
-                                type="text"
-                                value={this.state.input}
-                                onChange={this.updateInput}
-                            ////////SQL Beispielcode///////
-                            ></input><button onClick={this.addToDo}>Add</button>
-                            
-          
-
         <Container fluid>
           <Row>
             <Col md={3}>
