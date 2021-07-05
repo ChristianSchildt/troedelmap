@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,7 +38,6 @@ class UserEditPage extends React.Component
   }
 
   onAcceptChanges = () => {
-    
       let user = {
         bname: this.inputBenutzername.current.getValue(),  
         email: this.inputEmail.current.getValue(),
@@ -79,6 +78,7 @@ class UserEditPage extends React.Component
       .then((result) => {
         console.log(result)
         alert("Ihr Benutzerkonto wurde gelöscht!");
+        this.props.history.push('/');
       });
   }
 
@@ -201,7 +201,6 @@ class UserEditPage extends React.Component
                   <Button 
                     className="orangeBackground" 
                     id="button-deleteUserAccount"
-                    // href="/"
                     onClick={this.onDeleteButtonClick.bind(this)} 
                     value="Benutzerkonto löschen">
                   </Button>
