@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `benutzerdaten` (
   `id_benutzer` int(11) DEFAULT NULL,
   PRIMARY KEY (`bd_id`),
   KEY `id_benutzer` (`id_benutzer`),
-  CONSTRAINT `benutzerdaten_ibfk_1` FOREIGN KEY (`id_benutzer`) REFERENCES `benutzerkonto` (`bk_id`)
+  CONSTRAINT `benutzerdaten_ibfk_1` FOREIGN KEY (`id_benutzer`) REFERENCES `benutzerkonto` (`bk_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Exportiere Daten aus Tabelle troedelmap.benutzerdaten: ~3 rows (ungefähr)
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `produkt` (
   `id_benutzer` int(11) DEFAULT NULL,
   PRIMARY KEY (`produkt_id`),
   KEY `id_benutzer` (`id_benutzer`),
-  CONSTRAINT `produkt_ibfk_1` FOREIGN KEY (`id_benutzer`) REFERENCES `benutzerkonto` (`bk_id`)
+  CONSTRAINT `produkt_ibfk_1` FOREIGN KEY (`id_benutzer`) REFERENCES `benutzerkonto` (`bk_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 
 -- Exportiere Daten aus Tabelle troedelmap.produkt: ~2 rows (ungefähr)
