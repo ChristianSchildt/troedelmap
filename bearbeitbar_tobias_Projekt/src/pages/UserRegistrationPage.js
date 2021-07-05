@@ -35,6 +35,7 @@ function UserRegistrationPage() {
       .then((result) => {
         console.log(result);
         alert("Sie haben sich registriert.");
+        window.location.href = "/login";
       })
 
       console.log(`${inputBenutzername.current.state?.value}`);
@@ -135,7 +136,6 @@ function UserRegistrationPage() {
                 <Button 
                   className="orangeBackground" 
                   id="button-registration" 
-                  //href="/login" 
                   onClick={onRegistrationButtonClick.bind(this)} 
                   value="Registrieren">
                 </Button>

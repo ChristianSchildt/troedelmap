@@ -53,6 +53,7 @@ class UserEditPage extends React.Component
         .then((result) => {
           console.log(result);
           alert("Änderungen wurden übernommen!");
+          this.props.history.push('/map');
         });
 
         console.log(`${this.inputBenutzername.current.state?.value}`);
@@ -188,7 +189,6 @@ class UserEditPage extends React.Component
                   <Button 
                     className="orangeBackground" 
                     id="button-acceptChanges"
-                    // href="/map"
                     onClick={this.onAcceptChanges} 
                     value="Änderungen übernehmen">
                   </Button>

@@ -43,7 +43,8 @@ function TroedelInsertPage() {
     .then(res => res.json())
     .then((result) => {
       console.log(result);
-      alert("Trödel wurde hinzugefügt!")
+      alert("Trödel wurde hinzugefügt!");
+      window.location.href = "/map";
     })
     console.log(product);
 
@@ -157,7 +158,6 @@ function TroedelInsertPage() {
                 <Button 
                   className="orangeBackground" 
                   id="button-addMyTroedel"
-                  //href="/map" //Zum SQL testen auskommentiert
                   onClick={onAddButtonClick.bind(this)}
                   value="Meinen Trödel hinzufügen">
                 </Button>

@@ -32,7 +32,8 @@ class LoginPage extends React.Component {
       console.log(`${this.inputEmail.current.state?.value}`);
       console.log(`${this.inputPasswort.current.state?.value}`);
 
-      alert('Sie haben Sich eingeloggt.')
+      alert('Sie haben Sich eingeloggt.');
+      window.location.href = "/map";
     }
 
                             addUser(){
@@ -219,7 +220,6 @@ class LoginPage extends React.Component {
                   <Button 
                     className="orangeBackground" 
                     id="button-login"
-                    href="/map" //Muss dann über SQL erfolgen?
                     value="Einloggen"
                     onClick={this.onLoginButtonClick.bind(this)}>
                   </Button>
