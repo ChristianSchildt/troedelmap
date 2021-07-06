@@ -22,7 +22,7 @@
     $container = new Container();
 
     $container->set('db', function() {
-        $dbhost = 'mariadb';
+        $dbhost = 'localhost';
         $dbuser = 'root';
         $dbpass = 'allgemein';
         $db ='troedelmap';
