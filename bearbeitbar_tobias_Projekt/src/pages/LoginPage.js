@@ -14,7 +14,7 @@ class LoginPage extends React.Component {
         this.inputEmail = React.createRef();
         this.inputPasswort = React.createRef(); 
                             
-                            this.state = { ////////LOGIN Beispielcode///////
+                            /*this.state = { ////////LOGIN Beispielcode///////
                                 usernameInput: '', ////////LOGIN Beispielcode///////
                                 passwordInput: '', ////////LOGIN Beispielcode///////
                                 refresh_token: '', ////////LOGIN Beispielcode///////
@@ -23,31 +23,18 @@ class LoginPage extends React.Component {
                             }
                           this.updateUsernameField = this.updateUsernameField.bind(this) ////////LOGIN Beispielcode///////
                           this.updatePasswordField = this.updatePasswordField.bind(this) ////////LOGIN Beispielcode///////
-                          this.handleSubmit = this.handleSubmit.bind(this) ////////LOGIN Beispielcode///////
+                          this.handleSubmit = this.handleSubmit.bind(this) ////////LOGIN Beispielcode///////*/
                             
     }
 
     onLoginButtonClick = () => {  //Nicht löschen, hat auch mit den Refs zutun.
-      //TODO: Daten an Datenbank weitergeben
+
       console.log(`${this.inputEmail.current.state?.value}`);
       console.log(`${this.inputPasswort.current.state?.value}`);
 
       alert('Sie haben Sich eingeloggt.');
       window.location.href = "/map";
     }
-
-                            addUser(){
-                              fetch('http://localhost:8080/api/user/add', {method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({"descr" : this.state.input}) })
-                              .then(res=>res.json())
-                              .then((result)=>{
-                                this.setState((currentState)=>{
-                                  return {
-                                    user: currentState.user.concat(result),
-                                    input: ""
-                                  }
-                                })
-                              })
-                            }
 
                             
                             /*componentDidMount() { ////////SQL Beispielcode///////
@@ -94,6 +81,7 @@ class LoginPage extends React.Component {
 
 
                             ////////LOGIN Beispielcode///////
+                            /*
                               updateUsernameField(event) {
                                   this.setState({
                                       usernameInput: event.target.value
@@ -139,10 +127,10 @@ class LoginPage extends React.Component {
                                           })
                                       })
                               }
-                          
+                          */
                           
     render() {
-        if (this.state.refresh_token === '') {  ////////LOGIN Beispielcode///////
+        /*if (this.state.refresh_token === '') {  ////////LOGIN Beispielcode///////
             return (
               <div className="loginPage">
                     <h1>Login</h1>
@@ -170,6 +158,11 @@ class LoginPage extends React.Component {
                         <input type="submit" value="Login"  ////////LOGIN Beispielcode///////
                          />
                     </form>
+                    */
+      <div className="loginPage">
+
+
+
         <Container fluid>
           <Row>
             <Col md={3}>
@@ -228,15 +221,16 @@ class LoginPage extends React.Component {
             </Col>
           </Row>
         </Container>
-        </div>
+      </div>
+            /*
             )   ////////LOGIN Beispielcode///////
-
         }   ////////LOGIN Beispielcode///////
         else {   ////////LOGIN Beispielcode///////
             return (   ////////LOGIN Beispielcode///////
                 <h1>You are logged in as {this.state.username}</h1>   ////////LOGIN Beispielcode///////
             )   ////////LOGIN Beispielcode///////
-        }   ////////LOGIN Beispielcode///////
+        }   ////////LOGIN Beispielcode/////// 
+        */
     }
 }
 
