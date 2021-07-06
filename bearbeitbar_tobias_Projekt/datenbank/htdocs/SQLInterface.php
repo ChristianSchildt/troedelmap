@@ -40,9 +40,9 @@ final class SQLInterface {
 		$result = $statement->execute([$bname, $email, $passwort]);
 		$sqluser = "SELECT bk_id FROM benutzerkonto ORDER BY bk_id desc LIMIT 1;";
 		$user = $this->conn->query($sqluser)->fetchAll();
-		$sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?) RETURNING *;";
+		$sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?,?,?,?) RETURNING *;";
 		$statement = $this->conn->prepare($sql);
-		$result = $statement->execute([$inputKontaktinfos, "Soldnerstrasse", "44801", "Bochum", $user[0]["bk_id"]]);
+		$result = $statement->execute(["Soldnerstrasse", "44801", "Bochum", $inputKontaktinfos, $user[0]["bk_id"]]);
 		return $result;
 	 }
 
