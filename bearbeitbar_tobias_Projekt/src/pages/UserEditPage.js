@@ -48,7 +48,7 @@ class UserEditPage extends React.Component
     
     if(user.passwort == user.passwortWiederholen)
     {
-        fetch('http://localhost:8080/api/userUpdate/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
+        fetch('http://localhost:8080/api/user/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
         .then(res => res.json())
         .then((result) => {
           console.log(result);

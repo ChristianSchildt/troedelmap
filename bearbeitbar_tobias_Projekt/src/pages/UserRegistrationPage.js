@@ -30,7 +30,7 @@ function UserRegistrationPage() {
 
     if(user.passwort == user.passwortWiederholen)
     {
-      fetch('http://localhost:8080/api/user/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
+      fetch('http://localhost:8080/api/user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
       .then(res => res.json())
       .then((result) => {
         console.log(result);

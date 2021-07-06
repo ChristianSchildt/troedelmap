@@ -71,7 +71,7 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->post('/api/user/add', function(Request $request, Response $response, array $args){
+        $app->post('/api/user', function(Request $request, Response $response, array $args){
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
@@ -81,7 +81,7 @@
         });
 
         //gerade beim Ausprobieren
-        $app->put('/api/userUpdate/{user_id}', function (Request $request, Response $response, array $args)
+        $app->put('/api/user/{user_id}', function (Request $request, Response $response, array $args)
         {
             $user_id = $args["user_id"];
             if(is_numeric($user_id))
@@ -115,7 +115,7 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->post('/api/products/add', function (Request $request, Response $response, array $args){
+        $app->post('/api/products', function (Request $request, Response $response, array $args){
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
@@ -125,7 +125,7 @@
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
         
-        $app->put('/api/productUpdate/{productid}', function(Request $request, Response $response, array $args)
+        $app->put('/api/product/{productid}', function(Request $request, Response $response, array $args)
         {
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);

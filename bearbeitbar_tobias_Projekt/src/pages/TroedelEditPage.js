@@ -62,7 +62,7 @@ class TroedelEditPage extends React.Component {
     const postl = this.state.products[this.state.currentProductIndex].produkt_id;
     const o = this.state.products[this.state.currentProductIndex].pname;
     
-    fetch(`http://localhost:8080/api/productUpdate/`+ productId, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    fetch(`http://localhost:8080/api/product/`+ productId, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
     .then((result) => {
       console.log(result);
