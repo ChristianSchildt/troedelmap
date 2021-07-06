@@ -103,7 +103,10 @@ class MapPage extends React.Component {
             <Col md={12} id="LeafletMapWrapper">
               <LeafletMap ref={this.map}
               products={this.state.products}
-              onSelectedProductChanged={product => this.setState({selectedProduct: product})}/>
+              onSelectedProductChanged={product => {
+                this.setState({selectedProduct: null});
+                this.setState({selectedProduct: product});
+              }}/>
             </Col>
           </Row>
           {this.state.selectedProduct &&
