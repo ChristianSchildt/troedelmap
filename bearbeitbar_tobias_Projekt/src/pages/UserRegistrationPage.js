@@ -25,10 +25,11 @@ function UserRegistrationPage() {
       bname: inputBenutzername.current.getValue(),
       email: inputEmail.current.getValue(),
       passwort: inputPasswort.current.getValue(),
-      passwortWiederholen: inputPasswortWiederholen.current.getValue()
+      passwortWiederholen: inputPasswortWiederholen.current.getValue(),
+      inputKontaktinfos: inputKontaktinfos.current.getValue(),
     }
 
-    if(user.passwort == user.passwortWiederholen)
+    if(user.passwort === user.passwortWiederholen)
     {
       fetch('http://localhost:8080/api/user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) })
       .then(res => res.json())

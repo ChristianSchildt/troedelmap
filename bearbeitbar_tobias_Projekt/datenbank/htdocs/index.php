@@ -22,7 +22,7 @@
     $container = new Container();
 
     $container->set('db', function() {
-        $dbhost = 'localhost';
+        $dbhost = 'mariadb';
         $dbuser = 'root';
         $dbpass = 'allgemein';
         $db ='troedelmap';
@@ -75,7 +75,7 @@
             $rawData = $request->getBody();
             $data = json_decode($rawData, false);
             $sqlinterface = new SQLInterface($this->get('db'));
-            $user = $sqlinterface->add_user($data->bname, $data->email, $data->passwort);
+            $user = $sqlinterface->add_user($data->bname, $data->email, $data->passwort, $data->inputKontaktinfos);
             $response->getBody()->write(json_encode($user));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });

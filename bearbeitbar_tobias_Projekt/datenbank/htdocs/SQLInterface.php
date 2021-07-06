@@ -17,7 +17,7 @@ final class SQLInterface {
 		return $users;
 	 }
 
-	public function add_user($bname, $email, $passwort){
+	public function add_user($bname, $email, $passwort, $inputKontaktinfos){
   
 		if ($bname == NULL || empty($bname)){
 		 return false;
@@ -30,10 +30,19 @@ final class SQLInterface {
 		if ($passwort == NULL || empty($passwort)){
 		return false;
 		}
+
+		if ($inputKontaktinfos == NULL || empty($inputKontaktinfos)){
+			return false;
+		}
 	 
-		$sql = "INSERT INTO benutzerkonto (bk_id, bname, email, passwort) VALUES (NULL,?,?,?) RETURNING *;";
+		$sql = "INSERT INTO benutzerkonto (bk_id, bname, email, passwort) VALUES (NULL,?,?,?) RETURNING bk_id;";
 		$statement = $this->conn->prepare($sql);
 		$result = $statement->execute([$bname, $email, $passwort]);
+		$sqluser = "SELECT bk_id FROM benutzerkonto ORDER BY bk_id desc LIMIT 1;";
+		$user = $this->conn->query($sqluser)->fetchAll();
+		$sql = "INSERT INTO benutzerdaten (bd_id, strasse, plz, ort, telefon, id_benutzer) VALUES (NULL,?,?) RETURNING *;";
+		$statement = $this->conn->prepare($sql);
+		$result = $statement->execute([$inputKontaktinfos, "Soldnerstrasse", "44801", "Bochum", $user[0]["bk_id"]]);
 		return $result;
 	 }
 

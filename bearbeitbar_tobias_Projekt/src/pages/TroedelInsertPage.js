@@ -8,7 +8,6 @@ import Text from '../components/Text';
 import InputField from '../components/InputField';
 import BigInputField from '../components/BigInputField';
 import FileInput from '../components/FileInput';
-import { on } from 'process';
 
 
 function TroedelInsertPage() {
@@ -39,7 +38,7 @@ function TroedelInsertPage() {
       uID: 1 //TODO: soll später der tatsächliche Nutzer sein
     }
     
-    fetch('http://localhost:8080', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
+    fetch('http://localhost:8080/api/products', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(product) })
     .then(res => res.json())
     .then((result) => {
       console.log(result);

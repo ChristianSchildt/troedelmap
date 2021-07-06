@@ -47,7 +47,7 @@ class UserEditPage extends React.Component
         kontaktinfo: this.inputKontaktinfos.current.getValue()
       }
     
-    if(user.passwort == user.passwortWiederholen)
+    if(user.passwort === user.passwortWiederholen)
     {
         fetch('http://localhost:8080/api/user/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
         .then(res => res.json())
