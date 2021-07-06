@@ -159,7 +159,8 @@ class LoginPage extends React.Component {
                          />
                     </form>
                     */
-      <div className="loginPage">
+      return (
+        <div className="loginPage">
 
 
 
@@ -231,6 +232,7 @@ class LoginPage extends React.Component {
             )   ////////LOGIN Beispielcode///////
         }   ////////LOGIN Beispielcode/////// 
         */
+      );
     }
 }
 
