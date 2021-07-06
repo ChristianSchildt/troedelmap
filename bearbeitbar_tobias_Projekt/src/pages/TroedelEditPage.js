@@ -49,7 +49,7 @@ class TroedelEditPage extends React.Component {
       hausnr: this.inputHausnummer.current.getValue(),
       plz: this.inputPostleitzahl.current.getValue(),
       ort: this.inputOrt.current.getValue(),
-      bild: this.state.imageData,
+      bild: this.state.imageData || this.state.products[this.state.currentProductIndex]?.bild,
       uID: 1
     }
     
