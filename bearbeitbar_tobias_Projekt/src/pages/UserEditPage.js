@@ -17,7 +17,8 @@ class UserEditPage extends React.Component
     this.state = {
       image: 0,
       imageData: 0,             //Hier muss als default noch das bisherige Bild aus der Datenbank eingefügt werden
-      user: {}
+      user: {},
+      currentUserIndex: 0
     };
 
     this.inputBenutzername = React.createRef(null);
@@ -33,7 +34,7 @@ class UserEditPage extends React.Component
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      this.setState({user: data});
+      this.setState({user: data, currentUserIndex: data.length - 1});
     })
   }
 
@@ -126,7 +127,7 @@ class UserEditPage extends React.Component
                 <Col md={12} className="text-center">
                   <InputField id="benutzernamefield" 
                   placeholder="Benutzername"
-                  defaultValue={this.state.user[0]?.bname}    //TODO: Index muss noch per Login-Identität gesetzt werden?
+                  defaultValue={this.state.user[this.state.currentUserIndex]?.bname}    //TODO: Index muss noch per Login-Identität gesetzt werden?
                   ref={this.inputBenutzername}>
                   </InputField>
                 </Col>
@@ -136,7 +137,7 @@ class UserEditPage extends React.Component
                   <InputField id="emailfield"
                     type="email"
                     placeholder="Email"
-                    defaultValue={this.state.user[0]?.email}   //TODO: Index muss noch per Login-Identität gesetzt werden?
+                    defaultValue={this.state.user[this.state.currentUserIndex]?.email}   //TODO: Index muss noch per Login-Identität gesetzt werden?
                     ref={this.inputEmail}>
                   </InputField>
                 </Col>
@@ -165,7 +166,7 @@ class UserEditPage extends React.Component
                 <Col md={12} className="text-center">
                   <InputField id="kontaktinfofield" 
                     placeholder="Kontaktinfos"
-                    defaultValue={this.state.user[0]?.telefon}
+                    defaultValue={this.state.user[this.state.currentUserIndex]?.telefon}
                     ref={this.inputKontaktinfos}>
                   </InputField>
                 </Col>
