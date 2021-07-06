@@ -223,7 +223,7 @@ class TroedelEditPage extends React.Component {
               <Row>
                 <Col md={{ span: 6, offset: 3}} className="text-center">
                   <Text id="pagenr"
-                    value="0/0">
+                    value="1/1">
                   </Text>
                 </Col>
               </Row>
