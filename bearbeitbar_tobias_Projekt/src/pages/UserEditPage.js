@@ -165,7 +165,7 @@ class UserEditPage extends React.Component
                 <Col md={12} className="text-center">
                   <InputField id="kontaktinfofield" 
                     placeholder="Kontaktinfos"
-                    defaultValue={this.state.user[0]?.telefon}                  //TODO: Hier müssen noch die Kontaktinformationen hinzugefügt werden
+                    defaultValue={this.state.user[0]?.telefon}
                     ref={this.inputKontaktinfos}>
                   </InputField>
                 </Col>

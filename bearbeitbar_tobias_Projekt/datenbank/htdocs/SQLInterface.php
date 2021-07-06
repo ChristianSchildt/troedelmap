@@ -136,10 +136,20 @@ final class SQLInterface {
 
 	public function updateUser($bk_id, $bname, $email, $passwort, $kontaktinfo)
 	{
-		$sqlUP = "UPDATE benutzerkonto bk INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer SET bk.bname=?, bk.email=?, bk.passwort=?, bd.telefon=? WHERE bk.bk_id=?;";
-		$statement = $this->conn->prepare($sqlUP);
-		$result = $statement->execute([$bname, $email, $passwort, $kontaktinfo, $bk_id]);
-		return $result;
+		if($passwort == NULL)
+		{
+			$sqlUP = "UPDATE benutzerkonto bk INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer SET bk.bname=?, bk.email=?, bd.telefon=? WHERE bk.bk_id=?;";
+			$statement = $this->conn->prepare($sqlUP);
+			$result = $statement->execute([$bname, $email, $kontaktinfo, $bk_id]);
+			return $result;
+		}
+		else
+		{
+			$sqlUP = "UPDATE benutzerkonto bk INNER JOIN benutzerdaten bd ON bk.bk_id=bd.id_benutzer SET bk.bname=?, bk.email=?, bk.passwort=?, bd.telefon=? WHERE bk.bk_id=?;";
+			$statement = $this->conn->prepare($sqlUP);
+			$result = $statement->execute([$bname, $email, $passwort, $kontaktinfo, $bk_id]);
+			return $result;
+		}
 	}
 
 	public function updateUserdata($strasse, $plz, $ort, $telefon,$id)
