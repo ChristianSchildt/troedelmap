@@ -49,7 +49,7 @@ class UserEditPage extends React.Component
     
     if(user.passwort === user.passwortWiederholen)
     {
-        fetch('http://localhost:8080/api/user/' + this.state.user[0].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
+        fetch('http://localhost:8080/api/user/' + this.state.user[this.state.currentUserIndex].bk_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)})
         .then(res => res.json())
         .then((result) => {
           console.log(result);
@@ -72,7 +72,7 @@ class UserEditPage extends React.Component
 
   onDeleteButtonClick()
   {
-    const userId = this.state.user[0].bk_id;
+    const userId = this.state.user[this.state.currentUserIndex].bk_id;
     console.log("UserId= "+userId);
 
     fetch('http://localhost:8080/api/user/' + userId, { method: 'DELETE' })
